@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85FEEF44-2C0E-4DA0-949E-EF6C369AE31E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RPGCode_Express</RootNamespace>
+    <AssemblyName>RPGCode Express</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\..\..\Toolkit Editor\RPGCode Express\RPGCode Express\RPGCode Express\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CaretPositionUpdateEventArgs.cs" />
+    <Compile Include="Classes\DropDownItem.cs" />
+    <Compile Include="Classes\ExplorerItem.cs" />
+    <Compile Include="Classes\NodeClickEventArgs.cs" />
+    <Compile Include="Classes\ProjectFile.cs" />
+    <Compile Include="Classes\Renders\Colours.cs" />
+    <Compile Include="Classes\Renders\MenuRender.cs" />
+    <Compile Include="Classes\Renders\ToolstripRender.cs" />
+    <Compile Include="Classes\RPGCode\AutoComplete.cs" />
+    <Compile Include="Classes\RPGCode\RPGCode.cs" />
+    <Compile Include="Classes\Utilities\ConfigurationFile.cs" />
+    <Compile Include="Classes\Utilities\SerializableData.cs" />
+    <Compile Include="CodeEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeEditor.Designer.cs">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMdi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMdi.Designer.cs">
+      <DependentUpon>MainMdi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectExplorer.Designer.cs">
+      <DependentUpon>ProjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertiesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertiesWindow.Designer.cs">
+      <DependentUpon>PropertiesWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CodeEditor.resx">
+      <DependentUpon>CodeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMdi.resx">
+      <DependentUpon>MainMdi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectExplorer.resx">
+      <DependentUpon>ProjectExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PropertiesWindow.resx">
+      <DependentUpon>PropertiesWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignObjectsLeftHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AlignObjectsRightHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cut.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_Redo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_Undo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindNext.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FindNext_VS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idr_dll.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\method.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDocument.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFolder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openHS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Program.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rpgcode_express_32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rpgcode_express_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rpgcode_express_64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rpgcode_express_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolkit3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolkit3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSFolder_open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Class.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Constant.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Method.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Object.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Properties.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSObject_Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSProject_genericproject_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VSProject_hiddenfile.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Webcontrol_Fileupload.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons.16x16.InternalField.png" />
+    <None Include="Resources\Icons.16x16.PrivateField.png" />
+    <Content Include="Resources\Images\CodeEditor\Icons.16x16.Class.png" />
+    <Content Include="Resources\Images\CodeEditor\Icons.16x16.Enum.png" />
+    <Content Include="Resources\Images\CodeEditor\Icons.16x16.Field.png" />
+    <Content Include="Resources\Images\CodeEditor\Icons.16x16.Literal.png" />
+    <Content Include="Resources\Images\CodeEditor\Icons.16x16.Method.png" />
+    <Content Include="Resources\Images\Common\CodeCoverage.Icons.16x16.Run.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.CommentRegion.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.CopyIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.CutIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.Debug.Start.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.Debug.StopProcess.png" />
+    <None Include="Resources\Images\Common\Icons.16x16.FindIcon.png" />
+    <None Include="Resources\Images\Common\Icons.16x16.FindNextIcon.png" />
+    <None Include="Resources\Images\Common\Icons.16x16.HelpIcon.png" />
+    <None Include="Resources\Images\Common\Icons.16x16.DeleteIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.NewDocumentIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.NewFolderIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.OpenFileIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.PasteIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.RedoIcon.png" />
+    <None Include="Resources\Images\Common\Icons.16x16.ReplaceIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.SaveAllIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.SaveIcon.png" />
+    <Content Include="Resources\Images\Common\Icons.16x16.UndoIcon.png" />
+    <Content Include="Resources\Images\ProjectExplorer\Folder.Closed.png" />
+    <Content Include="Resources\Images\ProjectExplorer\Folder.Open.png" />
+    <Content Include="Resources\Images\ProjectExplorer\HtmlHelp2.16x16.DynamicHelp.png" />
+    <Content Include="Resources\Images\ProjectExplorer\Icons.16x16.PropertiesIcon.png" />
+    <Content Include="Resources\Images\ProjectExplorer\Solution.png" />
+    <Content Include="Resources\Images\ProjectExplorer\Toolbar.Refresh.png" />
+    <Content Include="Resources\Images\Toolbox\Toolbar.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
