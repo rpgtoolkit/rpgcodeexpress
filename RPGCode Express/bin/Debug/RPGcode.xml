@@ -1,0 +1,1660 @@
+<?xml version="1.0"?>
+<RPGcode xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Commands>
+    <Command>
+      <Name>ai</Name>
+      <Code>ai(^)</Code>
+      <Tooltip>void AI(int level)</Tooltip>
+      <Description>Have the source enemy use the internal AI system.</Description>
+    </Command>
+    <Command>
+      <Name>activePlayer</Name>
+      <Code>activePlayer(^)</Code>
+      <Tooltip>void ActivePlayer(variant handle)</Tooltip>
+      <Description>Set or get the active player, by handle.</Description>
+    </Command>
+    <Command>
+      <Name>addPlayer</Name>
+      <Code>addPlayer(^)</Code>
+      <Tooltip>void AddPlayer(string file)</Tooltip>
+      <Description>Add a player to the party.</Description>
+    </Command>
+    <Command>
+      <Name>animatedTiles</Name>
+      <Code>animatedTiles()^</Code>
+      <Tooltip>void AnimatedTiles()</Tooltip>
+      <Description>Toogle animated tiles.</Description>
+    </Command>
+    <Command>
+      <Name>animation</Name>
+      <Code>animation(^)</Code>
+      <Tooltip>void ApplyStatus(string target, string file)</Tooltip>
+      <Description>Apply a status effect to a fighter.</Description>
+    </Command>
+    <Command>
+      <Name>appPath</Name>
+      <Code>appPath(^)</Code>
+      <Tooltip>string AppPath([string &amp;dest])</Tooltip>
+      <Description>Retrieve the path of the trans3.exe, without the final backslash.</Description>
+    </Command>
+    <Command>
+      <Name>applyStatus</Name>
+      <Code>applyStatus(^)</Code>
+      <Tooltip>void ApplyStatus(string target, string file)</Tooltip>
+      <Description>Apply a status effect to a fighter.</Description>
+    </Command>
+    <Command>
+      <Name>asc</Name>
+      <Code>asc(^)</Code>
+      <Tooltip>int Asc(string chr [, int &amp;ret])</Tooltip>
+      <Description>Get the ASCII value of a character.</Description>
+    </Command>
+    <Command>
+      <Name>attackAll</Name>
+      <Code>attackAll(^)</Code>
+      <Tooltip>void AttackAll(int fp)</Tooltip>
+      <Description>Deal the specified amount in HP to all the members of the target's party.</Description>
+    </Command>
+    <Command>
+      <Name>autoLocal</Name>
+      <Code>autoLocal(^)</Code>
+      <Tooltip>void AutoLocal(bool bEnabled)</Tooltip>
+      <Description>Set the default scope for variable resolution. When autolocal is enabled, variables are assumed to be local unless a global variable has been defined.</Description>
+    </Command>
+    <Command>
+      <Name>bitmap</Name>
+      <Code>bitmap(^)</Code>
+      <Tooltip>void Bitmap(string file, [canvas cnv])</Tooltip>
+      <Description>Fill a surface with an image.</Description>
+    </Command>
+    <Command>
+      <Name>boardGetProgram</Name>
+      <Code>boardGetProgram(^)</Code>
+      <Tooltip>void BoardGetProgram(int programIndex, string &amp;program, int &amp;pointCount, int &amp;layer, bool &amp;isClosed, int &amp;attributes, int &amp;distanceRepeat)</Tooltip>
+      <Description>Returns the properties of a given program.</Description>
+    </Command>
+    <Command>
+      <Name>boardGetProgramPoint</Name>
+      <Code>boardGetProgramPoint(^)</Code>
+      <Tooltip>void BoardGetProgramPoint(int programIndex, int pointIndex, int &amp;x, int &amp;y)</Tooltip>
+      <Description>Get a single point on a board program. X and Y are always pixel values.</Description>
+    </Command>
+    <Command>
+      <Name>boardGetVector</Name>
+      <Code>boardGetVector(^)</Code>
+      <Tooltip>int BoardGetVector</Tooltip>
+      <Description>Returns the number of vectors on the board.</Description>
+    </Command>
+    <Command>
+      <Name>boardGetVectorPoint</Name>
+      <Code>boardGetVectorPoint(^)</Code>
+      <Tooltip>void BoardGetVectorPoint</Tooltip>
+      <Description>Get a single point on a board vector. X and Y are always pixel values.</Description>
+    </Command>
+    <Command>
+      <Name>boardSetProgram</Name>
+      <Code>boardSetProgram(^)</Code>
+      <Tooltip>void BoardSetProgram(int programIndex, string program, int pointCount, int layer, bool isClosed, int attributes, int distanceRepeat)</Tooltip>
+      <Description>Sets the properties of a given program; creates a new program if one-past-the-end index is given.</Description>
+    </Command>
+    <Command>
+      <Name>boardSetProgramPoint</Name>
+      <Code>boardSetProgramPoint(^)</Code>
+      <Tooltip>void BoardSetProgramPoint(int programIndex, int pointIndex, int x, int y)</Tooltip>
+      <Description>Set/move a single point on a board program. x, y are always pixel values. </Description>
+    </Command>
+    <Command>
+      <Name>boardSetVector</Name>
+      <Code>boardSetVector(^)</Code>
+      <Tooltip>void boardSetVector(variant vector, int type, int pointCount, int layer, bool isClosed, int attributes)</Tooltip>
+      <Description>Sets the properties of a given vector. Creates a new vector if an existing one is not found - if a numeric variable is supplied, it will be set to the new index (one-past-end). 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>boardSetVectorPoint</Name>
+      <Code>boardSetVectorPoint(^)</Code>
+      <Tooltip>void BoardSetVectorPoint(variant vector, int pointIndex, int x, int y, bool apply)</Tooltip>
+      <Description>Set/move a single point on a board vector. x, y are always pixel values. Set apply = true for last change, to improve speed.</Description>
+    </Command>
+    <Command>
+      <Name>bold</Name>
+      <Code>bold(^)</Code>
+      <Tooltip>void Bold(bool enable)</Tooltip>
+      <Description>Toggle emboldening of text. </Description>
+    </Command>
+    <Command>
+      <Name>branch</Name>
+      <Code>branch(^)</Code>
+      <Tooltip>void Branch(label lbl)</Tooltip>
+      <Description>Jump to a label.</Description>
+    </Command>
+    <Command>
+      <Name>callShop</Name>
+      <Code>callShop(^)</Code>
+      <Tooltip>void CallShop(string item1, string item2, string item3, ...)</Tooltip>
+      <Description>Displays a basic shop interface that allows the buying of the items given as parameters and the selling of items in the player's inventory.</Description>
+    </Command>
+    <Command>
+      <Name>canvasDrawPart</Name>
+      <Code>canvasDrawPart(^)</Code>
+      <Tooltip>void CanvasDrawPart(int cnv, int x, int y, int xSrc, int ySrc, int width, int height[, canvas cnvDest])</Tooltip>
+      <Description>Draw part of a canvas. </Description>
+    </Command>
+    <Command>
+      <Name>canvasGetScreen</Name>
+      <Code>canvasGetScreen(^)</Code>
+      <Tooltip>void CanvasGetScreen(canvas cnvDest)</Tooltip>
+      <Description>Copy the screen onto a canvas. </Description>
+    </Command>
+    <Command>
+      <Name>castInt</Name>
+      <Code>castInt(^)</Code>
+      <Tooltip>int CastInt(variant x, [int &amp;ret])</Tooltip>
+      <Description>Cast the specified value to an integer (i.e., a number in the sequence ...-2, -1, 0, 1, 2...). This is useful for removing fractional parts of numbers. Note that this function does not round. </Description>
+    </Command>
+    <Command>
+      <Name>castLit</Name>
+      <Code>castLit(^)</Code>
+      <Tooltip>string CastLit(variant x, [string &amp;ret])</Tooltip>
+      <Description>Cast the specified value to a string. There is really no need to do this ever. RPGCode by itself will cast values passed to functions to the correct types as required. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>castNum</Name>
+      <Code>castNum(^)</Code>
+      <Tooltip>double CastNum(variant x, [double &amp;ret])</Tooltip>
+      <Description>Cast the specified value to a number (double). There is really no need to do this ever. RPGCode by itself will cast values passed to functions to the correct types as required.</Description>
+    </Command>
+    <Command>
+      <Name>change</Name>
+      <Code>change(^)</Code>
+      <Tooltip>void Change(string program)</Tooltip>
+      <Description>Change this program so that next time it is triggered, a different program runs instead. Change() is active only while the player remains on the board (i.e., leaving the board causes programs to return to normal). 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>charAt</Name>
+      <Code>charAt(^)</Code>
+      <Tooltip>string CharAt(string str, int pos, [string &amp;ret])</Tooltip>
+      <Description>Get a character from a string. The first character is one. The value of the pos parameter must be in the closed interval [1, length]. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>chr</Name>
+      <Code>chr(^)</Code>
+      <Tooltip>string Chr(int asc, [string &amp;ret])</Tooltip>
+      <Description>Get the character represented by the ASCII code passed in. </Description>
+    </Command>
+    <Command>
+      <Name>clear</Name>
+      <Code>clear(^)</Code>
+      <Tooltip>void Clear([canvas cnv])</Tooltip>
+      <Description>Clear a surface. clear() blanks the screen. clear(cnv) blanks the canvas whose handle is 'cnv'. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>clearBuffer</Name>
+      <Code>clearBuffer()^</Code>
+      <Tooltip>void ClearBuffer()</Tooltip>
+      <Description>Clear the keyboard buffer. </Description>
+    </Command>
+    <Command>
+      <Name>clearButtons</Name>
+      <Code>clearButtons(^)</Code>
+      <Tooltip>void ClearButtons([int slot1, int slot2...])</Tooltip>
+      <Description>Clear buttons set by SetButton(). Clear specific slot(s) if supplied, else clear all slots. </Description>
+    </Command>
+    <Command>
+      <Name>closeFile</Name>
+      <Code>closeFile(^)</Code>
+      <Tooltip>void CloseFile(string file)</Tooltip>
+      <Description>Close a file. </Description>
+    </Command>
+    <Command>
+      <Name>color</Name>
+      <Code>color(^)</Code>
+      <Tooltip>void Color(int dos)</Tooltip>
+      <Description>Change to a DOS colour. </Description>
+    </Command>
+    <Command>
+      <Name>colorRGB</Name>
+      <Code>colorRGB(^)</Code>
+      <Tooltip>void colorRGB(int r, int g, int b)</Tooltip>
+      <Description>Change the active colour to an RGB value. </Description>
+    </Command>
+    <Command>
+      <Name>cos</Name>
+      <Code>cos(^)</Code>
+      <Tooltip>double Cos(double x, [double &amp;ret])</Tooltip>
+      <Description>Calculate cosine x.</Description>
+    </Command>
+    <Command>
+      <Name>createCanvas</Name>
+      <Code>createCanvas(^)</Code>
+      <Tooltip>canvas CreateCanvas(int width, int height, [canvas &amp;cnv])</Tooltip>
+      <Description>Create a canvas. </Description>
+    </Command>
+    <Command>
+      <Name>createCursorMap</Name>
+      <Code>createCursorMap(^)</Code>
+      <Tooltip>cursor_map CreateCursorMap([cursor_map &amp;ret])</Tooltip>
+      <Description>Create a cursor map. </Description>
+    </Command>
+    <Command>
+      <Name>createItem</Name>
+      <Code>createItem(^)</Code>
+      <Tooltip>int CreateItem(string filename[, int &amp;pos])</Tooltip>
+      <Description>Load an item and return the slot into which it was loaded. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>cursorMapAdd</Name>
+      <Code>cursorMapAdd(^)</Code>
+      <Tooltip>void CursorMapAdd(int x, int y, cursor_map map)</Tooltip>
+      <Description>Add a point to a cursor map. </Description>
+    </Command>
+    <Command>
+      <Name>cursorMapHand</Name>
+      <Code>cursorMapHand(^)</Code>
+      <Tooltip>void CursorMapHand(string cursor[, bool stretch = true])</Tooltip>
+      <Description>Change the cursor used everywhere cursors are used (e.g. cursor maps, the menu, the battle system), optionally not stretching it to 32 by 32 pixels. 
+
+The string "default" restores the default image. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>cursorMapRun</Name>
+      <Code>cursorMapRun(^)</Code>
+      <Tooltip>int CursorMapRun(cursor_map map, [int &amp;ret])</Tooltip>
+      <Description>Run a cursor map. </Description>
+    </Command>
+    <Command>
+      <Name>debug</Name>
+      <Code>debug(^)</Code>
+      <Tooltip>void Debug(bool enable)</Tooltip>
+      <Description>Toggle whether to show debug messages. </Description>
+    </Command>
+    <Command>
+      <Name>debugger</Name>
+      <Code>debugger(^)</Code>
+      <Tooltip>void Debugger(string message)</Tooltip>
+      <Description>Show a debug message.</Description>
+    </Command>
+    <Command>
+      <Name>delay</Name>
+      <Code>delay(^)</Code>
+      <Tooltip>void Delay(double time)</Tooltip>
+      <Description>Delay for a certain number of seconds.</Description>
+    </Command>
+    <Command>
+      <Name>destroyItem</Name>
+      <Code>destroyItem(^)</Code>
+      <Tooltip>void DestroyItem(variant handle)</Tooltip>
+      <Description>Remove an item from memory. Warning: do not destroy an item through it's own multitasking thread. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>destroyPlayer</Name>
+      <Code>destroyPlayer(^)</Code>
+      <Tooltip>void DestroyPlayer(string handle)</Tooltip>
+      <Description>Permanently remove a player from the party. </Description>
+    </Command>
+    <Command>
+      <Name>dirSav</Name>
+      <Code>dirSav(^)</Code>
+      <Tooltip>string DirSav(string title, bool allowNewFile, int textColor, int backColor, string image)</Tooltip>
+      <Description>Allow the user to choose a *.sav file from the "Saved" directory. For historical reasons, returns "CANCEL" if no file is chosen, not "". </Description>
+    </Command>
+    <Command>
+      <Name>done</Name>
+      <Code>done()^</Code>
+      <Tooltip>void Done()</Tooltip>
+      <Description>End the program. </Description>
+    </Command>
+    <Command>
+      <Name>dos</Name>
+      <Code>dos(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>drainAll</Name>
+      <Code>drainAll(^)</Code>
+      <Tooltip>void DrainAll(int fp)</Tooltip>
+      <Description>Deal the specified amount in SMP to all the members of the target's party. </Description>
+    </Command>
+    <Command>
+      <Name>drawCanvas</Name>
+      <Code>drawCanvas(^)</Code>
+      <Tooltip>void DrawCanvas(canvas cnv, int x, int y, [int width, int height, [canvas dest]])</Tooltip>
+      <Description>Blit a canvas forward. </Description>
+    </Command>
+    <Command>
+      <Name>drawCanvasTransparent</Name>
+      <Code>drawCanvasTransparent(^)</Code>
+      <Tooltip>void DrawCanvasTransparent(canvas cnv, int x, int y, int r, int g, int b[, int width, int height[, canvas dest]])</Tooltip>
+      <Description>Blit a canvas forward, but don't blit one colour (the transparent colour). </Description>
+    </Command>
+    <Command>
+      <Name>drawCircle</Name>
+      <Code>drawCircle(^)</Code>
+      <Tooltip>void DrawCircle(int x, int y, int radius [, int canvas])</Tooltip>
+      <Description>Draw a circle at x,y, optionally to a canvas. Previously an arc could be defined but this never worked, so the two parameters have been cut and the optional canvas is now the fourth parameter.</Description>
+    </Command>
+    <Command>
+      <Name>drawEnemy</Name>
+      <Code>drawEnemy(^)</Code>
+      <Tooltip>void DrawEnemy(string file, int x, int y, [canvas cnv])</Tooltip>
+      <Description>Draw an enemy.</Description>
+    </Command>
+    <Command>
+      <Name>drawLine</Name>
+      <Code>drawLine(^)</Code>
+      <Tooltip>void DrawLine(int x1, int y1, int x2, int y2, [canvas cnv])Draw a line. 
+
+</Tooltip>
+      <Description>Draw a line.</Description>
+    </Command>
+    <Command>
+      <Name>drawRect</Name>
+      <Code>drawRect(^)</Code>
+      <Tooltip>void DrawRect(int x1, int y1, int x2, int y2, [canvas cnv])</Tooltip>
+      <Description>Draw a rectangle.</Description>
+    </Command>
+    <Command>
+      <Name>drianAll</Name>
+      <Code>drianAll(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>earthquake</Name>
+      <Code>earthquake(^)</Code>
+      <Tooltip>void Earthquake(int intensity)</Tooltip>
+      <Description>Shake the screen.</Description>
+    </Command>
+    <Command>
+      <Name>empty</Name>
+      <Code>empty()^</Code>
+      <Tooltip>void Empty()</Tooltip>
+      <Description>Cleare all globals.</Description>
+    </Command>
+    <Command>
+      <Name>end</Name>
+      <Code>end()^</Code>
+      <Tooltip>void End()</Tooltip>
+      <Description>End the program. </Description>
+    </Command>
+    <Command>
+      <Name>endAnimation</Name>
+      <Code>endAnimation(^)</Code>
+      <Tooltip>void EndAnimation(int animationID)</Tooltip>
+      <Description>End a multitasking animation. </Description>
+    </Command>
+    <Command>
+      <Name>equip</Name>
+      <Code>equip(^)</Code>
+      <Tooltip>void Equip(variant handle, int location, string item)</Tooltip>
+      <Description>Equip an item from the inventory (by handle or filename) to a location on the player's body. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>eraseItem</Name>
+      <Code>eraseItem(^)</Code>
+      <Tooltip>void EraseItem(variant handle)</Tooltip>
+      <Description>Erase an item from the screen, but keep it in memory. Warning: erasing an item in it's own multitasking thread will pause the thread.</Description>
+    </Command>
+    <Command>
+      <Name>erasePlayer</Name>
+      <Code>erasePlayer(^)</Code>
+      <Tooltip>void ErasePlayer(string handle)</Tooltip>
+      <Description>Erase a party player from the screen. </Description>
+    </Command>
+    <Command>
+      <Name>fade</Name>
+      <Code>fade(^)</Code>
+      <Tooltip>void Fade(int type)</Tooltip>
+      <Description>Perform a fade using the current colour. There are several different types of fades. </Description>
+    </Command>
+    <Command>
+      <Name>fight</Name>
+      <Code>fight(^)</Code>
+      <Tooltip>void Fight(int skill, string background)</Tooltip>
+      <Description>Start a skill level fight. </Description>
+    </Command>
+    <Command>
+      <Name>fightEnemy</Name>
+      <Code>fightEnemy(^)</Code>
+      <Tooltip>void FightEnemy(string enemy, string enemy, ... string background)</Tooltip>
+      <Description>Start a fight. </Description>
+    </Command>
+    <Command>
+      <Name>fightMenuGraphic</Name>
+      <Code>fightMenuGraphic(^)</Code>
+      <Tooltip>void FightMenuGraphic(string image)</Tooltip>
+      <Description>Choose an image for the fight menu graphic. </Description>
+    </Command>
+    <Command>
+      <Name>fileEoF</Name>
+      <Code>fileEoF(^)</Code>
+      <Tooltip>bool FileEof(string file, [bool &amp;ret])</Tooltip>
+      <Description>Check whether the end of a file has been reached. </Description>
+    </Command>
+    <Command>
+      <Name>fileGet</Name>
+      <Code>fileGet(^)</Code>
+      <Tooltip>string FileGet(string file, [string &amp;ret])</Tooltip>
+      <Description>Get a byte from a file.</Description>
+    </Command>
+    <Command>
+      <Name>fileInput</Name>
+      <Code>fileInput(^)</Code>
+      <Tooltip>string FileInput(string file, [string &amp;ret])</Tooltip>
+      <Description>Read a line from a line. </Description>
+    </Command>
+    <Command>
+      <Name>filePrint</Name>
+      <Code>filePrint(^)</Code>
+      <Tooltip>void FilePrint(string file, string line)</Tooltip>
+      <Description>Write a line to a file. </Description>
+    </Command>
+    <Command>
+      <Name>filePut</Name>
+      <Code>filePut(^)</Code>
+      <Tooltip>void FilePut(string file, string byte)</Tooltip>
+      <Description>Write a byte to a file.</Description>
+    </Command>
+    <Command>
+      <Name>fillCircle</Name>
+      <Code>fillCircle(^)</Code>
+      <Tooltip>void FillCircle(int x, int y, int radius [, int canvas])</Tooltip>
+      <Description>Draw a filled circle at x, y, to screen or canvas. </Description>
+    </Command>
+    <Command>
+      <Name>fillRect</Name>
+      <Code>fillRect(^)</Code>
+      <Tooltip>void FillRect(int x1, int y1, int x2, int y2, [canvas cnv])</Tooltip>
+      <Description>Draw a filled rectangle.</Description>
+    </Command>
+    <Command>
+      <Name>font</Name>
+      <Code>font(^)</Code>
+      <Tooltip>void Font(string font)</Tooltip>
+      <Description>Load a true type font.</Description>
+    </Command>
+    <Command>
+      <Name>fontSize</Name>
+      <Code>fontSize(^)</Code>
+      <Tooltip>void FontSize(int size)</Tooltip>
+      <Description>Set the font size. </Description>
+    </Command>
+    <Command>
+      <Name>forceReDraw</Name>
+      <Code>forceReDraw(^)</Code>
+      <Tooltip>void ForceRedraw()</Tooltip>
+      <Description>Force a redrawing of the screen. </Description>
+    </Command>
+    <Command>
+      <Name>gameSpeed</Name>
+      <Code>gameSpeed(^)</Code>
+      <Tooltip>void GameSpeed(int speed)</Tooltip>
+      <Description>Set the overall walking speed. Changes the walking speed proportionally. +ve values increase speed, -ve decrease, by a factor of 10% per increment. Allowed values range from -MAX_GAMESPEED to +MAX_GAMESPEED. </Description>
+    </Command>
+    <Command>
+      <Name>get</Name>
+      <Code>get(^)</Code>
+      <Tooltip>string Get([string &amp;ret])</Tooltip>
+      <Description>Get a key from the queue. </Description>
+    </Command>
+    <Command>
+      <Name>getBoardName</Name>
+      <Code>getBoardName(^)</Code>
+      <Tooltip>string GetBoardName([string ret])</Tooltip>
+      <Description>Get the current board's file name. </Description>
+    </Command>
+    <Command>
+      <Name>getBoardTile</Name>
+      <Code>getBoardTile(^)</Code>
+      <Tooltip>string GetBoardTile(int x, int y, int z, [string &amp;ret])</Tooltip>
+      <Description>Get the file name of the tile at x, y, z. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getBoardTileType</Name>
+      <Code>getBoardTileType(^)</Code>
+      <Tooltip>string GetBoardTileType(int x, int y, int z[, string &amp;ret])</Tooltip>
+      <Description>Get the type of a tile.</Description>
+    </Command>
+    <Command>
+      <Name>getColor</Name>
+      <Code>getColor(^)</Code>
+      <Tooltip>void GetColor(int &amp;r, int &amp;g, int &amp;b)</Tooltip>
+      <Description>Get the current colour. </Description>
+    </Command>
+    <Command>
+      <Name>getCorner</Name>
+      <Code>getCorner(^)</Code>
+      <Tooltip>void GetCorner(int &amp;topX, int &amp;topY)</Tooltip>
+      <Description>Get the corner of the currently shown portion of the board. </Description>
+    </Command>
+    <Command>
+      <Name>getDp</Name>
+      <Code>getDp(^)</Code>
+      <Tooltip>int GetDp(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's dp. </Description>
+    </Command>
+    <Command>
+      <Name>getFp</Name>
+      <Code>getFp(^)</Code>
+      <Tooltip>int GetFP(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's fp.</Description>
+    </Command>
+    <Command>
+      <Name>getFontSize</Name>
+      <Code>getFontSize(^)</Code>
+      <Tooltip>int GetFontSize([int &amp;ret])</Tooltip>
+      <Description>Get the current font size. </Description>
+    </Command>
+    <Command>
+      <Name>getGp</Name>
+      <Code>getGp(^)</Code>
+      <Tooltip>int GetGP([int &amp;ret])</Tooltip>
+      <Description>Return the amount of gold pieces held. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getHp</Name>
+      <Code>getHp(^)</Code>
+      <Tooltip>int GetHP(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's hp. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getItemCost</Name>
+      <Code>getItemCost(^)</Code>
+      <Tooltip>int GetItemCost(string fileName[, int &amp;ret])</Tooltip>
+      <Description>Get an item's cost.</Description>
+    </Command>
+    <Command>
+      <Name>getItemDesc</Name>
+      <Code>getItemDesc(^)</Code>
+      <Tooltip>string GetItemDesc(string fileName[, string &amp;ret])</Tooltip>
+      <Description>Get an item's description. </Description>
+    </Command>
+    <Command>
+      <Name>getItemName</Name>
+      <Code>getItemName(^)</Code>
+      <Tooltip>string GetItemName(string fileName[, string &amp;ret])</Tooltip>
+      <Description>Get an item's handle. </Description>
+    </Command>
+    <Command>
+      <Name>getItemSellPrice</Name>
+      <Code>getItemSellPrice(^)</Code>
+      <Tooltip>int GetItemSellPrice(string fileName[, int &amp;ret])</Tooltip>
+      <Description>Get the price for which an item sells. </Description>
+    </Command>
+    <Command>
+      <Name>getLevel</Name>
+      <Code>getLevel(^)</Code>
+      <Tooltip>int GetLevel(string handle[, int &amp;ret])</Tooltip>
+      <Description>Get the level of a player. </Description>
+    </Command>
+    <Command>
+      <Name>getMaxHp</Name>
+      <Code>getMaxHp(^)</Code>
+      <Tooltip>int GetMaxHP(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's max hp. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getMaxSmp</Name>
+      <Code>getMaxSmp(^)</Code>
+      <Tooltip>int GetMaxSmp(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's max smp. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getPixel</Name>
+      <Code>getPixel(^)</Code>
+      <Tooltip>void GetPixel(int x, int y, int &amp;r, int &amp;g, int &amp;b, [canvas cnv])</Tooltip>
+      <Description>Get the colour of the pixel at (x, y). 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getRes</Name>
+      <Code>getRes(^)</Code>
+      <Tooltip>void GetRes(int &amp;x, int &amp;y)</Tooltip>
+      <Description>Get the screen's resolution. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getSmp</Name>
+      <Code>getSmp(^)</Code>
+      <Tooltip>int GetSMP(string handle, [int &amp;ret])</Tooltip>
+      <Description>Get a fighter's smp.</Description>
+    </Command>
+    <Command>
+      <Name>getTextHeight</Name>
+      <Code>getTextHeight(^)</Code>
+      <Tooltip>int GetTextHeight(string text)</Tooltip>
+      <Description>Get the height of a string of text in pixels, relative to the current font and size.</Description>
+    </Command>
+    <Command>
+      <Name>getTextWidth</Name>
+      <Code>getTextWidth(^)</Code>
+      <Tooltip>int GetTextWidth(string text)</Tooltip>
+      <Description>Get the width of a string of text in pixels, relative to the current font and size. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>getThreadId</Name>
+      <Code>getThreadId(^)</Code>
+      <Tooltip>thread GetThreadID([thread &amp;ret])</Tooltip>
+      <Description>Get the ID of this thread. </Description>
+    </Command>
+    <Command>
+      <Name>getTickCount</Name>
+      <Code>getTickCount()^</Code>
+      <Tooltip>int GetTickCount()</Tooltip>
+      <Description>Get the number of milliseconds since Windows started.</Description>
+    </Command>
+    <Command>
+      <Name>giveExp</Name>
+      <Code>giveExp(^)</Code>
+      <Tooltip>void GiveExp(string handle, int amount)</Tooltip>
+      <Description>Give experience to a player. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>giveGp</Name>
+      <Code>giveGp(^)</Code>
+      <Tooltip>void GiveGP(int gp)</Tooltip>
+      <Description>Give gold pieces.</Description>
+    </Command>
+    <Command>
+      <Name>giveHp</Name>
+      <Code>giveHp(^)</Code>
+      <Tooltip>void GiveHP(string handle, int add)</Tooltip>
+      <Description>Increase a fighter's current hp. </Description>
+    </Command>
+    <Command>
+      <Name>giveItem</Name>
+      <Code>giveItem(^)</Code>
+      <Tooltip>void GiveItem(string itm)</Tooltip>
+      <Description>Add an item to the inventory.</Description>
+    </Command>
+    <Command>
+      <Name>giveSmp</Name>
+      <Code>giveSmp(^)</Code>
+      <Tooltip>void GiveSMP(string handle, int value)</Tooltip>
+      <Description>Increase a fighter's smp. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>global</Name>
+      <Code>global(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>gone</Name>
+      <Code>gone()^</Code>
+      <Tooltip>void Gone()</Tooltip>
+      <Description>Remove the currently running program from the board until the board has been left. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>hp</Name>
+      <Code>hp(^)</Code>
+      <Tooltip>void HP(string handle, int value)</Tooltip>
+      <Description>Set a fighter's hp. </Description>
+    </Command>
+    <Command>
+      <Name>inStr</Name>
+      <Code>inStr(^)</Code>
+      <Tooltip>int InStr(string haystack, string needle[, int offset])</Tooltip>
+      <Description>Returns the first occurence of needle within haystack, optionally starting from an offset. Both the return value and the offset are one-based. </Description>
+    </Command>
+    <Command>
+      <Name>inn</Name>
+      <Code>inn()^</Code>
+      <Tooltip>void Inn()</Tooltip>
+      <Description>Fully heal the player party.</Description>
+    </Command>
+    <Command>
+      <Name>internalMenu</Name>
+      <Code>internalMenu(^)</Code>
+      <Tooltip>void InternalMenu(int menu)</Tooltip>
+      <Description>Show a menu using the menu plugin.</Description>
+    </Command>
+    <Command>
+      <Name>italics</Name>
+      <Code>italics(^)</Code>
+      <Tooltip>void Italics(bool enable)</Tooltip>
+      <Description>Toggle italicizing of text. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>itemCount</Name>
+      <Code>itemCount(^)</Code>
+      <Tooltip>int ItemCount(string fileName[, int &amp;ret])</Tooltip>
+      <Description>Count the number of a certain item in the inventory.</Description>
+    </Command>
+    <Command>
+      <Name>itemDirection</Name>
+      <Code>itemDirection(^)</Code>
+      <Tooltip>int ItemDirection(variant handle)</Tooltip>
+      <Description>Returns the item direction. </Description>
+    </Command>
+    <Command>
+      <Name>itemGetPath</Name>
+      <Code>itemGetPath(^)</Code>
+      <Tooltip>int ItemGetPath(variant handle)</Tooltip>
+      <Description>Get the number of points in the sprite's path. 
+</Description>
+    </Command>
+    <Command>
+      <Name>itemLocation</Name>
+      <Code>itemLocation(^)</Code>
+      <Tooltip>void ItemLocation(variant handle, int &amp;x, int &amp;y, int &amp;layer)</Tooltip>
+      <Description>Get the location of an item. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>itemPath</Name>
+      <Code>itemPath(^)</Code>
+      <Tooltip>void ItemPath(variant handle, int flags, int x1, int y1, ... , int xn, int yn)</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>itemSpeed</Name>
+      <Code>itemSpeed(^)</Code>
+      <Tooltip>void ItemSpeed(variant handle, int speed)</Tooltip>
+      <Description>Set the delay in seconds between an item's steps. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>itemStance</Name>
+      <Code>itemStance(^)</Code>
+      <Tooltip>void ItemStance(handle item, string stance [, int flags])</Tooltip>
+      <Description>Animate an item's custom stance. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>itemStep</Name>
+      <Code>itemStep(^)</Code>
+      <Tooltip>void ItemStep(variant handle, int x, int y [, int flags])</Tooltip>
+      <Description>Causes the item to take one step in the direction of x, y following a route determined by pathFind. </Description>
+    </Command>
+    <Command>
+      <Name>kill</Name>
+      <Code>kill(^)</Code>
+      <Tooltip>void Kill(variant &amp;var, ...)</Tooltip>
+      <Description>Delete variables.</Description>
+    </Command>
+    <Command>
+      <Name>killCanvas</Name>
+      <Code>killCanvas(^)</Code>
+      <Tooltip>void KillCanvas(canvas cnv)</Tooltip>
+      <Description>Kill a canvas. </Description>
+    </Command>
+    <Command>
+      <Name>killCursorMap</Name>
+      <Code>killCursorMap(^)</Code>
+      <Tooltip>void KillCursorMap(cursor_map map)</Tooltip>
+      <Description>Kill a cursor map. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>killThread</Name>
+      <Code>killThread(^)</Code>
+      <Tooltip>void KillThread(thread id)</Tooltip>
+      <Description>Kill a thread. </Description>
+    </Command>
+    <Command>
+      <Name>lCase</Name>
+      <Code>lCase(^)</Code>
+      <Tooltip>string LCase(string str, [string &amp;ret])</Tooltip>
+      <Description>Convert a string to lowercase. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>layerPut</Name>
+      <Code>layerPut(^)</Code>
+      <Tooltip>void LayerPut(int x, int y, int layer, string tile)</Tooltip>
+      <Description>Place a tile on the board for the duration the player is on the board.</Description>
+    </Command>
+    <Command>
+      <Name>left</Name>
+      <Code>left(^)</Code>
+      <Tooltip>string Left(string str, int amount[, string &amp;ret])</Tooltip>
+      <Description>Get characters from the left of a string. </Description>
+    </Command>
+    <Command>
+      <Name>len</Name>
+      <Code>len(^)</Code>
+      <Tooltip>int Len(string str[, int &amp;ret])</Tooltip>
+      <Description>Get the length of a string. </Description>
+    </Command>
+    <Command>
+      <Name>load</Name>
+      <Code>load(^)</Code>
+      <Tooltip>void Load(string file)</Tooltip>
+      <Description>Load the game state from a file. </Description>
+    </Command>
+    <Command>
+      <Name>local</Name>
+      <Code>local(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>log</Name>
+      <Code>log(^)</Code>
+      <Tooltip>double Log(double x, [double &amp;ret])</Tooltip>
+      <Description>Returns n such that en = x. </Description>
+    </Command>
+    <Command>
+      <Name>mp3Pause</Name>
+      <Code>mp3Pause()^</Code>
+      <Tooltip>void MP3Pause()</Tooltip>
+      <Description>Play a sound effect and pause the engine until it finishes.</Description>
+    </Command>
+    <Command>
+      <Name>mwin</Name>
+      <Code>mwin(^)</Code>
+      <Tooltip>Void MWin(string str)</Tooltip>
+      <Description>Displays a message in a dialog box.</Description>
+    </Command>
+    <Command>
+      <Name>mwinCls</Name>
+      <Code>mwinCls()^</Code>
+      <Tooltip>void MWinCls()</Tooltip>
+      <Description>Clear and hide the message window.</Description>
+    </Command>
+    <Command>
+      <Name>mainFile</Name>
+      <Code>mainFile(^)</Code>
+      <Tooltip>void MainFile(string gam)</Tooltip>
+      <Description>Load a new main file.</Description>
+    </Command>
+    <Command>
+      <Name>maxHp</Name>
+      <Code>maxHp(^)</Code>
+      <Tooltip>void MaxHp(string handle, int value)</Tooltip>
+      <Description>Set a fighter's max hp. </Description>
+    </Command>
+    <Command>
+      <Name>maxSmp</Name>
+      <Code>maxSmp(^)</Code>
+      <Tooltip>void maxSMP(string handle, int value)</Tooltip>
+      <Description>Set a fighter's max smp.</Description>
+    </Command>
+    <Command>
+      <Name>mediaPlay</Name>
+      <Code>mediaPlay(^)</Code>
+      <Tooltip>void MediaPlay(string file)</Tooltip>
+      <Description>Play the specified file as the background music. </Description>
+    </Command>
+    <Command>
+      <Name>mediaStop</Name>
+      <Code>mediaStop()</Code>
+      <Tooltip>void MediaStop()</Tooltip>
+      <Description>Stop the background music. </Description>
+    </Command>
+    <Command>
+      <Name>menuGraphic</Name>
+      <Code>menuGraphic(^)</Code>
+      <Tooltip>void MenuGraphic(string image)</Tooltip>
+      <Description>Choose an image for the menu. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>mid</Name>
+      <Code>mid(^)</Code>
+      <Tooltip>string Mid(string str, int start, int length[, string &amp;dest])</Tooltip>
+      <Description>Obtain a substring. The offset is one-based. </Description>
+    </Command>
+    <Command>
+      <Name>mouseClick</Name>
+      <Code>mouseClick(^)</Code>
+      <Tooltip>void MouseClick(int &amp;x, int &amp;y [, bool noWait])</Tooltip>
+      <Description>Wait for a mouseclick or immediately retrieve the last and return the x, y location (pixel values relative to the window). </Description>
+    </Command>
+    <Command>
+      <Name>mouseCursor</Name>
+      <Code>mouseCursor(^)</Code>
+      <Tooltip>void MouseCursor(string file, int x, int y, int red, int green. int blue)</Tooltip>
+      <Description>Change the mouse cursor. "TK DEFAULT" or "" restores the default cursor. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>mouseMove</Name>
+      <Code>mouseMove(^)</Code>
+      <Tooltip>void MouseMove(int &amp;x, int &amp;y)</Tooltip>
+      <Description>Wait for the mouse to move and return the x,y location in pixels from the window corner.</Description>
+    </Command>
+    <Command>
+      <Name>mousePointer</Name>
+      <Code>mousePointer(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>move</Name>
+      <Code>move(^)</Code>
+      <Tooltip>void Move(int x, int y, [int z = 1])</Tooltip>
+      <Description>Move this board program to a new location on the board. The effect lasts until the board has been left.</Description>
+    </Command>
+    <Command>
+      <Name>msgBox</Name>
+      <Code>msgBox(^)</Code>
+      <Tooltip>int MsgBox(string text [,string title [, int style [, int textColor [, int backColor [, string bitmap]]]]])</Tooltip>
+      <Description>Display a message box containing one or two buttons, handled using a cursor map (keyboard input only). The background is drawn translucently using the MWin() translucency value. Any background image supplied is stretched to the size of the box. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>multirun</Name>
+      <Code>multirun()^</Code>
+      <Tooltip>void Multirun()</Tooltip>
+      <Description>Multirun()'s behaviour depends on the program's context. In a thread: No action.
+In a program (non-thread): All sprite movements called are queued up and movement begins after the closing brace of the function, thereby allowing simultaneous movement. Previously occurring movements are cleared. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>newPlayer</Name>
+      <Code>newPlayer(^)</Code>
+      <Tooltip>void NewPlayer(string file)</Tooltip>
+      <Description>Change the graphics of the main player to that of the file passed in. The file must be a character file (*.tem) 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>onBoard</Name>
+      <Code>onBoard(^)</Code>
+      <Tooltip>int OnBoard(variant handle)</Tooltip>
+      <Description>Return whether a player is being shown on the board. </Description>
+    </Command>
+    <Command>
+      <Name>openFileAppend</Name>
+      <Code>openFileAppend(^)</Code>
+      <Tooltip>void OpenFileAppend(string file, string folder)</Tooltip>
+      <Description>Open a file for appending. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>openFileInput</Name>
+      <Code>openFileInput(^)</Code>
+      <Tooltip>void OpenFileInput(string file, string folder)</Tooltip>
+      <Description>Open a file in input mode. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>openFileOutput</Name>
+      <Code>openFileOutput(^)</Code>
+      <Tooltip>void OpenFileOutput(string file, string folder)</Tooltip>
+      <Description>Open a file in output mode.</Description>
+    </Command>
+    <Command>
+      <Name>over</Name>
+      <Code>over()^</Code>
+      <Tooltip>void Over()</Tooltip>
+      <Description>Displays a game over message and resets the game. Because you can (and should) set a game over program, this function is pointless. </Description>
+    </Command>
+    <Command>
+      <Name>pathFind</Name>
+      <Code>pathFind(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>pixelMovement</Name>
+      <Code>pixelMovement(^)</Code>
+      <Tooltip>bool PixelMovement([bool pixelMovement [, bool pixelPush]])</Tooltip>
+      <Description>Toggles pixel movement and push() et al. in pixels. Returns whether pixel movement is being used. pixelPush is ineffective for tile movement. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>pixelText</Name>
+      <Code>pixelText(^)</Code>
+      <Tooltip>void PixelText(int x, int y, string str, [canvas cnv])</Tooltip>
+      <Description>Displays text on the screen using pixel coordinates. </Description>
+    </Command>
+    <Command>
+      <Name>playAvi</Name>
+      <Code>playAvi(^)</Code>
+      <Tooltip>void PlayAvi(string movie)</Tooltip>
+      <Description>Play a movie full screen. Supported types are *.avi, *.mpg, and *.mov. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>playAviSmall</Name>
+      <Code>playAviSmall(^)</Code>
+      <Tooltip>void PlayAviSmall(string movie)</Tooltip>
+      <Description>Play a movie at actual size, centred. Supported types are *.avi, *.mpg, and *.mov. </Description>
+    </Command>
+    <Command>
+      <Name>playMidi</Name>
+      <Code>playMidi(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>playerDirection</Name>
+      <Code>playerDirection(^)</Code>
+      <Tooltip>int PlayerDirection(variant handle)</Tooltip>
+      <Description>Returns the player direction. </Description>
+    </Command>
+    <Command>
+      <Name>playerGetPath</Name>
+      <Code>playerGetPath(^)</Code>
+      <Tooltip>int PlayerGetPath(variant handle)</Tooltip>
+      <Description>Get the number of points in the sprite's path.</Description>
+    </Command>
+    <Command>
+      <Name>playerLocation</Name>
+      <Code>playerLocation(^)</Code>
+      <Tooltip>void PlayerLocation(variant handle, int &amp;x, int &amp;y, int &amp;layer)</Tooltip>
+      <Description>Get the location of a player.</Description>
+    </Command>
+    <Command>
+      <Name>playerPath</Name>
+      <Code>playerPath(^)</Code>
+      <Tooltip>void PlayerPath(variant handle, int flags, int x1, int y1, ... , int xn, int yn)</Tooltip>
+      <Description>Sprite walks the explicit path given by x1, y1 to xn, yn.
+Required flag: none. 
+</Description>
+    </Command>
+    <Command>
+      <Name>playerSpeed</Name>
+      <Code>playerSpeed(^)</Code>
+      <Tooltip>void PlayerSpeed(string handle, int speed)</Tooltip>
+      <Description>Set the delay in seconds between a player's steps.</Description>
+    </Command>
+    <Command>
+      <Name>playerStance</Name>
+      <Code>playerStance(^)</Code>
+      <Tooltip>void PlayerStance(handle player, string stance [, int flags])</Tooltip>
+      <Description>Animate a player's custom stance. 
+
+Possible flags tkMV_PAUSE_THREAD: Hold thread execution until animation ends
+</Description>
+    </Command>
+    <Command>
+      <Name>playerStep</Name>
+      <Code>playerStep(^)</Code>
+      <Tooltip>void PlayerStep(variant handle, int x, int y [, int flags])</Tooltip>
+      <Description>Causes the player to take one step in the direction of x, y following a route determined by pathFind. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>posture</Name>
+      <Code>posture(^)</Code>
+      <Tooltip>void Posture(int id [, handle player])</Tooltip>
+      <Description>Show a custom player animation named "Custom" + str(id) (e.g. "Custom1") This command is obsolete - use playerStance() instead. </Description>
+    </Command>
+    <Command>
+      <Name>prg</Name>
+      <Code>prg(^)</Code>
+      <Tooltip>void Prg(string program. int x, int y, [int z = 1])</Tooltip>
+      <Description>Move a program on the current board to a new location. This stays in effect until the board is left.</Description>
+    </Command>
+    <Command>
+      <Name>print</Name>
+      <Code>print(^)</Code>
+      <Tooltip>void Print(string text)</Tooltip>
+      <Description>Write the specified string one line down from the last call to text(). 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>prompt</Name>
+      <Code>prompt(^)</Code>
+      <Tooltip>string prompt(string question, [string &amp;ret])</Tooltip>
+      <Description>Ask the player a question and return the result.</Description>
+    </Command>
+    <Command>
+      <Name>push</Name>
+      <Code>push(^)</Code>
+      <Tooltip>void Push(string direction [, variant handle [, int flags]])</Tooltip>
+      <Description>Push the player with the specified handle, or the default player if no handle is specified, along the given directions. The direction should be a comma delimited, but if it is not, it will be delimited for backward compatibility.</Description>
+    </Command>
+    <Command>
+      <Name>pushItem</Name>
+      <Code>pushItem(^)</Code>
+      <Tooltip>void PushItem(variant item, string direction [, int flags])</Tooltip>
+      <Description>The first parameter accepts either a string that can be either "target" or "source" direction or the number of an item. The syntax of the directional string is the same as for [[push()]]. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>put</Name>
+      <Code>put(^)</Code>
+      <Tooltip>void Put(int x, int y, string tile)</Tooltip>
+      <Description>Puts a tile at the specified location on the board. The tile persists only until the program ends. Use LayerPut() to place a tile for the duration the user is on the board. x and y are specified in tile coordinates.</Description>
+    </Command>
+    <Command>
+      <Name>putItem</Name>
+      <Code>putItem(^)</Code>
+      <Tooltip>void PutItem(variant handle, int x, int y, int layer)</Tooltip>
+      <Description>Place the item on the board at the given location.</Description>
+    </Command>
+    <Command>
+      <Name>putPlayer</Name>
+      <Code>putPlayer(^)</Code>
+      <Tooltip>void PutPlayer(string handle, int x, int y, int layer)</Tooltip>
+      <Description>Place the player on the board at the given location.</Description>
+    </Command>
+    <Command>
+      <Name>rpgCode</Name>
+      <Code>rpgCode(^)</Code>
+      <Tooltip>void RPGCode(string line)</Tooltip>
+      <Description>Independently run a line of RPGCode. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>random</Name>
+      <Code>random(^)</Code>
+      <Tooltip>int Random(int max, [int &amp;ret])</Tooltip>
+      <Description>Generate a random number from one to the supplied maximum, inclusive. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>regExpReplace</Name>
+      <Code>regExpReplace(^)</Code>
+      <Tooltip>string RegExpReplace(string subject, string pattern, string replace)</Tooltip>
+      <Description>Replace using a regular expression. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>remove</Name>
+      <Code>remove(^)</Code>
+      <Tooltip>void Remove(variant handle, int location)</Tooltip>
+      <Description>Remove an equipped item and return it to the inventory. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>removePlayer</Name>
+      <Code>removePlayer(^)</Code>
+      <Tooltip>void RemovePlayer(string handle)</Tooltip>
+      <Description>Remove a player from the party [to an old player list]. </Description>
+    </Command>
+    <Command>
+      <Name>removeStatus</Name>
+      <Code>removeStatus(^)</Code>
+      <Tooltip>void RemoveStatus(string target, string file)</Tooltip>
+      <Description>Remove a status effect from a fighter. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>renderNow</Name>
+      <Code>RenderNow(^)</Code>
+      <Tooltip>void RenderNow(bool draw)</Tooltip>
+      <Description>Controls rendering of the cnvRenderNow reserved canvas. The canvas is drawn every frame above all board elements (e.g. tiles, sprites, animations). Access the canvas by passing 'cnvRenderNow' to the drawing functions. Do not call CreateCanvas() or KillCanvas() on cnvRenderNow. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>replace</Name>
+      <Code>replace(^)</Code>
+      <Tooltip>string Replace(string str, string find, string replace[, string &amp;dest])</Tooltip>
+      <Description>Replace within a string. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>reset</Name>
+      <Code>reset()^</Code>
+      <Tooltip>void Reset()</Tooltip>
+      <Description>Reset the game. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>restorePlayer</Name>
+      <Code>restorePlayer(^)</Code>
+      <Tooltip>void RestorePlayer(string filename)</Tooltip>
+      <Description>Restore a player who was previously on the team. </Description>
+    </Command>
+    <Command>
+      <Name>restoreScreen</Name>
+      <Code>restoreScreen(^)</Code>
+      <Tooltip>void RestoreScreen([int x1, int y1, int x2, int y2, int xdest, int ydest])</Tooltip>
+      <Description>Draw a buffered screen capture to the screen. The canvas drawn is the first in the screen array. x1, x2 specify the bottom- right corner of the screen, so that width = x2 - x1, etc. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>restoreScreenArray</Name>
+      <Code>restoreScreenArray(^)</Code>
+      <Tooltip>void RestoreScreenArray(int pos [,int x1, int y1, int x2, int y2, int xdest, int ydest])</Tooltip>
+      <Description>Draw a buffered screen capture to the screen. x1, x2 specify the bottom-right corner of the screen, so that width = x2 - x1, etc. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>resume Next</Name>
+      <Code>resume Next()^</Code>
+      <Tooltip>void ResumeNext()</Tooltip>
+      <Description>Return to the statement after the statement where an error occurred. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>right</Name>
+      <Code>right(^)</Code>
+      <Tooltip>string Right(string str, int amount, [string &amp;ret])</Tooltip>
+      <Description>Get characters from the right of a string. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>run</Name>
+      <Code>run(^)</Code>
+      <Tooltip>void Run(string program)</Tooltip>
+      <Description>Transfer control to a different program.</Description>
+    </Command>
+    <Command>
+      <Name>smp</Name>
+      <Code>smp(^)</Code>
+      <Tooltip>void SMP(string handle, int value)</Tooltip>
+      <Description>Set a fighter's smp. </Description>
+    </Command>
+    <Command>
+      <Name>save</Name>
+      <Code>save(^)</Code>
+      <Tooltip>void Save(string file)</Tooltip>
+      <Description>Save the current game state to a file. </Description>
+    </Command>
+    <Command>
+      <Name>saveScreen</Name>
+      <Code>saveScreen(^)</Code>
+      <Tooltip>void SaveScreen([int position = 0])</Tooltip>
+      <Description>Save the current screen onto a canvas that can be restored at a later time. </Description>
+    </Command>
+    <Command>
+      <Name>send</Name>
+      <Code>send(^)</Code>
+      <Tooltip>void Send(string file, int x, int y, [int z = 1])</Tooltip>
+      <Description>Send the player to a new board. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>setAmbientLevel</Name>
+      <Code>setAmbientLevel(^)</Code>
+      <Tooltip>void SetAmbientLevel(int red, int green, int blue)</Tooltip>
+      <Description>Set the global ambient level. Valid values range from -255 to + 255.</Description>
+    </Command>
+    <Command>
+      <Name>setButton</Name>
+      <Code>setButton(^)</Code>
+      <Tooltip>void SetButton(string file, int slot, int x, int y, int width, int height)</Tooltip>
+      <Description>Create and draw a clickable button at screen pixel co-ords x, y that persists until clearButtons() is called. </Description>
+    </Command>
+    <Command>
+      <Name>setConstants</Name>
+      <Code>setConstants(^)</Code>
+      <Tooltip>void SetConstants(...)</Tooltip>
+      <Description>Description. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>setErrorHandler</Name>
+      <Code>setErrorHandler(^)</Code>
+      <Tooltip>void SetErrorHandler(label lbl)</Tooltip>
+      <Description>Set an error handler for the current function. This does not propagate up the call stack! Refer to the language features section of the manual for more information.</Description>
+    </Command>
+    <Command>
+      <Name>setImage</Name>
+      <Code>setImage(^)</Code>
+      <Tooltip>void SetImage(string str, int x, int y, int width, int height, [canvas cnv])</Tooltip>
+      <Description>Set an image. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>setImageAddictive</Name>
+      <Code>setImageAddictive(^)</Code>
+      <Tooltip>void SetImageAdditive(string file, int x, int y, int width, int height, double percent[, canvas cnv])</Tooltip>
+      <Description>Set an image with a tint of the specified percent.</Description>
+    </Command>
+    <Command>
+      <Name>setImageTransparent</Name>
+      <Code>SetImageTransparent(^)</Code>
+      <Tooltip>void SetImageTransparent(string file, int x, int y, int width, int height, int r, int g, int b, [canvas cnv])</Tooltip>
+      <Description>Set an image with a transparent colour. 
+
+
+
+</Description>
+    </Command>
+    <Command>
+      <Name>setImageTransulcent</Name>
+      <Code>setImageTransulcent(^)</Code>
+      <Tooltip>void SetImageTranslucent(string file, int x, int y, int width, int height, [canvas cnv])</Tooltip>
+      <Description>Set an image translucently. 
+</Description>
+    </Command>
+    <Command>
+      <Name>setMwinTranslucency</Name>
+      <Code>setMwinTranslucency(^)</Code>
+      <Tooltip>void SetMwinTranslucency(int percent)</Tooltip>
+      <Description>Set the translucency of the message window. 0% is invisible; 100% is opaque. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>setPixel</Name>
+      <Code>setPixel(^)</Code>
+      <Tooltip>void SetPixel(int x, int y, [canvas cnv])</Tooltip>
+      <Description>Set a pixel in the current colour. </Description>
+    </Command>
+    <Command>
+      <Name>setResumeNextHandler</Name>
+      <Code>setResumeNextHandler()^</Code>
+      <Tooltip>void SetResumeNextHandler()</Tooltip>
+      <Description>Cause errors in the current function to be silently ignored. This does not propagate up the call stack! </Description>
+    </Command>
+    <Command>
+      <Name>setVolume</Name>
+      <Code>setVolume(^)</Code>
+      <Tooltip>void SetVolume(int percent)</Tooltip>
+      <Description>Set the volume of all music and sound using a value between 0 and 100.</Description>
+    </Command>
+    <Command>
+      <Name>show</Name>
+      <Code>show(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>sin</Name>
+      <Code>Sin(^)</Code>
+      <Tooltip>double Sin(double x, [double &amp;ret])</Tooltip>
+      <Description>Calculate sine x. </Description>
+    </Command>
+    <Command>
+      <Name>sizedAnimation</Name>
+      <Code>sizedAnimation(^)</Code>
+      <Tooltip>Content to be written...</Tooltip>
+      <Description>Content to be written...</Description>
+    </Command>
+    <Command>
+      <Name>smartStep</Name>
+      <Code>smartStep()^</Code>
+      <Tooltip>void SmartStep()Toggle "smart" stepping
+</Tooltip>
+      <Description>Toggle "smart" stepping. </Description>
+    </Command>
+    <Command>
+      <Name>sourceHandle</Name>
+      <Code>sourceHandle(^)</Code>
+      <Tooltip>string SourceHandle([string &amp;ret])</Tooltip>
+      <Description>Get the handle of the source object.</Description>
+    </Command>
+    <Command>
+      <Name>sourceLocation</Name>
+      <Code>sourceLocation(^)</Code>
+      <Tooltip>void SourceLocation(int &amp;x, int &amp;y)</Tooltip>
+      <Description>Get the location of the source object. </Description>
+    </Command>
+    <Command>
+      <Name>spliceVariables</Name>
+      <Code>spliceVariables(^)</Code>
+      <Tooltip>string SpliceVariables(string str)</Tooltip>
+      <Description>Replaces substrings within angle brackets by the value of variables with respective names, e.g. "&lt;x&gt;" would be replaced by the value of "x".
+</Description>
+    </Command>
+    <Command>
+      <Name>split</Name>
+      <Code>split(^)</Code>
+      <Tooltip>int Split(string str, string delimiter, array arr)</Tooltip>
+      <Description>Splits a string at a delimiter. Returns the number of upper bound of the array (i.e. the index of the last set element). </Description>
+    </Command>
+    <Command>
+      <Name>spriteTranslucency</Name>
+      <Code>spriteTranslucency(^)</Code>
+      <Tooltip>void SpriteTranslucency(int percent</Tooltip>
+      <Description>Set the degree to which sprites drawn underneath other objects are visible. Specify a value between 0 (invisible) and 100 (opaque). </Description>
+    </Command>
+    <Command>
+      <Name>sqrt</Name>
+      <Code>sqrt(^)</Code>
+      <Tooltip>double Sqrt(double x, [double &amp;ret])</Tooltip>
+      <Description>Calculate the square root of x.</Description>
+    </Command>
+    <Command>
+      <Name>stance</Name>
+      <Code>stance(^)</Code>
+      <Tooltip>void Stance(int id [, handle player])</Tooltip>
+      <Description>Show a player stance. This command is obsolete - use playerStance() instead.</Description>
+    </Command>
+    <Command>
+      <Name>start</Name>
+      <Code>start(^)</Code>
+      <Tooltip>void Start(string file)</Tooltip>
+      <Description>Open a file with the shell. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>takeGp</Name>
+      <Code>takeGp(^)</Code>
+      <Tooltip>void TakeGP(int gp)</Tooltip>
+      <Description>Take gold pieces.</Description>
+    </Command>
+    <Command>
+      <Name>takeItem</Name>
+      <Code>takeItem(^)</Code>
+      <Tooltip>void TakeItem(string itm)</Tooltip>
+      <Description>Remove an item from the inventory.</Description>
+    </Command>
+    <Command>
+      <Name>tan</Name>
+      <Code>tan(^)</Code>
+      <Tooltip>double Tan(double x, [double &amp;ret])</Tooltip>
+      <Description>Calculate tangent x.</Description>
+    </Command>
+    <Command>
+      <Name>targetHandle</Name>
+      <Code>targetHandle(^)</Code>
+      <Tooltip>string TargetHandle([string &amp;ret])</Tooltip>
+      <Description>Get the handle of the target object. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>targetLocation</Name>
+      <Code>targetLocation(^)</Code>
+      <Tooltip>void TargetLocation(int &amp;x, int &amp;y)</Tooltip>
+      <Description>Get the location of the target object. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>tellThread</Name>
+      <Code>tellThread(^)</Code>
+      <Tooltip>variant TellThread(thread id, string code)</Tooltip>
+      <Description>Execute code in the context of a thread (e.g., to run a method located in another thread). TellThread() returns the value returned by the function called in the thread.</Description>
+    </Command>
+    <Command>
+      <Name>text</Name>
+      <Code>text(^)</Code>
+      <Tooltip>void Text(double x, double y, string str, [canvas cnv])</Tooltip>
+      <Description>Displays text on the screen. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>thread</Name>
+      <Code>thread(^)</Code>
+      <Tooltip>thread Thread(string file, bool persist, [thread &amp;ret])</Tooltip>
+      <Description>Start a thread. </Description>
+    </Command>
+    <Command>
+      <Name>threadSleep</Name>
+      <Code>threadSleep(^)</Code>
+      <Tooltip>void ThreadSleep(thread id, double seconds)</Tooltip>
+      <Description>Put a thread to sleep. </Description>
+    </Command>
+    <Command>
+      <Name>threadSleepRemaining</Name>
+      <Code>threadSleepRemaining(^)</Code>
+      <Tooltip>double ThreadSleepRemaining(thread id, [double &amp;ret])</Tooltip>
+      <Description>Check how much sleep remains for a thread. </Description>
+    </Command>
+    <Command>
+      <Name>threadWake</Name>
+      <Code>threadWake(^)</Code>
+      <Tooltip>void ThreadWake(thread id)</Tooltip>
+      <Description>Wake up a thread. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>tileType</Name>
+      <Code>tileType(^)</Code>
+      <Tooltip>void TileType(int x, int y, string type, [int z = 1])</Tooltip>
+      <Description>Change a tile's type. Valid types for the string parameter are "NORMAL", "SOLID", "UNDER", "NS", "EW", "STAIRS#". Do not use when using vectors - use vector tools instead. </Description>
+    </Command>
+    <Command>
+      <Name>trim</Name>
+      <Code>trim(^)</Code>
+      <Tooltip>string Trim(string str, [string &amp;ret])</Tooltip>
+      <Description>Trim whitespace from a string. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>ucase</Name>
+      <Code>ucase(^)</Code>
+      <Tooltip>string Ucase(string str, [string &amp;ret])</Tooltip>
+      <Description>Convert a string to uppercase. 
+
+</Description>
+    </Command>
+    <Command>
+      <Name>underArrow</Name>
+      <Code>underArrow()^</Code>
+      <Tooltip>void UnderArrow()</Tooltip>
+      <Description>Toggle the under arrow.</Description>
+    </Command>
+    <Command>
+      <Name>underLine</Name>
+      <Code>underLine(^)</Code>
+      <Tooltip>void UnderLine(bool enable)</Tooltip>
+      <Description>Toggle underlining of text. </Description>
+    </Command>
+    <Command>
+      <Name>viewBrd</Name>
+      <Code>viewBrd(^)</Code>
+      <Tooltip>void ViewBrd(string filename [, int x, int y [, canvas cnv]])</Tooltip>
+      <Description>Draw a board to the screen or to a canvas, starting at co-ordinates topX, topY. </Description>
+    </Command>
+    <Command>
+      <Name>wait</Name>
+      <Code>wait()^</Code>
+      <Tooltip>string Wait([string &amp;ret])</Tooltip>
+      <Description>Wait for a key to be pressed, and return the key that was.</Description>
+    </Command>
+    <Command>
+      <Name>wander</Name>
+      <Code>wander(^)</Code>
+      <Tooltip>void Wander(variant target, [int restrict = 0])</Tooltip>
+      <Description>The first parameter accepts either a string that can be either "target" or "source" or the number of an item. The selected item will take a step in a random direction, or as restricted by the optional parameter.</Description>
+    </Command>
+    <Command>
+      <Name>wav</Name>
+      <Code>wav(^)</Code>
+      <Tooltip>void Wav(string file)</Tooltip>
+      <Description>Play a wave file (e.g. a sound effect). </Description>
+    </Command>
+    <Command>
+      <Name>wavStop</Name>
+      <Code>wavStop()^</Code>
+      <Tooltip>void WavStop()</Tooltip>
+      <Description>Stop the current sound effect.</Description>
+    </Command>
+    <Command>
+      <Name>winColor</Name>
+      <Code>winColor(^)</Code>
+      <Tooltip>void WinColor(int dos)</Tooltip>
+      <Description>Set the message window's colour using a DOS code. </Description>
+    </Command>
+    <Command>
+      <Name>winColorRgb</Name>
+      <Code>winColorRgb(^)</Code>
+      <Tooltip>void WinColorRGB(int r, int g, int b)</Tooltip>
+      <Description>Set the message window's colour. </Description>
+    </Command>
+    <Command>
+      <Name>winGraphic</Name>
+      <Code>winGraphic(^)</Code>
+      <Tooltip>void WinGraphic(string file)</Tooltip>
+      <Description>Set the message window background image.</Description>
+    </Command>
+    <Command>
+      <Name>windows</Name>
+      <Code>windows()^</Code>
+      <Tooltip>void Windows()</Tooltip>
+      <Description>Exit to windows.</Description>
+    </Command>
+    <Command>
+      <Name>wipe</Name>
+      <Code>wipe(^)</Code>
+      <Tooltip>void Wipe(string file, int effect [, int speed])</Tooltip>
+      <Description>Wipe' a graphic to the screen.
+</Description>
+    </Command>
+    <Command>
+      <Name>zoom</Name>
+      <Code>zoom(^)</Code>
+      <Tooltip>void Zoom(int percent)</Tooltip>
+      <Description>Zoom into the centre of the board by the specified percent. 
+
+</Description>
+    </Command>
+  </Commands>
+</RPGcode>
