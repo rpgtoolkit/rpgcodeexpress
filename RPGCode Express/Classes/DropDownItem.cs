@@ -26,9 +26,6 @@ using System.Text;
 
 namespace RPGCode_Express.Classes
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class DropDownItem
     {
         public DropDownType Type;
@@ -36,9 +33,6 @@ namespace RPGCode_Express.Classes
         public int Position;
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public enum DropDownType
     {
         Method, Global, Var

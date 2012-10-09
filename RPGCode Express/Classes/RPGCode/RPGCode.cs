@@ -26,14 +26,12 @@ using System.Collections;
 
 namespace RPGCode_Express.Classes.RPGCode
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class RPGcode : SerializableData
     {
         private Dictionary<string, Command> dictionary = new Dictionary<string, Command>();
-
         [XmlIgnore()]public ArrayList Items = new ArrayList();
+
+        #region Properties
 
         /// <summary>
         /// 
@@ -60,6 +58,10 @@ namespace RPGCode_Express.Classes.RPGCode
             }
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// 
         /// </summary>
@@ -72,16 +74,8 @@ namespace RPGCode_Express.Classes.RPGCode
             else
                 return null;
         }
-    }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public class Command : SerializableData
-    {
-        public string Name;
-        public string Code;
-        public string Tooltip;
-        public string Description;
+        #endregion
+
     }
 }

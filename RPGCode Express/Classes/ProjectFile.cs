@@ -28,32 +28,12 @@ using System.ComponentModel;
 
 namespace RPGCode_Express.Classes
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ProjectFile
     {
         private string fileName;
         private string fileLocation;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [CategoryAttribute("Information")]
-        [DisplayNameAttribute("File Name")]
-        [ReadOnlyAttribute(true)]
-        [Description("Name of the file or folder.")]
-        public string FileName
-        {
-            get
-            {
-                return fileName;
-            }
-            set
-            {
-                fileName = value;
-            }
-        }
+        #region Properties
 
         /// <summary>
         /// 
@@ -77,20 +57,37 @@ namespace RPGCode_Express.Classes
         /// <summary>
         /// 
         /// </summary>
-        public ProjectFile()
+        [CategoryAttribute("Information")]
+        [DisplayNameAttribute("File Name")]
+        [ReadOnlyAttribute(true)]
+        [Description("Name of the file or folder.")]
+        public string FileName
         {
-
+            get
+            {
+                return fileName;
+            }
+            set
+            {
+                fileName = value;
+            }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="file"></param>
-        /// <param name="path"></param>
+        #endregion
+
+        #region Methods 
+
         public ProjectFile(string file, string path)
         {
             this.fileName = file;
             this.fileLocation = path;
         }
+
+        public ProjectFile()
+        {
+
+        }
+
+        #endregion
     }
 }

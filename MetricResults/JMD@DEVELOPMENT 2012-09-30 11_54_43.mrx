@@ -1,0 +1,2279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="10">
+   <Targets>
+      <Target Name="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\bin\Debug\RPGCode Express.exe">
+         <Modules>
+            <Module Name="RPGCode Express.exe" AssemblyVersion="1.0.0.0" FileVersion="1.0.0.0">
+               <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="81" />
+                  <Metric Name="CyclomaticComplexity" Value="459" />
+                  <Metric Name="ClassCoupling" Value="209" />
+                  <Metric Name="DepthOfInheritance" Value="8" />
+                  <Metric Name="LinesOfCode" Value="2,123" />
+               </Metrics>
+               <Namespaces>
+                  <Namespace Name="RPGCode_Express.Classes">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="93" />
+                        <Metric Name="CyclomaticComplexity" Value="25" />
+                        <Metric Name="ClassCoupling" Value="9" />
+                        <Metric Name="DepthOfInheritance" Value="3" />
+                        <Metric Name="LinesOfCode" Value="49" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="ProjectFile">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="93" />
+                              <Metric Name="CyclomaticComplexity" Value="6" />
+                              <Metric Name="ClassCoupling" Value="4" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="10" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="FileName.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="49">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FileName.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="53">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FileLocation.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="68">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FileLocation.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="72">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectFile()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="80">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectFile(string, string)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ProjectFile.cs" Line="90">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="81" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="UndoRedoUpdateEventArgs">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="93" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="9" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="UndoState.get() : bool" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\UndoRedoUpdateEventArgs.cs" Line="40">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UndoState.set(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\UndoRedoUpdateEventArgs.cs" Line="44">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RedoState.get() : bool" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\UndoRedoUpdateEventArgs.cs" Line="55">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RedoState.set(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\UndoRedoUpdateEventArgs.cs" Line="59">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UndoRedoUpdateEventArgs(bool, bool)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\UndoRedoUpdateEventArgs.cs" Line="69">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="81" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="NodeClickEventArgs">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="85" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="2" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="10" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="File.get() : ProjectFile" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\NodeClickEventArgs.cs" Line="41">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FileName.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\NodeClickEventArgs.cs" Line="52">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FilePath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\NodeClickEventArgs.cs" Line="63">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="NodeClickEventArgs(ProjectFile)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\NodeClickEventArgs.cs" Line="72">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ExplorerItem">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="91" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="3" />
+                              <Metric Name="LinesOfCode" Value="9" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Type.get() : ExplorerItemType" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ExplorerItem.cs" Line="44">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Type.set(ExplorerItemType) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ExplorerItem.cs" Line="48">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Information.get() : ProjectFile" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ExplorerItem.cs" Line="59">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Information.set(ProjectFile) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ExplorerItem.cs" Line="66">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ExplorerItem()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\ExplorerItem.cs" Line="36">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ExplorerItemType">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="0" />
+                              <Metric Name="ClassCoupling" Value="0" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members />
+                        </Type>
+                        <Type Name="CaretPositionUpdateEventArgs">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="84" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="10" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="CurrentLine.get() : int" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\CaretPositionUpdateEventArgs.cs" Line="41">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="87" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CurrentColumn.get() : int" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\CaretPositionUpdateEventArgs.cs" Line="52">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="87" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CurrentCharacter.get() : int" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\CaretPositionUpdateEventArgs.cs" Line="63">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="87" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CaretPositionUpdateEventArgs(int, int, int)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\CaretPositionUpdateEventArgs.cs" Line="71">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="DropDownItem">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="1" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="DropDownItem()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="DropDownType">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="0" />
+                              <Metric Name="ClassCoupling" Value="0" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members />
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="RPGCode_Express">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="78" />
+                        <Metric Name="CyclomaticComplexity" Value="390" />
+                        <Metric Name="ClassCoupling" Value="189" />
+                        <Metric Name="DepthOfInheritance" Value="8" />
+                        <Metric Name="LinesOfCode" Value="1,884" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="PropertiesWindow">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="70" />
+                              <Metric Name="CyclomaticComplexity" Value="6" />
+                              <Metric Name="ClassCoupling" Value="12" />
+                              <Metric Name="DepthOfInheritance" Value="8" />
+                              <Metric Name="LinesOfCode" Value="23" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Dispose(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\PropertiesWindow.Designer.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="80" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InitializeComponent() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\PropertiesWindow.Designer.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="56" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="16" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="PropertiesWindow()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\PropertiesWindow.Designer.cs" Line="8">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SetGridItem(object) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\PropertiesWindow.cs" Line="46">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="Options">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="50" />
+                              <Metric Name="CyclomaticComplexity" Value="11" />
+                              <Metric Name="ClassCoupling" Value="34" />
+                              <Metric Name="DepthOfInheritance" Value="7" />
+                              <Metric Name="LinesOfCode" Value="180" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Dispose(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.Designer.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="80" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InitializeComponent() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.Designer.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="26" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="26" />
+                                    <Metric Name="LinesOfCode" Value="160" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EditorFont.get() : Font" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.cs" Line="39">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Options(Font)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.Designer.cs" Line="8">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="LoadSystemFonts() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.cs" Line="56">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="btnOk_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.cs" Line="72">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="btnCancel_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.cs" Line="78">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboItemColour_DrawItem(object, DrawItemEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Options.cs" Line="83">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ProjectExplorer">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="61" />
+                              <Metric Name="CyclomaticComplexity" Value="97" />
+                              <Metric Name="ClassCoupling" Value="71" />
+                              <Metric Name="DepthOfInheritance" Value="8" />
+                              <Metric Name="LinesOfCode" Value="394" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Dispose(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.Designer.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="80" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InitializeComponent() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.Designer.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="27" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="37" />
+                                    <Metric Name="LinesOfCode" Value="149" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="NodeClick.add(ProjectExplorer.NodeClickHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="NodeClick.remove(ProjectExplorer.NodeClickHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="NodeDoubleClick.add(ProjectExplorer.NodeDoubleClickHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="NodeDoubleClick.remove(ProjectExplorer.NodeDoubleClickHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Title.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="51">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Title.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="55">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="66">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="70">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectExplorer()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.Designer.cs" Line="8">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnNodeClick(NodeClickEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="92">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnNodeDoubleClick(NodeClickEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="104">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="PopulateTreeView() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="115">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="62" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="10" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EnableNodeEdit() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="134">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="72" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="DeleteFile() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="151">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CheckFileName(string, ExplorerItem) : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="179">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CreateNewFile() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="196">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="51" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="21" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RenameFile(NodeLabelEditEventArgs, ExplorerItem) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="239">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="58" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectExplorer_Load(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="266">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_AfterLabelEdit(object, NodeLabelEditEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="271">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_BeforeCollapse(object, TreeViewCancelEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="287">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_BeforeExpand(object, TreeViewCancelEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="293">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="50" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="23" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_MouseDown(object, MouseEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="330">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_NodeMouseDoubleClick(object, TreeNodeMouseClickEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="336">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="btnRefresh_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="348">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="btnCollapseAll_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="353">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="btnOpen_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="358">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_ItemDrag(object, ItemDragEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="363">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_DragEnter(object, DragEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="368">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="78" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_DragOver(object, DragEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="376">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="6" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_DragDrop(object, DragEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="412">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="52" />
+                                    <Metric Name="CyclomaticComplexity" Value="6" />
+                                    <Metric Name="ClassCoupling" Value="11" />
+                                    <Metric Name="LinesOfCode" Value="19" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cmsFileBrowser_Opening(object, CancelEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="447">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="50" />
+                                    <Metric Name="CyclomaticComplexity" Value="11" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="21" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemNew_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="483">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="81" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="newFolderToolStripMenuItem_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="491">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="52" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="20" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemOpenWindowsExplorer_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="528">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="89" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemOpen_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="533">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemDelete_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="538">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemRename_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="543">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_KeyPress(object, KeyPressEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="549">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="treFileBrowser_AfterSelect(object, TreeViewEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\ProjectExplorer.cs" Line="566">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="70" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ProjectExplorer.NodeClickHandler">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="NodeClickHandler(object, IntPtr)">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Invoke(object, NodeClickEventArgs) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BeginInvoke(object, NodeClickEventArgs, AsyncCallback, object) : IAsyncResult">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EndInvoke(IAsyncResult) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ProjectExplorer.NodeDoubleClickHandler">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="NodeDoubleClickHandler(object, IntPtr)">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Invoke(object, NodeClickEventArgs) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BeginInvoke(object, NodeClickEventArgs, AsyncCallback, object) : IAsyncResult">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EndInvoke(IAsyncResult) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="Program">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="81" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="3" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Main() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Program.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="81" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="MainMdi">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="58" />
+                              <Metric Name="CyclomaticComplexity" Value="100" />
+                              <Metric Name="ClassCoupling" Value="74" />
+                              <Metric Name="DepthOfInheritance" Value="7" />
+                              <Metric Name="LinesOfCode" Value="722" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Dispose(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.Designer.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="80" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InitializeComponent() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.Designer.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="11" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="36" />
+                                    <Metric Name="LinesOfCode" Value="487" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ConfigurationFilePath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="71">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="85" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RPGCodeReferencePath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="82">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="85" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ActiveContent.get() : DockContent" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="93">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="87" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CurrentCodeEditor.get() : CodeEditor" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="104">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="89" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Title.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="115">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Title.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="119">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="130">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="134">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="IsProjectOpen.get() : bool" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="145">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="IsProjectOpen.set(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="149">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EditorFont.get() : Font" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="160">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EditorFont.set(Font) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="164">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="MainMdi()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.Designer.cs" Line="8">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="53" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="15" />
+                                    <Metric Name="LinesOfCode" Value="19" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OpenCodeEditor(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="208">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OpenProgram() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="229">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="67" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CheckToolkitInstall(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="244">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="10" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="LocateToolkit() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="269">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SaveFile(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="292">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="68" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OpenProject() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="311">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="12" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="LoadProject() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="351">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="60" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="10" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CreateBasicLayout() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="381">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ShowProjectExplorer() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="390">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="56" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ShowPropertiesWindow() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="428">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="64" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CloseAllDocks() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="453">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UpdateEditorFonts() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="464">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="68" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ToogleActionButtons() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="482">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="52" />
+                                    <Metric Name="CyclomaticComplexity" Value="6" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="21" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ToogleMenuButtons(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="520">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="65" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ToogleToolstripButtons(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="537">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="67" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CodeEditor_CaretMove(object, CaretPositionUpdateEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="558">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CodeEditor_UndoRedoUpdated(object, UndoRedoUpdateEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="570">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectExplorer_NodeDoubleClick(object, NodeClickEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="583">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectExplorer_NodeClick(object, NodeClickEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="593">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="84" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemNew_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="603">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemOpen_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="608">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemOpenProject_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="613">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemSave_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="618">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemSaveAs_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="623">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemSaveAll_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="628">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemExit_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="642">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemUndo_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="647">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemRedo_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="652">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCut_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="657">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCopy_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="662">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemPaste_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="667">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemSelectAll_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="672">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemQuickFind_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="677">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemQuickReplace_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="682">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="tspButtonCommentSelected_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="687">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="94" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemProjectExplorer_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="692">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemPropertiesWindow_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="697">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemOptions_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="702">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="72" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemNewWindow_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="714">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="tspButtonRunProgram_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="719">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="65" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCloseAll_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="735">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="dockPanel_ActiveContentChanged(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="740">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="dockPanel_ContentRemoved(object, DockContentEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\MainMdi.cs" Line="745">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="72" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="CodeEditor">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="60" />
+                              <Metric Name="CyclomaticComplexity" Value="159" />
+                              <Metric Name="ClassCoupling" Value="118" />
+                              <Metric Name="DepthOfInheritance" Value="8" />
+                              <Metric Name="LinesOfCode" Value="562" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="CaretUpdated.add(CodeEditor.CaretPositionUpdateHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CaretUpdated.remove(CodeEditor.CaretPositionUpdateHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UndoRedoUpdated.add(CodeEditor.UndoRedoUpdateHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UndoRedoUpdated.remove(CodeEditor.UndoRedoUpdateHandler) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="IsUpdated.get() : bool" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="69">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProgramFile.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="80">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProgramFile.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="84">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="100">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ProjectPath.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="104">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CodeEditor(RPGcode)" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="45">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="53" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="20" />
+                                    <Metric Name="LinesOfCode" Value="19" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Save() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="138">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="73" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SaveAs() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="153">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="57" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="15" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="WriteToFile() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="184">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="68" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ReadFile() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="202">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="71" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="UpdateFile() : DialogResult" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="221">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="72" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BuildAutocompleteMenu() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="236">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="43" />
+                                    <Metric Name="CyclomaticComplexity" Value="22" />
+                                    <Metric Name="ClassCoupling" Value="17" />
+                                    <Metric Name="LinesOfCode" Value="23" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="AddFileDeclarations() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="277">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="60" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="AddFileIncludes() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="301">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="59" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ReadIncludedFile(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="327">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="62" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="AddLocalVariables() : ArrayList" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="349">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="60" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="10" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FindClasses(string) : ArrayList" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="374">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="61" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FindMethods(string) : ArrayList" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="396">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="57" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="12" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FindVariables(string) : ArrayList" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="424">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="53" />
+                                    <Metric Name="CyclomaticComplexity" Value="7" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="16" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="PopulateClassExplorer() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="460">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="57" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="12" />
+                                    <Metric Name="LinesOfCode" Value="12" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="PopulateObjectExplorer() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="487">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="44" />
+                                    <Metric Name="CyclomaticComplexity" Value="9" />
+                                    <Metric Name="ClassCoupling" Value="13" />
+                                    <Metric Name="LinesOfCode" Value="32" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CancelTooltip() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="546">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="87" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_SelectionChanged(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="561">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="73" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnCaretUpdated(CaretPositionUpdateEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="574">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_UndoRedoStateChanged(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="580">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnUndoRedoUpdated(UndoRedoUpdateEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="590">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CodeEditor_Load(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="600">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="79" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CodeEditor_FormClosing(object, FormClosingEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="607">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="79" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="popupMenu_Opening(object, CancelEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="614">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="58" />
+                                    <Metric Name="CyclomaticComplexity" Value="11" />
+                                    <Metric Name="ClassCoupling" Value="15" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="tmrCommandTooltip_Tick(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="632">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="55" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="14" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_SelectionChangedDelayed(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="661">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="58" />
+                                    <Metric Name="CyclomaticComplexity" Value="6" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_TextChangedDelayed(object, TextChangedEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="683">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="61" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_KeyDown(object, KeyEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="702">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="82" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_MouseMove(object, MouseEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="708">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="txtCodeEditor_MouseLeave(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="719">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboClassExplorer_DrawItem(object, DrawItemEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="724">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="55" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="12" />
+                                    <Metric Name="LinesOfCode" Value="13" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboClassExplorer_Enter(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="749">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboClassExplorer_SelectedIndexChanged(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="754">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboObjectExplorer_DrawItem(object, DrawItemEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="766">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="50" />
+                                    <Metric Name="CyclomaticComplexity" Value="7" />
+                                    <Metric Name="ClassCoupling" Value="13" />
+                                    <Metric Name="LinesOfCode" Value="20" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboObjectExplorer_Enter(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="804">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="cboObjectExplorer_SelectedIndexChanged(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="809">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCut_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="821">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCopy_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="826">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemPaste_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="831">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemSelectAll_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="836">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemUndo_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="841">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemRedo_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="846">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemFind_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="851">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemReplace_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="856">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemCommentSelected_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="861">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="mnuItemUncommandSlected_Click(object, EventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.cs" Line="866">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="98" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Dispose(bool) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.Designer.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="80" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InitializeComponent() : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\CodeEditor.Designer.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="22" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="47" />
+                                    <Metric Name="LinesOfCode" Value="203" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="CodeEditor.CaretPositionUpdateHandler">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="CaretPositionUpdateHandler(object, IntPtr)">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Invoke(object, CaretPositionUpdateEventArgs) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BeginInvoke(object, CaretPositionUpdateEventArgs, AsyncCallback, object) : IAsyncResult">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EndInvoke(IAsyncResult) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="CodeEditor.UndoRedoUpdateHandler">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="4" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="UndoRedoUpdateHandler(object, IntPtr)">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Invoke(object, UndoRedoUpdateEventArgs) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BeginInvoke(object, UndoRedoUpdateEventArgs, AsyncCallback, object) : IAsyncResult">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="EndInvoke(IAsyncResult) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="RPGCode_Express.Classes.RPGCode">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="76" />
+                        <Metric Name="CyclomaticComplexity" Value="9" />
+                        <Metric Name="ClassCoupling" Value="6" />
+                        <Metric Name="DepthOfInheritance" Value="2" />
+                        <Metric Name="LinesOfCode" Value="27" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="Autocomplete">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="55" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="2" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="10" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Autocomplete()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\RPGCode\AutoComplete.cs" Line="34">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="55" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="10" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="RPGcode">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="74" />
+                              <Metric Name="CyclomaticComplexity" Value="7" />
+                              <Metric Name="ClassCoupling" Value="5" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="16" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Commands.get() : Command[]" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\RPGCode\RPGCode.cs" Line="44">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Commands.set(Command[]) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\RPGCode\RPGCode.cs" Line="50">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="FindCommand(string) : Command" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\RPGCode\RPGCode.cs" Line="69">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RPGcode()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\RPGCode\RPGCode.cs" Line="34">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="83" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="Command">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="1" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Command()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="RPGCode_Express.Classes.Utilities">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="84" />
+                        <Metric Name="CyclomaticComplexity" Value="12" />
+                        <Metric Name="ClassCoupling" Value="7" />
+                        <Metric Name="DepthOfInheritance" Value="2" />
+                        <Metric Name="LinesOfCode" Value="31" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="SerializableData">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="73" />
+                              <Metric Name="CyclomaticComplexity" Value="7" />
+                              <Metric Name="ClassCoupling" Value="6" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="24" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Save(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\SerializableData.cs" Line="41">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="64" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Save(Stream) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\SerializableData.cs" Line="63">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="83" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Load(string, Type) : object" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\SerializableData.cs" Line="75">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Load(Stream, Type) : object" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\SerializableData.cs" Line="95">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SerializableData()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ConfigurationFile">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="94" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="7" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Title.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\ConfigurationFile.cs" Line="43">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Title.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\ConfigurationFile.cs" Line="47">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Path.get() : string" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\ConfigurationFile.cs" Line="58">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Path.set(string) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Utilities\ConfigurationFile.cs" Line="62">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ConfigurationFile()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="RPGCode_Express.Classes.Renders">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="58" />
+                        <Metric Name="CyclomaticComplexity" Value="23" />
+                        <Metric Name="ClassCoupling" Value="25" />
+                        <Metric Name="DepthOfInheritance" Value="3" />
+                        <Metric Name="LinesOfCode" Value="132" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="Colours">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="51" />
+                              <Metric Name="CyclomaticComplexity" Value="2" />
+                              <Metric Name="ClassCoupling" Value="6" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="36" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="DrawRoundedRectangle(Graphics, int, int, int, int, int, Color) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\Colours.cs" Line="71">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="14" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Colours()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\Colours.cs" Line="35">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="49" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="22" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="MenuRender">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="61" />
+                              <Metric Name="CyclomaticComplexity" Value="16" />
+                              <Metric Name="ClassCoupling" Value="20" />
+                              <Metric Name="DepthOfInheritance" Value="2" />
+                              <Metric Name="LinesOfCode" Value="73" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="InitializeItem(ToolStripItem) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="42">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="85" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Initialize(ToolStrip) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="48">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="85" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderToolStripBackground(ToolStripRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="55">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderImageMargin(ToolStripRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="65">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="15" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderItemCheck(ToolStripItemImageRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="94">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderSeparator(ToolStripSeparatorRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="123">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="65" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderArrow(ToolStripArrowRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="137">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="85" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderMenuItemBackground(ToolStripItemRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="144">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="46" />
+                                    <Metric Name="CyclomaticComplexity" Value="7" />
+                                    <Metric Name="ClassCoupling" Value="11" />
+                                    <Metric Name="LinesOfCode" Value="24" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="MenuRender()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\MenuRender.cs" Line="38">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ToolstripRender">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="63" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="12" />
+                              <Metric Name="DepthOfInheritance" Value="3" />
+                              <Metric Name="LinesOfCode" Value="23" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="OnRenderToolStripBackground(ToolStripRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\ToolstripRender.cs" Line="39">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="OnRenderButtonBackground(ToolStripItemRenderEventArgs) : void" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\ToolstripRender.cs" Line="53">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="53" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="10" />
+                                    <Metric Name="LinesOfCode" Value="16" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ToolstripRender()" File="C:\Documents and Settings\JMD\My Documents\Visual Studio 2010\Projects\RPGCode Express\RPGCode Express\Classes\Renders\ToolstripRender.cs" Line="35">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+               </Namespaces>
+            </Module>
+         </Modules>
+      </Target>
+   </Targets>
+</CodeMetricsReport>

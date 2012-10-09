@@ -1,9 +1,9 @@
 ﻿/*
  ********************************************************************
- * RPGCode Express Version 1
+ * RPGCode Express
  * This file copyright (C) 2012  Joshua Michael Daly
  ********************************************************************
- * This file is part of RPGCode Express Version 1.
+ * This file is part of RPGCode Express.
  *
  * RPGCode Express is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,33 +21,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
+using RPGCode_Express.Classes.Utilities;
 
-namespace RPGCode_Express
+namespace RPGCode_Express.Classes.RPGCode
 {
-    public partial class PropertiesWindow : WeifenLuo.WinFormsUI.Docking.DockContent
+    public class Command : SerializableData
     {
-        #region methods
-
-        public PropertiesWindow()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// Set's the forms current PropertyGrid's item, to display.
-        /// </summary>
-        /// <param name="item">The object to display in the PropertyGrid.</param>
-        public void SetGridItem(object item)
-        {
-            propertyGrid1.SelectedObject = item;
-        }
-
-        #endregion
+        public string Name;
+        public string Code;
+        public string Tooltip;
+        public string Description;
     }
 }

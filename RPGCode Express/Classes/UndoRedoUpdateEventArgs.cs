@@ -21,31 +21,56 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
-namespace RPGCode_Express
+namespace RPGCode_Express.Classes
 {
-    public partial class PropertiesWindow : WeifenLuo.WinFormsUI.Docking.DockContent
+    public class UndoRedoUpdateEventArgs : System.EventArgs
     {
-        #region methods
+        private bool undo;
+        private bool redo;
 
-        public PropertiesWindow()
+        #region Properties
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool RedoState
         {
-            InitializeComponent();
+            get
+            {
+                return redo;
+            }
+            set
+            {
+                redo = value;
+            }
         }
 
         /// <summary>
-        /// Set's the forms current PropertyGrid's item, to display.
+        /// 
         /// </summary>
-        /// <param name="item">The object to display in the PropertyGrid.</param>
-        public void SetGridItem(object item)
+        public bool UndoState
         {
-            propertyGrid1.SelectedObject = item;
+            get
+            {
+                return undo;
+            }
+            set
+            {
+                undo = value;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        public UndoRedoUpdateEventArgs(bool undoValue, bool redoValue)
+        {
+            this.undo = undoValue;
+            this.redo = redoValue;
         }
 
         #endregion

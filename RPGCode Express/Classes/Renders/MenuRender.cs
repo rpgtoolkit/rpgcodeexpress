@@ -30,12 +30,17 @@ using System.Windows.Forms;
 
 namespace RPGCode_Express.Classes.Renders
 {
-    /// <summary>
-    /// 
-    /// </summary>
     class MenuRender : System.Windows.Forms.ToolStripRenderer
     {
         Colours Colours = new Colours();
+
+        #region Methods
+
+        protected override void Initialize(System.Windows.Forms.ToolStrip toolStrip)
+        {
+            base.Initialize(toolStrip);
+            toolStrip.ForeColor = Color.Black;
+        }
 
         //Make sure the textcolor is black
         protected override void InitializeItem(System.Windows.Forms.ToolStripItem item)
@@ -44,20 +49,11 @@ namespace RPGCode_Express.Classes.Renders
             item.ForeColor = Color.Black;
         }
 
-        protected override void Initialize(System.Windows.Forms.ToolStrip toolStrip)
+        //Render arrow
+        protected override void OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs e)
         {
-            base.Initialize(toolStrip);
-            toolStrip.ForeColor = Color.Black;
-        }
-
-        //Render horizontal background gradient
-        protected override void OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs e)
-        {
-            base.OnRenderToolStripBackground(e);
-
-           LinearGradientBrush brush = new LinearGradientBrush(e.AffectedBounds, Colours.HorizontalGrayBlue, Colours.HorizontalWhite,
-               LinearGradientMode.Horizontal);
-           e.Graphics.FillRectangle(brush, e.AffectedBounds);
+            e.ArrowColor = Color.Black;
+            base.OnRenderArrow(e);
         }
 
         //Render Image Margin and gray item background
@@ -118,27 +114,6 @@ namespace RPGCode_Express.Classes.Renders
             }
         }
 
-        //Render separator
-        protected override void OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs e)
-        {
-            base.OnRenderSeparator(e);
-
-            SolidBrush darkLine = new SolidBrush(Colours.ImageMarginLine);
-            SolidBrush whiteLine = new SolidBrush(Color.White);
-            Rectangle rectangle = new Rectangle(32, 3, e.Item.Width - 32, 1);
-            Rectangle rectangle2 = new Rectangle(32, 4, e.Item.Width - 32, 1);
-
-            e.Graphics.FillRectangle(darkLine, rectangle);
-            e.Graphics.FillRectangle(whiteLine, rectangle2);
-        }
-
-        //Render arrow
-        protected override void OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs e)
-        {
-            e.ArrowColor = Color.Black;
-            base.OnRenderArrow(e);
-        }
-
         //Render Menuitem background: lightblue if selected, darkblue if dropped down
         protected override void OnRenderMenuItemBackground(System.Windows.Forms.ToolStripItemRenderEventArgs e)
         {
@@ -170,7 +145,7 @@ namespace RPGCode_Express.Classes.Renders
 
                 ToolStripMenuItem menuItem = (ToolStripMenuItem)e.Item;
 
-                if ( menuItem.DropDown.Visible & menuItem.IsOnDropDown == false)
+                if (menuItem.DropDown.Visible & menuItem.IsOnDropDown == false)
                 {
                     Rectangle rectangle = new Rectangle(3, 2, e.Item.Width - 6, e.Item.Height - 4);
                     LinearGradientBrush gradientBrush = new LinearGradientBrush(rectangle, Color.White, Colours.SelectedDropBlue, LinearGradientMode.Vertical);
@@ -182,5 +157,32 @@ namespace RPGCode_Express.Classes.Renders
                 }
             }
         }
+
+        //Render separator
+        protected override void OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs e)
+        {
+            base.OnRenderSeparator(e);
+
+            SolidBrush darkLine = new SolidBrush(Colours.ImageMarginLine);
+            SolidBrush whiteLine = new SolidBrush(Color.White);
+            Rectangle rectangle = new Rectangle(32, 3, e.Item.Width - 32, 1);
+            Rectangle rectangle2 = new Rectangle(32, 4, e.Item.Width - 32, 1);
+
+            e.Graphics.FillRectangle(darkLine, rectangle);
+            e.Graphics.FillRectangle(whiteLine, rectangle2);
+        }
+
+        //Render horizontal background gradient
+        protected override void OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs e)
+        {
+            base.OnRenderToolStripBackground(e);
+
+           LinearGradientBrush brush = new LinearGradientBrush(e.AffectedBounds, Colours.HorizontalGrayBlue, Colours.HorizontalWhite,
+               LinearGradientMode.Horizontal);
+           e.Graphics.FillRectangle(brush, e.AffectedBounds);
+        }
+
+        #endregion
+
     }
 }

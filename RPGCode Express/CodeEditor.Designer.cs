@@ -98,6 +98,7 @@
             this.txtCodeEditor.SelectionChanged += new System.EventHandler(this.txtCodeEditor_SelectionChanged);
             this.txtCodeEditor.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.txtCodeEditor_TextChangedDelayed);
             this.txtCodeEditor.SelectionChangedDelayed += new System.EventHandler(this.txtCodeEditor_SelectionChangedDelayed);
+            this.txtCodeEditor.UndoRedoStateChanged += new System.EventHandler<System.EventArgs>(this.txtCodeEditor_UndoRedoStateChanged);
             this.txtCodeEditor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodeEditor_KeyDown);
             this.txtCodeEditor.MouseLeave += new System.EventHandler(this.txtCodeEditor_MouseLeave);
             this.txtCodeEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.txtCodeEditor_MouseMove);

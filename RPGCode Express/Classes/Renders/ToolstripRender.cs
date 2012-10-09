@@ -34,19 +34,7 @@ namespace RPGCode_Express.Classes.Renders
     {
         Colours Colours = new Colours();
 
-        //Render container background gradient
-        protected override void OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs e)
-        {
-            base.OnRenderToolStripBackground(e);
-
-            LinearGradientBrush gradientBrush = new LinearGradientBrush(e.AffectedBounds, Colours.VerticalWhite, Colours.VerticalGrayBlue,
-                LinearGradientMode.Vertical);
-            SolidBrush shadow = new SolidBrush(Colours.VerticalShadow);
-            Rectangle rectangle = new Rectangle(0, e.ToolStrip.Height - 2, e.ToolStrip.Width, 1);
-
-            e.Graphics.FillRectangle(gradientBrush, e.AffectedBounds);
-            e.Graphics.FillRectangle(shadow, rectangle);
-        }
+        #region Methods
 
         //Render button selected and pressed state
         protected override void OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs e)
@@ -78,5 +66,22 @@ namespace RPGCode_Express.Classes.Renders
                 e.Graphics.FillRectangle(gradientBrush, rectangle);
             }
         }
+
+        //Render container background gradient
+        protected override void OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs e)
+        {
+            base.OnRenderToolStripBackground(e);
+
+            LinearGradientBrush gradientBrush = new LinearGradientBrush(e.AffectedBounds, Colours.VerticalWhite, Colours.VerticalGrayBlue,
+                LinearGradientMode.Vertical);
+            SolidBrush shadow = new SolidBrush(Colours.VerticalShadow);
+            Rectangle rectangle = new Rectangle(0, e.ToolStrip.Height - 2, e.ToolStrip.Width, 1);
+
+            e.Graphics.FillRectangle(gradientBrush, e.AffectedBounds);
+            e.Graphics.FillRectangle(shadow, rectangle);
+        }
+
+        #endregion
+
     }
 }

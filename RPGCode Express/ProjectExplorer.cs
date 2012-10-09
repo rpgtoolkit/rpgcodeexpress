@@ -76,36 +76,9 @@ namespace RPGCode_Express
 
         #region Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
         public ProjectExplorer()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="e"></param>
-        protected virtual void OnNodeClick(NodeClickEventArgs e)
-        {
-            if (NodeClick != null)
-            {
-                NodeClick(this, e);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="e"></param>
-        protected virtual void OnNodeDoubleClick(NodeClickEventArgs e)
-        {
-            if (NodeDoubleClick != null)
-            {
-                NodeDoubleClick(this, e);
-            }
         }
 
         /// <summary>
@@ -125,49 +98,6 @@ namespace RPGCode_Express
             rootNode.Expand();
 
             treFileBrowser.Nodes.Add(rootNode);
-        }
-
-        /// <summary>
-        /// Toogle whether or not nodes labels can be edited based on the current selected node.
-        /// </summary>
-        private void EnableNodeEdit()
-        {
-            if (treFileBrowser.SelectedNode != null)
-            {
-                if (treFileBrowser.SelectedNode.Parent != null)
-                {
-                    treFileBrowser.LabelEdit = true;
-                    return;
-                }
-            }
-
-            treFileBrowser.LabelEdit = false;
-        }
-
-        /// <summary>
-        /// Deletes the file or folder the node represents.
-        /// </summary>
-        private void DeleteFile()
-        {
-            if (MessageBox.Show(treFileBrowser.SelectedNode.Text + " will be deleted permanently.", "RPGCode Express", MessageBoxButtons.OKCancel,
-                          MessageBoxIcon.Warning) == DialogResult.OK)
-            {
-                try
-                {
-                    ExplorerItem deleteNode = (ExplorerItem)treFileBrowser.SelectedNode;
-
-                    if (deleteNode.Type == ExplorerItemType.Folder)
-                        Directory.Delete(treFileBrowser.SelectedNode.Tag.ToString(), true);
-                    else
-                        File.Delete(treFileBrowser.SelectedNode.Tag.ToString());
-
-                    treFileBrowser.SelectedNode.Remove();
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         /// <summary>
@@ -231,6 +161,49 @@ namespace RPGCode_Express
         }
 
         /// <summary>
+        /// Deletes the file or folder the node represents.
+        /// </summary>
+        private void DeleteFile()
+        {
+            if (MessageBox.Show(treFileBrowser.SelectedNode.Text + " will be deleted permanently.", "RPGCode Express", MessageBoxButtons.OKCancel,
+                          MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                try
+                {
+                    ExplorerItem deleteNode = (ExplorerItem)treFileBrowser.SelectedNode;
+
+                    if (deleteNode.Type == ExplorerItemType.Folder)
+                        Directory.Delete(treFileBrowser.SelectedNode.Tag.ToString(), true);
+                    else
+                        File.Delete(treFileBrowser.SelectedNode.Tag.ToString());
+
+                    treFileBrowser.SelectedNode.Remove();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Toogle whether or not nodes labels can be edited based on the current selected node.
+        /// </summary>
+        private void EnableNodeEdit()
+        {
+            if (treFileBrowser.SelectedNode != null)
+            {
+                if (treFileBrowser.SelectedNode.Parent != null)
+                {
+                    treFileBrowser.LabelEdit = true;
+                    return;
+                }
+            }
+
+            treFileBrowser.LabelEdit = false;
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="e"></param>
@@ -260,7 +233,27 @@ namespace RPGCode_Express
 
         #endregion 
 
-        #region Generated Events
+        #region Custom Events
+
+        protected virtual void OnNodeClick(NodeClickEventArgs e)
+        {
+            if (NodeClick != null)
+            {
+                NodeClick(this, e);
+            }
+        }
+
+        protected virtual void OnNodeDoubleClick(NodeClickEventArgs e)
+        {
+            if (NodeDoubleClick != null)
+            {
+                NodeDoubleClick(this, e);
+            }
+        }
+
+        #endregion
+
+        #region Events
 
         private void ProjectExplorer_Load(object sender, EventArgs e)
         {

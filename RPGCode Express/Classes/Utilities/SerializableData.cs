@@ -28,42 +28,11 @@ using System.Xml.Serialization;
 
 namespace RPGCode_Express.Classes.Utilities
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class SerializableData
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="filename"></param>
-        public void Save(string filename)
-        {
-            string tempFilename = filename + ".tmp";
 
-            FileInfo tempFileInfo = new FileInfo(tempFilename);
-
-            if (tempFileInfo.Exists == true)
-                tempFileInfo.Delete();
-
-            FileStream stream = new FileStream(tempFilename, FileMode.Create);
-
-            Save(stream);
-            stream.Close();
-
-            tempFileInfo.CopyTo(filename, true);
-            tempFileInfo.Delete();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="stream"></param>
-        public void Save(Stream stream)
-        {
-            XmlSerializer serializer = new XmlSerializer(this.GetType());
-            serializer.Serialize(stream, this);
-        }
+        #region Methods
 
         /// <summary>
         /// 
@@ -98,5 +67,40 @@ namespace RPGCode_Express.Classes.Utilities
 
             return newObject;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filename"></param>
+        public void Save(string filename)
+        {
+            string tempFilename = filename + ".tmp";
+
+            FileInfo tempFileInfo = new FileInfo(tempFilename);
+
+            if (tempFileInfo.Exists == true)
+                tempFileInfo.Delete();
+
+            FileStream stream = new FileStream(tempFilename, FileMode.Create);
+
+            Save(stream);
+            stream.Close();
+
+            tempFileInfo.CopyTo(filename, true);
+            tempFileInfo.Delete();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stream"></param>
+        public void Save(Stream stream)
+        {
+            XmlSerializer serializer = new XmlSerializer(this.GetType());
+            serializer.Serialize(stream, this);
+        }
+
+        #endregion
+
     }
 }

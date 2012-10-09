@@ -26,14 +26,13 @@ using System.Text;
 
 namespace RPGCode_Express.Classes
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class NodeClickEventArgs : System.EventArgs
     {
         private string name;
         private string path;
         private ProjectFile item;
+
+        #region Properties
 
         public ProjectFile File
         {
@@ -65,15 +64,17 @@ namespace RPGCode_Express.Classes
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="file"></param>
+        #endregion
+
+        #region Methods
+
         public NodeClickEventArgs(ProjectFile projectFile)
         {
             item = projectFile;
             this.name = projectFile.FileName;
             this.path = projectFile.FileLocation;
         }
+
+        #endregion
     }
 }

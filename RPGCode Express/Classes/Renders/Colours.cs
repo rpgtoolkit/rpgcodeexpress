@@ -27,9 +27,6 @@ using System.Drawing;
 
 namespace RPGCode_Express.Classes.Renders
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class Colours
     {
         public Color HorizontalGrayBlue = Color.FromArgb(255, 233, 236, 250);

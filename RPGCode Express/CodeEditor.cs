@@ -55,6 +55,9 @@ namespace RPGCode_Express
         public event CaretPositionUpdateHandler CaretUpdated;
         public delegate void CaretPositionUpdateHandler(object sender, CaretPositionUpdateEventArgs e);
 
+        public event UndoRedoUpdateHandler UndoRedoUpdated;
+        public delegate void UndoRedoUpdateHandler(object sender, UndoRedoUpdateEventArgs e);
+
         #region Properties
 
         /// <summary>
@@ -107,10 +110,6 @@ namespace RPGCode_Express
 
         #region Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="currentRpgCode"></param>
         public CodeEditor(RPGcode currentRpgCode)
         {
             InitializeComponent();
@@ -175,54 +174,75 @@ namespace RPGCode_Express
         }
 
         /// <summary>
-        /// Writes the text in the code editor to a file.
+        /// Add all the imported autocomplete items to popup menu.
         /// </summary>
-        private void WriteToFile()
+        private void AddFileDeclarations()
         {
-            try
+            AddFileIncludes();
+
+            //Add all the classes to autocompletemenu
+            autocompleteItems.UserDefinedClasses.Clear();
+            autocompleteItems.UserDefinedClasses = FindClasses(txtCodeEditor.Text);
+            autocompleteItems.UserDefinedClasses.AddRange(autocompleteItems.IncludedClasses);
+
+            //Add all the methods to autocompletemenu
+            autocompleteItems.UserDefinedMethods.Clear();
+            autocompleteItems.UserDefinedMethods = FindMethods(txtCodeEditor.Text);
+            autocompleteItems.UserDefinedMethods.AddRange(autocompleteItems.IncludedMethods);
+
+            //Add all the variables to autocompletemenu
+            autocompleteItems.UserDefinedVariables.Clear();
+            autocompleteItems.UserDefinedVariables = AddLocalVariables();
+            autocompleteItems.UserDefinedVariables.AddRange(FindVariables(txtCodeEditor.Text));
+            autocompleteItems.UserDefinedVariables.AddRange(autocompleteItems.IncludedVariables);
+        }
+
+        /// <summary>
+        /// Looks for included files, and adds a reference to them.
+        /// </summary>
+        private void AddFileIncludes()
+        {
+            Regex expression = new Regex(@"^(?<range>[\w\s]*#?\b(include)\s*\(?"".+""\)?)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+            foreach (Match match in expression.Matches(txtCodeEditor.Text))
             {
-                TextWriter textWriter = new StreamWriter(currentFilePath);
-                textWriter.Write(txtCodeEditor.Text);
-                textWriter.Close();
-                updateNeeded = false;
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string fileInclude = match.Value.Trim();
+                int position = fileInclude.IndexOf('"') + 1;
+
+                //Get the files name from in between the quotes "...".
+                fileInclude = fileInclude.Substring(position, fileInclude.LastIndexOf('"') - position);
+                fileInclude = projectDirectory + fileInclude;
+
+                if (!File.Exists(fileInclude))
+                    continue; //File doesn't exist.
+                else if (fileIncludes.ContainsKey(fileInclude))
+                    continue; //We already have it indexed.
+                else
+                    ReadIncludedFile(fileInclude);
             }
         }
 
         /// <summary>
-        /// Read the contents of a file into the code editor.
+        /// Add the locally defined variables.
         /// </summary>
-        private void ReadFile()
+        private ArrayList AddLocalVariables()
         {
-            try
+            ArrayList locals = new ArrayList();
+            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(local)\(+\w+\)+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+            foreach (Match match in expression.Matches(txtCodeEditor.Text))
             {
-                TextReader textReader = new StreamReader(currentFilePath);
-                txtCodeEditor.Text = textReader.ReadToEnd();
-                textReader.Close();
+                string definedVariable = match.Value.Trim();
+                int position = definedVariable.IndexOf('(') + 1;
+
+                //Get the variable name between the brackets.
+                definedVariable = definedVariable.Substring(position, definedVariable.IndexOf(')') - position);
+
+                if (!locals.Contains(definedVariable))
+                    locals.Add(definedVariable);
             }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
-        /// <summary>
-        /// Prompts the user to save a file that needs updating, they can choose to cancel their action.
-        /// </summary>
-        /// <returns>Returns either Yes, No, or Cancel, which can be used by the caller
-        /// to determine whether or not they should save the file.</returns>
-        private DialogResult UpdateFile()
-        {
-            System.Windows.Forms.DialogResult result = MessageBox.Show("Do you want to save changes to " + currentFilePath,
-                "RPGCode Express", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-                Save();
-
-            return result;
+            return locals;
         }
 
         /// <summary>
@@ -267,102 +287,19 @@ namespace RPGCode_Express
             popupMenu.Items.SetAutocompleteItems(items);
         }
 
-        private void AddFileDeclarations()
-        {
-            AddFileIncludes();
-            
-            //Add all the classes to autocompletemenu
-            autocompleteItems.UserDefinedClasses.Clear();
-            autocompleteItems.UserDefinedClasses = FindClasses(txtCodeEditor.Text);
-            autocompleteItems.UserDefinedClasses.AddRange(autocompleteItems.IncludedClasses);
-
-            //Add all the methods to autocompletemenu
-            autocompleteItems.UserDefinedMethods.Clear();
-            autocompleteItems.UserDefinedMethods = FindMethods(txtCodeEditor.Text);
-            autocompleteItems.UserDefinedMethods.AddRange(autocompleteItems.IncludedMethods);
-
-            //Add all the variables to autocompletemenu
-            autocompleteItems.UserDefinedVariables.Clear();
-            autocompleteItems.UserDefinedVariables = AddLocalVariables();
-            autocompleteItems.UserDefinedVariables.AddRange(FindVariables(txtCodeEditor.Text));
-            autocompleteItems.UserDefinedVariables.AddRange(autocompleteItems.IncludedVariables);
-        }
-
         /// <summary>
-        /// Looks for included files, and adds a reference to them.
+        /// Stops the tooltip timer and tooltips for hoverwords.
         /// </summary>
-        private void AddFileIncludes()
+        private void CancelTooltip()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*#?\b(include)\s*\(?"".+""\)?)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-
-            foreach (Match match in expression.Matches(txtCodeEditor.Text))
-            {
-                string fileInclude = match.Value.Trim();
-                int position = fileInclude.IndexOf('"') + 1;
-
-                //Get the files name from in between the quotes "...".
-                fileInclude = fileInclude.Substring(position, fileInclude.LastIndexOf('"') - position);
-                fileInclude = projectDirectory + fileInclude;
-
-                if (!File.Exists(fileInclude))
-                    continue; //File doesn't exist.
-                else if (fileIncludes.ContainsKey(fileInclude))
-                    continue; //We already have it indexed.
-                else
-                   ReadIncludedFile(fileInclude);
-            }
-        }
-
-        /// <summary>
-        /// Read the text from the included file.
-        /// </summary>
-        /// <param name="file"></param>
-        private void ReadIncludedFile(string file)
-        {
-            try
-            {
-                TextReader textReader = new StreamReader(file);
-                string text = textReader.ReadToEnd();
-                textReader.Close();
-
-                fileIncludes.Add(file, text);
-                autocompleteItems.IncludedClasses.AddRange(FindClasses(text));
-                autocompleteItems.IncludedMethods.AddRange(FindMethods(text));
-                autocompleteItems.IncludedVariables.AddRange(FindVariables(text));
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// Add the locally defined variables.
-        /// </summary>
-        private ArrayList AddLocalVariables()
-        {
-            ArrayList locals = new ArrayList();
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(local)\(+\w+\)+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-
-            foreach (Match match in expression.Matches(txtCodeEditor.Text))
-            {
-                string definedVariable = match.Value.Trim();
-                int position = definedVariable.IndexOf('(') + 1;
-
-                //Get the variable name between the brackets.
-                definedVariable = definedVariable.Substring(position, definedVariable.IndexOf(')') - position);
-
-                if(!locals.Contains(definedVariable)) 
-                    locals.Add(definedVariable);
-            }
-
-            return locals;
+            tmrCommandTooltip.Stop();
+            Tooltip.Hide(this);
         }
 
         /// <summary>
         /// Find all of the classes/structs in a string of text, and return any matches.
         /// </summary>
-        /// <param name="text">Text to scan for.</param>
+        /// <param name="text">Text to scan.</param>
         /// <returns>A list of matches.</returns>
         private ArrayList FindClasses(string text)
         {
@@ -377,7 +314,7 @@ namespace RPGCode_Express
                 if (!classes.Contains(definedClass))
                     classes.Add(definedClass);
             }
-            
+
             return classes;
         }
 
@@ -426,8 +363,8 @@ namespace RPGCode_Express
 
                 definedVariable = definedVariable.Substring(position, definedVariable.IndexOf(')') - position);
 
-                
-                if(!variables.Contains(definedVariable))
+
+                if (!variables.Contains(definedVariable))
                     variables.Add(definedVariable);
             }
 
@@ -528,29 +465,89 @@ namespace RPGCode_Express
                 declarations.Add(item);
                 cboObjectExplorer.Items.Add(item.Title);
             }
-            
+
             //Sort them descending, alphabetically. 
             declarations.Sort(delegate(DropDownItem item1, DropDownItem item2) { return item1.Title.CompareTo(item2.Title); });
         }
 
         /// <summary>
-        /// Stops the tooltip timer and tooltips for hoverwords.
+        /// Read the contents of a file into the code editor.
         /// </summary>
-        private void CancelTooltip()
+        private void ReadFile()
         {
-            tmrCommandTooltip.Stop();
-            Tooltip.Hide(this);
+            try
+            {
+                TextReader textReader = new StreamReader(currentFilePath);
+                txtCodeEditor.Text = textReader.ReadToEnd();
+                textReader.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Read the text from the included file.
+        /// </summary>
+        /// <param name="file"></param>
+        private void ReadIncludedFile(string file)
+        {
+            try
+            {
+                TextReader textReader = new StreamReader(file);
+                string text = textReader.ReadToEnd();
+                textReader.Close();
+
+                fileIncludes.Add(file, text);
+                autocompleteItems.IncludedClasses.AddRange(FindClasses(text));
+                autocompleteItems.IncludedMethods.AddRange(FindMethods(text));
+                autocompleteItems.IncludedVariables.AddRange(FindVariables(text));
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Prompts the user to save a file that needs updating, they can choose to cancel their action.
+        /// </summary>
+        /// <returns>Returns either Yes, No, or Cancel, which can be used by the caller
+        /// to determine whether or not they should save the file.</returns>
+        private DialogResult UpdateFile()
+        {
+            System.Windows.Forms.DialogResult result = MessageBox.Show("Do you want to save changes to " + currentFilePath,
+                "RPGCode Express", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+                Save();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Writes the text in the code editor to a file.
+        /// </summary>
+        private void WriteToFile()
+        {
+            try
+            {
+                TextWriter textWriter = new StreamWriter(currentFilePath);
+                textWriter.Write(txtCodeEditor.Text);
+                textWriter.Close();
+                updateNeeded = false;
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
 
         #region Custom Events
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtCodeEditor_SelectionChanged(object sender, EventArgs e)
         {
             int currentLine = txtCodeEditor.Selection.Start.iLine;
@@ -560,14 +557,22 @@ namespace RPGCode_Express
             this.OnCaretUpdated(args);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="e"></param>
         protected virtual void OnCaretUpdated(CaretPositionUpdateEventArgs e)
         {
             if (CaretUpdated != null)
                 CaretUpdated(this, e);
+        }
+
+        private void txtCodeEditor_UndoRedoStateChanged(object sender, EventArgs e)
+        {
+            UndoRedoUpdateEventArgs args = new UndoRedoUpdateEventArgs(txtCodeEditor.UndoEnabled, txtCodeEditor.RedoEnabled);
+            this.OnUndoRedoUpdated(args);
+        }
+
+        protected virtual void OnUndoRedoUpdated(UndoRedoUpdateEventArgs e)
+        {
+            if (UndoRedoUpdated != null)
+                UndoRedoUpdated(this, e);
         }
 
         #endregion
@@ -577,6 +582,7 @@ namespace RPGCode_Express
         private void CodeEditor_Load(object sender, EventArgs e)
         {
             updateNeeded = false;
+            txtCodeEditor.ClearUndo();
             this.TabText = Path.GetFileName(currentFilePath);
         }
 

@@ -23,6 +23,7 @@ using System;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Drawing;
 using Microsoft.VisualBasic;
 using WeifenLuo.WinFormsUI.Docking;
 using RPGCode_Express.Classes;
@@ -32,20 +33,18 @@ using RPGCode_Express.Classes.Utilities;
 
 namespace RPGCode_Express
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class MainMdi : Form
     {
-        public const string ProgramVersion = "RPGCode Express 1.4a";
+        private const string programVersion = "RPGCode Express 1.4a";
 
-        public RPGcode RpgCodeReference = new RPGcode();
-        public ConfigurationFile Configuration = new ConfigurationFile();
+        private RPGcode rpgCodeReference = new RPGcode();
+        private ConfigurationFile configurationFile = new ConfigurationFile();
 
-        public string MainFolder;
-        public string GameFolder;
-        public string Toolkit3 = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit3\";
+        private string mainFolder;
+        private string gameFolder;
+        private string toolkitPath;
 
+        private bool engineExists;
         private bool projectLoaded;
         private string projectPath;
         private string projectTitle;
@@ -149,9 +148,6 @@ namespace RPGCode_Express
 
         #region Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
         public MainMdi()
         {
             InitializeComponent();
@@ -159,34 +155,130 @@ namespace RPGCode_Express
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
             ToolStripManager.Renderer = new ToolstripRender();
-            ((ToolstripRender)toolStrip.Renderer).RoundedEdges = false;
-
-            //Set path variables
-            MainFolder = Toolkit3 + @"main\";
-            GameFolder = Toolkit3 + @"game\";
-            projectPath = GameFolder;
+            ((ToolstripRender)toolStrip.Renderer).RoundedEdges = false; //Get rid of toolstrip rounded edges.
 
             //Load RPGCode Reference
             SerializableData serializer = new SerializableData();
-            RpgCodeReference = (RPGcode)serializer.Load(RPGCodeReferencePath, typeof(RPGcode));
+            rpgCodeReference = (RPGcode)serializer.Load(RPGCodeReferencePath, typeof(RPGcode));
 
-            //Check for a configuration file
-            if(File.Exists(ConfigurationFilePath))
-                LoadProject();
+            if (CheckToolkitInstall())
+            {
+                if (File.Exists(ConfigurationFilePath))
+                    LoadConfiguration();
+            }
 
             CreateBasicLayout();
+        }
+
+        /// <summary>
+        /// Check the current Toolkit install.
+        /// </summary>
+        private bool CheckToolkitInstall()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit3\";
+
+            if (Directory.Exists(path))
+            {
+                toolkitPath = path;
+
+                if (File.Exists(toolkitPath + "trans3.exe"))
+                    engineExists = true;
+                else
+                    engineExists = false;
+
+                if (Directory.Exists(toolkitPath + @"main\"))
+                    mainFolder = toolkitPath + @"main\";
+                else
+                    mainFolder = toolkitPath;
+
+                if (Directory.Exists(toolkitPath + @"game\"))
+                    gameFolder = toolkitPath + @"game\";
+                else
+                    gameFolder = toolkitPath;
+
+                projectPath = gameFolder;
+
+                return true;
+            }
+            else
+            {
+                projectTitle = "My Documents";
+                gameFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Closes all the open docks.
+        /// </summary>
+        private void CloseAllDocks()
+        {
+            ArrayList docks = new ArrayList(dockPanel.Contents);
+
+            foreach (DockContent childForm in docks)
+                childForm.Close();
+        }
+
+        /// <summary>
+        /// Sets up the editors basic layout including the Project Explorer and Properties windows.
+        /// </summary>
+        private void CreateBasicLayout()
+        {
+            ShowProjectExplorer();
+            ShowPropertiesWindow();
+        }
+
+        /// <summary>
+        /// Loads the information stored in the editors configuration file.
+        /// </summary>
+        private void LoadConfiguration()
+        {
+            try
+            {
+                SerializableData serializer = new SerializableData();
+                configurationFile = (ConfigurationFile)serializer.Load(ConfigurationFilePath, typeof(ConfigurationFile));
+
+                if (Directory.Exists(configurationFile.ProjectFolder))
+                {
+                    if (Directory.Exists(configurationFile.ProjectFolder + @"prg\"))
+                        projectPath = configurationFile.ProjectFolder + @"prg\";
+                    else
+                        projectPath = configurationFile.ProjectFolder;
+
+                    projectTitle = configurationFile.ProjectName;
+                }
+                else
+                {
+                    throw new DirectoryNotFoundException();
+                }
+
+                projectLoaded = true;
+                this.Text = configurationFile.ProjectName + " - " + programVersion;
+            }
+            catch (DirectoryNotFoundException)
+            {
+                string error = "The project folder " + configurationFile.ProjectFolder + " could not be found.";
+                MessageBox.Show(error, "Project Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                File.Delete(ConfigurationFilePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
         /// Opens a new code editor.
         /// </summary>
         /// <param name="file">The path of the program file to be opened.</param>
-        public void OpenCodeEditor(string file)
+        private void OpenCodeEditor(string file)
         {
             try
             {
-                CodeEditor newCodeEditor = new CodeEditor(RpgCodeReference);
+                CodeEditor newCodeEditor = new CodeEditor(rpgCodeReference);
                 newCodeEditor.CaretUpdated += new CodeEditor.CaretPositionUpdateHandler(CodeEditor_CaretMove);
+                newCodeEditor.UndoRedoUpdated += new CodeEditor.UndoRedoUpdateHandler(CodeEditor_UndoRedoUpdated);
                 newCodeEditor.ProjectPath = ProjectPath;
                 newCodeEditor.ProgramFile = file;
                 newCodeEditor.MdiParent = this;
@@ -201,7 +293,7 @@ namespace RPGCode_Express
         /// <summary>
         /// Displays a OpenFileDialog and prompts the user to open a RPGCode program file.
         /// </summary>
-        public void OpenProgram()
+        private void OpenProgram()
         {
             OpenFileDialog openProgramDialog = new OpenFileDialog();
             openProgramDialog.Filter = "RPGCode Programs (*.prg)|*.prg";
@@ -214,6 +306,65 @@ namespace RPGCode_Express
         }
 
         /// <summary>
+        /// Displays an OpenFileDialog and prompts the user to open a Toolkit project, writes the
+        /// changes to the Xml Configuration file, and loads the project into the editor.
+        /// </summary>
+        private void OpenProject()
+        {
+            OpenFileDialog openProjectDialog = new OpenFileDialog();
+            openProjectDialog.Filter = "Projects (*.gam)|*.gam";
+            openProjectDialog.Title = "Open Toolkit Project";
+            openProjectDialog.InitialDirectory = mainFolder;
+            openProjectDialog.FilterIndex = 1;
+
+            if (openProjectDialog.ShowDialog() == DialogResult.OK)
+            {
+                SaveConfiguration(openProjectDialog.SafeFileName);
+                LoadConfiguration();
+                CloseAllDocks();
+                CreateBasicLayout();
+            }
+        }
+
+        /// <summary>
+        /// Run the current program in trans3.
+        /// </summary>
+        private void RunProgram()
+        {
+            string program = CurrentCodeEditor.txtCodeEditor.Text;
+
+            StreamWriter textWriter = new StreamWriter(ProjectPath + @"sys_test.prg");
+            textWriter.Write(program);
+            textWriter.Close();
+
+            string oldDirectory = Directory.GetCurrentDirectory();
+
+            Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
+            Interaction.Shell("trans3 demo.gam sys_test.prg", AppWinStyle.NormalFocus, false, -1);
+
+            Directory.SetCurrentDirectory(oldDirectory);
+        }
+
+        /// <summary>
+        /// Saves the current projects configuration.
+        /// </summary>
+        private void SaveConfiguration(string title)
+        {
+            try
+            {
+                configurationFile.ProjectName = Path.GetFileNameWithoutExtension(title);
+                configurationFile.ProjectFolder = gameFolder + configurationFile.ProjectName + @"\";
+
+                configurationFile.Save(ConfigurationFilePath);
+                this.Text = configurationFile.ProjectName + " - " + programVersion;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// Saves a program file.
         /// </summary>
         /// <param name="saveAs">Write straight to the file or save it as something else.</param>
@@ -223,7 +374,7 @@ namespace RPGCode_Express
 
             if (saveAs == true | newCodeEditor.ProgramFile == "Untitled")
             {
-                newCodeEditor.SaveAs(); //Problem here
+                newCodeEditor.SaveAs();
 
                 if (projectExplorer != null)
                     projectExplorer.PopulateTreeView();
@@ -233,69 +384,7 @@ namespace RPGCode_Express
         }
 
         /// <summary>
-        /// Displays an OpenFileDialog and prompts the user to open a Toolkit project, writes the
-        /// changes to the Xml Configuration file, and loads the project into the editor.
-        /// </summary>
-        private void OpenProject()
-        {
-            OpenFileDialog openProjectDialog = new OpenFileDialog();
-            openProjectDialog.Filter = "Projects (*.gam)|*.gam";
-            openProjectDialog.Title = "Open Toolkit Project";
-            openProjectDialog.InitialDirectory = MainFolder;
-            openProjectDialog.FilterIndex = 1;
-
-            if (openProjectDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    Configuration.Title = Path.GetFileNameWithoutExtension(openProjectDialog.SafeFileName);
-                    Configuration.Path = GameFolder + Configuration.Title + @"\";
-                    this.Text = Configuration.Title + " - " + ProgramVersion;
-                    Configuration.Save(ConfigurationFilePath);
-
-                    LoadProject();
-                    CloseAllDocks();
-                    CreateBasicLayout();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Loads the information stored in the editors configuration file.
-        /// </summary>
-        private void LoadProject()
-        {
-            try
-            {
-                SerializableData serializer = new SerializableData();
-                Configuration = (ConfigurationFile)serializer.Load(ConfigurationFilePath, typeof(ConfigurationFile));
-
-                projectLoaded = true;
-                projectTitle = Configuration.Title;
-                projectPath = Configuration.Path + @"prg\";
-                this.Text = Configuration.Title + " - " + ProgramVersion;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// Sets up the editors basic layout including the Project Explorer and Properties windows.
-        /// </summary>
-        private void CreateBasicLayout()
-        {
-            ShowProjectExplorer();
-            ShowPropertiesWindow();
-        }
-
-        /// <summary>
-        /// 
+        /// Shows or sets the focus to the Project Explorer dock, depending on its current state.
         /// </summary>
         private void ShowProjectExplorer()
         {
@@ -316,8 +405,8 @@ namespace RPGCode_Express
             }
             else
             {
-                projectExplorer.Title = "Toolkit 3";
-                projectExplorer.ProjectPath = GameFolder;
+                projectExplorer.Title = projectTitle;
+                projectExplorer.ProjectPath = gameFolder;
             }
 
             if (propertiesWindow != null)
@@ -333,7 +422,7 @@ namespace RPGCode_Express
         }
 
         /// <summary>
-        /// 
+        /// Shows or sets the focus to the Properties Window dock, depending on its current state.
         /// </summary>
         private void ShowPropertiesWindow()
         {
@@ -358,66 +447,84 @@ namespace RPGCode_Express
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        private void CloseAllDocks()
-        {
-            ArrayList docks = new ArrayList(dockPanel.Contents);
-
-            foreach (DockContent childForm in docks)
-                childForm.Close();
-        }
-
-        /// <summary>
         /// Enables or disables the menustrip and toolstrip buttons based upon the state of the current
         /// active document.
         /// </summary>
-        private void SetToolStripButtons()
+        private void ToogleActionButtons()
         {
-            bool state = true;
-            DockContent activeDock = ActiveContent;
+            bool isEnabled = true;
 
-            if (activeDock == null)
-                state = false;
-            else if (activeDock.DockState == DockState.Float)
-                state = false;
-            else if (activeDock.Tag.ToString() != "Code Editor")
-                state = false;
+            if (ActiveContent == null)
+                isEnabled = false;
+            else if (ActiveContent.DockState == DockState.Float)
+                isEnabled = false;
+            else if (ActiveContent.GetType() != typeof(CodeEditor))
+                isEnabled = false;
 
-            mnuItemSave.Enabled = state;
-            mnuItemSaveAs.Enabled = state;
-            mnuItemSaveAll.Enabled = state;
-            tspButtonSave.Enabled = state;
-            tspButtonSaveAll.Enabled = state;
+            if (ActiveContent != null)
+            {
+                if (ActiveContent.GetType() == typeof(CodeEditor))
+                {
+                    CodeEditor editor = CurrentCodeEditor;
+                    tspButtonUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
+                    tspButtonRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
+                    mnuItemUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
+                    mnuItemRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
+                }
+                else
+                {
+                    tspButtonUndo.Enabled = isEnabled;
+                    tspButtonRedo.Enabled = isEnabled;
+                    mnuItemUndo.Enabled = isEnabled;
+                    mnuItemRedo.Enabled = isEnabled;
+                }
+            }
 
-            tspButtonCut.Enabled = state;
-            tspButtonCopy.Enabled = state;
-            tspButtonPaste.Enabled = state;
-            tspButtonFind.Enabled = state;
-            tspButtonCommentSelected.Enabled = state;
-            tspButtonUndo.Enabled = state;
-            tspButtonRedo.Enabled = state;
-            tspButtonRunProgram.Enabled = state;
+            ToogleMenuButtons(isEnabled);
+            ToogleToolstripButtons(isEnabled);
+        }
 
-            mnuItemUndo.Enabled = state;
-            mnuItemRedo.Enabled = state;
-            mnuItemCut.Enabled = state;
-            mnuItemCopy.Enabled = state;
-            mnuItemPaste.Enabled = state;
-            mnuItemSelectAll.Enabled = state;
-            mnuItemQuickFind.Enabled = state;
-            mnuItemQuickReplace.Enabled = state;
+        /// <summary>
+        /// Enables or disables certain menu buttons.
+        /// </summary>
+        /// <param name="isEnabled">Enable or disable.</param>
+        private void ToogleMenuButtons(bool isEnabled)
+        {
+            mnuItemSave.Enabled = isEnabled;
+            mnuItemSaveAs.Enabled = isEnabled;
+            mnuItemSaveAll.Enabled = isEnabled;
+            mnuItemCut.Enabled = isEnabled;
+            mnuItemCopy.Enabled = isEnabled;
+            mnuItemPaste.Enabled = isEnabled;
+            mnuItemSelectAll.Enabled = isEnabled;
+            mnuItemQuickFind.Enabled = isEnabled;
+            mnuItemQuickReplace.Enabled = isEnabled;
+        }
+
+        /// <summary>
+        /// Enables or disables certain toolstrip buttons.
+        /// </summary>
+        /// <param name="isEnabled">Enable or disable.</param>
+        private void ToogleToolstripButtons(bool isEnabled)
+        {
+            tspButtonSave.Enabled = isEnabled;
+            tspButtonSaveAll.Enabled = isEnabled;
+            tspButtonCut.Enabled = isEnabled;
+            tspButtonCopy.Enabled = isEnabled;
+            tspButtonPaste.Enabled = isEnabled;
+            tspButtonFind.Enabled = isEnabled;
+            tspButtonCommentSelected.Enabled = isEnabled;
+
+            if (isEnabled)
+                tspButtonRunProgram.Enabled = engineExists;
+            else
+                tspButtonRunProgram.Enabled = false;
         }
 
         #endregion
 
         #region Custom Events
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CodeEditor_CaretMove(object sender, CaretPositionUpdateEventArgs e)
         {
             lblLineNumber.Text = "Ln " + e.CurrentLine.ToString();
@@ -425,11 +532,14 @@ namespace RPGCode_Express
             lblCharacterNumber.Text = "Ch " + e.CurrentCharacter.ToString();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        private void CodeEditor_UndoRedoUpdated(object sender, UndoRedoUpdateEventArgs e)
+        {
+            tspButtonUndo.Enabled = e.UndoState;
+            tspButtonRedo.Enabled = e.RedoState;
+            mnuItemUndo.Enabled = e.UndoState;
+            mnuItemRedo.Enabled = e.RedoState;
+        }
+
         private void ProjectExplorer_NodeDoubleClick(object sender, NodeClickEventArgs e)
         {
             OpenCodeEditor(e.FilePath);
@@ -551,28 +661,17 @@ namespace RPGCode_Express
 
         private void tspButtonRunProgram_Click(object sender, EventArgs e)
         {
-            string program = CurrentCodeEditor.txtCodeEditor.Text;
-
-            StreamWriter textWriter = new StreamWriter(ProjectPath + @"sys_test.prg");
-            textWriter.Write(program);
-            textWriter.Close();
-
-            string oldDirectory = Directory.GetCurrentDirectory();
-
-            Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
-            Interaction.Shell("trans3 demo.gam sys_test.prg", AppWinStyle.NormalFocus, false, -1);
-
-            Directory.SetCurrentDirectory(oldDirectory);
+            RunProgram();
         }
 
         private void mnuItemCloseAll_Click(object sender, EventArgs e)
         {
-            CloseAllDocks(); //Stop this from closing project explorer and properties
+            CloseAllDocks(); 
         }
 
         private void dockPanel_ActiveContentChanged(object sender, EventArgs e)
         {
-            SetToolStripButtons(); //This fires constantly, find a better event
+            ToogleActionButtons(); 
         }
 
         private void dockPanel_ContentRemoved(object sender, DockContentEventArgs e)

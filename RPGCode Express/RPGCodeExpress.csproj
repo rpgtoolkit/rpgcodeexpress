@@ -79,7 +79,9 @@
     <Compile Include="Classes\Renders\MenuRender.cs" />
     <Compile Include="Classes\Renders\ToolstripRender.cs" />
     <Compile Include="Classes\RPGCode\AutoComplete.cs" />
+    <Compile Include="Classes\RPGCode\Command.cs" />
     <Compile Include="Classes\RPGCode\RPGCode.cs" />
+    <Compile Include="Classes\UndoRedoUpdateEventArgs.cs" />
     <Compile Include="Classes\Utilities\ConfigurationFile.cs" />
     <Compile Include="Classes\Utilities\SerializableData.cs" />
     <Compile Include="CodeEditor.cs">

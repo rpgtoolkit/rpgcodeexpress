@@ -216,7 +216,7 @@
             this.btnCollapseAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCollapseAll.Name = "btnCollapseAll";
             this.btnCollapseAll.Size = new System.Drawing.Size(23, 22);
-            this.btnCollapseAll.Text = "Collaspe All";
+            this.btnCollapseAll.Text = "Collapse All";
             this.btnCollapseAll.Click += new System.EventHandler(this.btnCollapseAll_Click);
             // 
             // toolStripSeparator6

@@ -32,30 +32,10 @@ namespace RPGCode_Express.Classes
         private int columnNumber;
         private int characterNumber;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public int CurrentLine
-        {
-            get
-            {
-                return lineNumber + 1;
-            }
-        }
+        #region Properties
 
         /// <summary>
-        /// 
-        /// </summary>
-        public int CurrentColumn
-        {
-            get
-            {
-                return columnNumber + 1;
-            }
-        }
-
-        /// <summary>
-        /// 
+        /// Gets the current character number.
         /// </summary>
         public int CurrentCharacter
         {
@@ -66,13 +46,38 @@ namespace RPGCode_Express.Classes
         }
 
         /// <summary>
-        /// 
+        /// Gets the current column number.
         /// </summary>
+        public int CurrentColumn
+        {
+            get
+            {
+                return columnNumber + 1;
+            }
+        }
+
+        /// <summary>
+        /// Get the current line number.
+        /// </summary>
+        public int CurrentLine
+        {
+            get
+            {
+                return lineNumber + 1;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
         public CaretPositionUpdateEventArgs(int line, int column, int character)
         {
             this.lineNumber = line;
             this.columnNumber = column;
             this.characterNumber = character;
         }
+
+        #endregion
     }
 }

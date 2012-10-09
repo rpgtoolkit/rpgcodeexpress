@@ -34,10 +34,27 @@ namespace RPGCode_Express.Classes.Utilities
         private string projectTitle;
         private string projectPath;
 
+        #region Properties
+
         /// <summary>
         /// 
         /// </summary>
-        public string Title
+        public string ProjectFolder
+        {
+            get
+            {
+                return projectPath;
+            }
+            set
+            {
+                projectPath = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string ProjectName
         {
             get
             {
@@ -49,19 +66,7 @@ namespace RPGCode_Express.Classes.Utilities
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Path
-        {
-            get
-            {
-                return projectPath;
-            }
-            set
-            {
-                projectPath = value;
-            }
-        }
+        #endregion
+
     }
 }

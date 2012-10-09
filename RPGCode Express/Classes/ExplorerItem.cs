@@ -27,28 +27,13 @@ using System.Windows.Forms;
 
 namespace RPGCode_Express.Classes
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class ExplorerItem : TreeNode
     {
         private ExplorerItemType fileType;
         private ProjectFile fileInformation = new ProjectFile();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public ExplorerItemType Type
-        {
-            get
-            {
-                return fileType;
-            }
-            set
-            {
-                fileType = value;
-            }
-        }
+        #region Properties
 
         /// <summary>
         /// 
@@ -67,11 +52,25 @@ namespace RPGCode_Express.Classes
                 fileInformation = value;
             }
         }
+
+        /// <summary>
+        /// Get or set the ExplorerItems type.
+        /// </summary>
+        public ExplorerItemType Type
+        {
+            get
+            {
+                return fileType;
+            }
+            set
+            {
+                fileType = value;
+            }
+        }
+
+        #endregion
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     public enum ExplorerItemType
     {
         Project, Program, File, Folder
