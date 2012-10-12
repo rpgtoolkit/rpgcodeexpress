@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("RPGCode Express")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Your Organization Name")]
+[assembly: AssemblyCompany("JMD Computing")]
 [assembly: AssemblyProduct("RPGCode Express")]
 [assembly: AssemblyCopyright("Copyright © Your Organization Name 2012")]
 [assembly: AssemblyTrademark("")]

@@ -70,6 +70,8 @@
             this.mnuItemView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemProjectExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemPropertiesWindow = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemDebug = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemRunProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemCloseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,6 +118,7 @@
             this.mnuItemFile,
             this.mnuItemEdit,
             this.mnuItemView,
+            this.mnuItemDebug,
             this.mnuItemWindows,
             this.mnuItemHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -347,6 +350,22 @@
             this.mnuItemPropertiesWindow.Text = "Properties Window";
             this.mnuItemPropertiesWindow.Click += new System.EventHandler(this.mnuItemPropertiesWindow_Click);
             // 
+            // mnuItemDebug
+            // 
+            this.mnuItemDebug.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItemRunProgram});
+            this.mnuItemDebug.Name = "mnuItemDebug";
+            this.mnuItemDebug.Size = new System.Drawing.Size(50, 20);
+            this.mnuItemDebug.Text = "&Debug";
+            // 
+            // mnuItemRunProgram
+            // 
+            this.mnuItemRunProgram.Name = "mnuItemRunProgram";
+            this.mnuItemRunProgram.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.mnuItemRunProgram.Size = new System.Drawing.Size(166, 22);
+            this.mnuItemRunProgram.Text = "Run Program";
+            this.mnuItemRunProgram.Click += new System.EventHandler(this.mnuItemRunProgram_Click);
+            // 
             // mnuItemWindows
             // 
             this.mnuItemWindows.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -359,14 +378,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -567,7 +586,7 @@
             this.tspButtonRunProgram.Name = "tspButtonRunProgram";
             this.tspButtonRunProgram.Size = new System.Drawing.Size(23, 22);
             this.tspButtonRunProgram.Text = "Run";
-            this.tspButtonRunProgram.Click += new System.EventHandler(this.tspButtonRunProgram_Click);
+            this.tspButtonRunProgram.Click += new System.EventHandler(this.mnuItemRunProgram_Click);
             // 
             // toolStripSeparator10
             // 
@@ -637,24 +656,30 @@
             // 
             // lblLineNumber
             // 
+            this.lblLineNumber.AutoSize = false;
             this.lblLineNumber.Name = "lblLineNumber";
             this.lblLineNumber.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
             this.lblLineNumber.Size = new System.Drawing.Size(93, 17);
             this.lblLineNumber.Text = "Ln";
+            this.lblLineNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblColumnNumber
             // 
+            this.lblColumnNumber.AutoSize = false;
             this.lblColumnNumber.Name = "lblColumnNumber";
             this.lblColumnNumber.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
             this.lblColumnNumber.Size = new System.Drawing.Size(97, 17);
             this.lblColumnNumber.Text = "Col";
+            this.lblColumnNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCharacterNumber
             // 
+            this.lblCharacterNumber.AutoSize = false;
             this.lblCharacterNumber.Name = "lblCharacterNumber";
             this.lblCharacterNumber.Padding = new System.Windows.Forms.Padding(0, 0, 75, 0);
             this.lblCharacterNumber.Size = new System.Drawing.Size(95, 17);
             this.lblCharacterNumber.Text = "Ch";
+            this.lblCharacterNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dockPanel
             // 
@@ -811,5 +836,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripMenuItem mnuItemSaveAll;
         private System.Windows.Forms.ToolStripButton tspButtonSaveAll;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemDebug;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemRunProgram;
     }
 }

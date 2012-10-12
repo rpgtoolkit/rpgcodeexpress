@@ -135,10 +135,10 @@ namespace RPGCode_Express
             if (currentFilePath == "Untitled") //The file has no path
             {
                 SaveAs();
-                fileIncludes.Clear();
             }
 
             WriteToFile();
+            ClearFileIncludes();
             this.TabText = Path.GetFileName(currentFilePath);
         }
 
@@ -163,7 +163,7 @@ namespace RPGCode_Express
                 {
                     this.TabText = Path.GetFileName(saveProgramFile.FileName);
                     currentFilePath = saveProgramFile.FileName;
-                    fileIncludes.Clear();
+                    ClearFileIncludes();
                     WriteToFile();
                 }
                 catch (Exception ex)
@@ -288,6 +288,17 @@ namespace RPGCode_Express
         }
 
         /// <summary>
+        /// Clears all of the "Included" auto complete items.
+        /// </summary>
+        private void ClearFileIncludes()
+        {
+            fileIncludes.Clear();
+            autocompleteItems.IncludedClasses.Clear();
+            autocompleteItems.IncludedMethods.Clear();
+            autocompleteItems.IncludedVariables.Clear();
+        }
+
+        /// <summary>
         /// Stops the tooltip timer and tooltips for hoverwords.
         /// </summary>
         private void CancelTooltip()
@@ -304,7 +315,7 @@ namespace RPGCode_Express
         private ArrayList FindClasses(string text)
         {
             ArrayList classes = new ArrayList();
-            Regex expression = new Regex(@"\b(class|struct)\s+(?<range>\w+?)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            Regex expression = new Regex(@"\b(class|struct)[^\S\n]+(?<range>\w+)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text))
             {
@@ -326,7 +337,7 @@ namespace RPGCode_Express
         private ArrayList FindMethods(string text)
         {
             ArrayList methods = new ArrayList();
-            Regex expression = new Regex(@"\b(method|function)\s+(\w+::)?(?<range>\w+?)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            Regex expression = new Regex(@"\b(method|function)[^\S\n]+(\w+::)?(?<range>\w+?)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text))
             {
@@ -389,7 +400,7 @@ namespace RPGCode_Express
         /// </summary>
         private void PopulateClassExplorer()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(class|struct)\s+[\w<>,\s]+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(class|struct)[^\S\n]+[\w<>,\s]+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             classes.Clear();
             cboClassExplorer.Items.Clear();
@@ -416,7 +427,7 @@ namespace RPGCode_Express
         /// </summary>
         private void PopulateObjectExplorer()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(method|function)\s+(\w+::)?(\w+\(.*\)\s+))",
+            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(method|function)[^\S\n]+(\w+::)?(\w+\(.*\)\s+))",
                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             declarations.Clear();

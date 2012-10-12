@@ -265,6 +265,7 @@
             this.cboClassExplorer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClassExplorer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboClassExplorer.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboClassExplorer.ForeColor = System.Drawing.SystemColors.Control;
             this.cboClassExplorer.FormattingEnabled = true;
             this.cboClassExplorer.ItemHeight = 18;
             this.cboClassExplorer.Location = new System.Drawing.Point(3, 1);

@@ -499,6 +499,11 @@ namespace RPGCode_Express
             mnuItemSelectAll.Enabled = isEnabled;
             mnuItemQuickFind.Enabled = isEnabled;
             mnuItemQuickReplace.Enabled = isEnabled;
+
+            if (isEnabled)
+                mnuItemRunProgram.Enabled = engineExists;
+            else
+                mnuItemRunProgram.Enabled = false;
         }
 
         /// <summary>
@@ -654,19 +659,19 @@ namespace RPGCode_Express
             ShowPropertiesWindow();
         }
 
+        private void mnuItemRunProgram_Click(object sender, EventArgs e)
+        {
+            RunProgram();
+        }
+
         private void mnuItemNewWindow_Click(object sender, EventArgs e)
         {
             OpenCodeEditor("Untitled");
         }
 
-        private void tspButtonRunProgram_Click(object sender, EventArgs e)
-        {
-            RunProgram();
-        }
-
         private void mnuItemCloseAll_Click(object sender, EventArgs e)
         {
-            CloseAllDocks(); 
+            CloseAllDocks();
         }
 
         private void dockPanel_ActiveContentChanged(object sender, EventArgs e)
@@ -683,5 +688,7 @@ namespace RPGCode_Express
         }
 
         #endregion
+
+
     }
 }
