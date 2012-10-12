@@ -35,7 +35,7 @@ namespace RPGCode_Express
 {
     public partial class MainMdi : Form
     {
-        private const string programVersion = "RPGCode Express 1.4a";
+        private const string programVersion = "RPGCode Express 1.4.1a";
 
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();

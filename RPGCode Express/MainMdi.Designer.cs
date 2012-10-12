@@ -760,7 +760,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainMdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RPGCode Express 1.4a";
+            this.Text = "RPGCode Express 1.4.1a";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
