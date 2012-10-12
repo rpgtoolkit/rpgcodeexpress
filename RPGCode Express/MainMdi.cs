@@ -340,7 +340,7 @@ namespace RPGCode_Express
             string oldDirectory = Directory.GetCurrentDirectory();
 
             Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
-            Interaction.Shell("trans3 demo.gam sys_test.prg", AppWinStyle.NormalFocus, false, -1);
+            Interaction.Shell("trans3 " + projectTitle + ".gam sys_test.prg", AppWinStyle.NormalFocus, false, -1);
 
             Directory.SetCurrentDirectory(oldDirectory);
         }
