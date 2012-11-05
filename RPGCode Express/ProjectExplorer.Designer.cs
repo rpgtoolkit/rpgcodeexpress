@@ -1,4 +1,4 @@
-﻿namespace RPGCode_Express
+﻿namespace RpgCodeExpress
 {
     partial class ProjectExplorer
     {
@@ -108,7 +108,7 @@
             // 
             // mnuItemNew
             // 
-            this.mnuItemNew.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_NewDocumentIcon;
+            this.mnuItemNew.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_NewDocumentIcon;
             this.mnuItemNew.Name = "mnuItemNew";
             this.mnuItemNew.Size = new System.Drawing.Size(211, 22);
             this.mnuItemNew.Text = "New";
@@ -116,7 +116,7 @@
             // 
             // newFolderToolStripMenuItem
             // 
-            this.newFolderToolStripMenuItem.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_NewFolderIcon;
+            this.newFolderToolStripMenuItem.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_NewFolderIcon;
             this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
             this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.newFolderToolStripMenuItem.Text = "New Folder";
@@ -129,7 +129,7 @@
             // 
             // mnuItemOpenWindowsExplorer
             // 
-            this.mnuItemOpenWindowsExplorer.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_OpenFileIcon;
+            this.mnuItemOpenWindowsExplorer.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_OpenFileIcon;
             this.mnuItemOpenWindowsExplorer.Name = "mnuItemOpenWindowsExplorer";
             this.mnuItemOpenWindowsExplorer.Size = new System.Drawing.Size(211, 22);
             this.mnuItemOpenWindowsExplorer.Text = "Open in Windows Explorer";
@@ -142,7 +142,7 @@
             // 
             // mnuItemOpen
             // 
-            this.mnuItemOpen.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_OpenFileIcon;
+            this.mnuItemOpen.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_OpenFileIcon;
             this.mnuItemOpen.Name = "mnuItemOpen";
             this.mnuItemOpen.Size = new System.Drawing.Size(211, 22);
             this.mnuItemOpen.Text = "Open";
@@ -155,7 +155,7 @@
             // 
             // mnuItemDelete
             // 
-            this.mnuItemDelete.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_DeleteIcon;
+            this.mnuItemDelete.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_DeleteIcon;
             this.mnuItemDelete.Name = "mnuItemDelete";
             this.mnuItemDelete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.mnuItemDelete.Size = new System.Drawing.Size(211, 22);
@@ -197,7 +197,7 @@
             // btnRefresh
             // 
             this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnRefresh.Image = global::RPGCode_Express.Properties.Resources.Toolbar_Refresh;
+            this.btnRefresh.Image = global::RpgCodeExpress.Properties.Resources.Toolbar_Refresh;
             this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(23, 22);
@@ -212,7 +212,7 @@
             // btnCollapseAll
             // 
             this.btnCollapseAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCollapseAll.Image = global::RPGCode_Express.Properties.Resources.HtmlHelp2_16x16_DynamicHelp;
+            this.btnCollapseAll.Image = global::RpgCodeExpress.Properties.Resources.HtmlHelp2_16x16_DynamicHelp;
             this.btnCollapseAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCollapseAll.Name = "btnCollapseAll";
             this.btnCollapseAll.Size = new System.Drawing.Size(23, 22);
@@ -227,7 +227,7 @@
             // btnOpen
             // 
             this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpen.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_OpenFileIcon;
+            this.btnOpen.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_OpenFileIcon;
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Black;
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(23, 22);

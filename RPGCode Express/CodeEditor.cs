@@ -20,21 +20,22 @@
  */
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using System.IO;
-using System.Collections;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using FastColoredTextBoxNS;
-using RPGCode_Express.Classes;
-using RPGCode_Express.Classes.RPGCode;
+using RpgCodeExpress.Events;
+using RpgCodeExpress.Items;
+using RpgCodeExpress.RpgCode;
 
-namespace RPGCode_Express
+namespace RpgCodeExpress
 {
-    public partial class CodeEditor : WeifenLuo.WinFormsUI.Docking.DockContent
+    public partial class CodeEditor : EditorForm
     {
         private bool updateNeeded;
         private string currentFilePath;
@@ -49,14 +50,10 @@ namespace RPGCode_Express
         private List<DropDownItem> declarations = new List<DropDownItem>();
         private Dictionary<string, string> fileIncludes = new Dictionary<string, string>();
 
-        private FastColoredTextBoxNS.Style wavyStyle = new WavyLineStyle(255, Color.Red);
         private TextStyle greenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
 
-        public event CaretPositionUpdateHandler CaretUpdated;
-        public delegate void CaretPositionUpdateHandler(object sender, CaretPositionUpdateEventArgs e);
-
-        public event UndoRedoUpdateHandler UndoRedoUpdated;
-        public delegate void UndoRedoUpdateHandler(object sender, UndoRedoUpdateEventArgs e);
+        public event EventHandler<CaretPositionUpdateEventArgs> CaretUpdated;
+        public event EventHandler<UndoRedoUpdateEventArgs> UndoRedoUpdated;
 
         #region Properties
 
@@ -83,11 +80,6 @@ namespace RPGCode_Express
             set
             {
                 currentFilePath = value;
-
-                if (currentFilePath != "Untitled")
-                    ReadFile();
-
-                this.TabText = Path.GetFileNameWithoutExtension(currentFilePath);
             }
         }
 
@@ -110,12 +102,23 @@ namespace RPGCode_Express
 
         #region Methods
 
-        public CodeEditor(RPGcode currentRpgCode)
+        public CodeEditor()
+        {
+
+        }
+
+        public CodeEditor(string file, RPGcode currentRpgCode)
         {
             InitializeComponent();
 
             rpgCodeReference = currentRpgCode;
+            currentFilePath = file;
+
+            this.TabText = Path.GetFileNameWithoutExtension(currentFilePath);
             txtCodeEditor.AddStyle(new MarkerStyle(new SolidBrush(Color.FromArgb(50, Color.Gray))));
+
+            if (currentFilePath != "Untitled")
+                ReadFile();
 
             popupMenu = new AutocompleteMenu(txtCodeEditor); //Set autocompletemenu's text source
             popupMenu.Opening += this.popupMenu_Opening; //Override the menu's Opening event.
@@ -130,7 +133,7 @@ namespace RPGCode_Express
         /// <summary>
         /// Saves a file that already exists, otherwise it will call SaveAs().
         /// </summary>
-        public void Save()
+        public override void Save()
         {
             if (currentFilePath == "Untitled") //The file has no path
             {
@@ -145,7 +148,7 @@ namespace RPGCode_Express
         /// <summary>
         /// Display a SaveFileDialog and allow the user to save the file.
         /// </summary>
-        public void SaveAs()
+        public override void SaveAs()
         {
             SaveFileDialog saveProgramFile = new SaveFileDialog();
 
@@ -644,7 +647,7 @@ namespace RPGCode_Express
 
             if (foundCommand != null)
             {
-                Tooltip.ToolTipTitle = foundCommand.Name;
+                Tooltip.ToolTipTitle = foundCommand.Tooltip;
                 Tooltip.SetToolTip(txtCodeEditor, foundCommand.Description);
                 Tooltip.Show(foundCommand.Description, txtCodeEditor, new Point(lastMouseCoordinate.X,
                         lastMouseCoordinate.Y + txtCodeEditor.CharHeight));

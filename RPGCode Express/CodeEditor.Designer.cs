@@ -1,4 +1,4 @@
-﻿namespace RPGCode_Express
+﻿namespace RpgCodeExpress
 {
     partial class CodeEditor
     {
@@ -83,6 +83,7 @@
             this.txtCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.txtCodeEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodeEditor.Language = FastColoredTextBoxNS.Language.RpgCode;
             this.txtCodeEditor.LeftBracket = '(';
             this.txtCodeEditor.Location = new System.Drawing.Point(3, 27);
@@ -124,7 +125,7 @@
             // 
             // mnuItemCut
             // 
-            this.mnuItemCut.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CutIcon;
+            this.mnuItemCut.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CutIcon;
             this.mnuItemCut.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemCut.Name = "mnuItemCut";
             this.mnuItemCut.Size = new System.Drawing.Size(212, 22);
@@ -133,7 +134,7 @@
             // 
             // mnuItemCopy
             // 
-            this.mnuItemCopy.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CopyIcon;
+            this.mnuItemCopy.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CopyIcon;
             this.mnuItemCopy.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemCopy.Name = "mnuItemCopy";
             this.mnuItemCopy.Size = new System.Drawing.Size(212, 22);
@@ -142,7 +143,7 @@
             // 
             // mnuItemPaste
             // 
-            this.mnuItemPaste.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_PasteIcon;
+            this.mnuItemPaste.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_PasteIcon;
             this.mnuItemPaste.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemPaste.Name = "mnuItemPaste";
             this.mnuItemPaste.Size = new System.Drawing.Size(212, 22);
@@ -163,7 +164,7 @@
             // 
             // mnuItemUndo
             // 
-            this.mnuItemUndo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_UndoIcon;
+            this.mnuItemUndo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_UndoIcon;
             this.mnuItemUndo.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemUndo.Name = "mnuItemUndo";
             this.mnuItemUndo.Size = new System.Drawing.Size(212, 22);
@@ -172,7 +173,7 @@
             // 
             // mnuItemRedo
             // 
-            this.mnuItemRedo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_RedoIcon;
+            this.mnuItemRedo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_RedoIcon;
             this.mnuItemRedo.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemRedo.Name = "mnuItemRedo";
             this.mnuItemRedo.Size = new System.Drawing.Size(212, 22);
@@ -186,7 +187,7 @@
             // 
             // mnuItemFind
             // 
-            this.mnuItemFind.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_FindIcon;
+            this.mnuItemFind.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_FindIcon;
             this.mnuItemFind.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemFind.Name = "mnuItemFind";
             this.mnuItemFind.Size = new System.Drawing.Size(212, 22);
@@ -195,7 +196,7 @@
             // 
             // mnuItemReplace
             // 
-            this.mnuItemReplace.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_ReplaceIcon;
+            this.mnuItemReplace.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_ReplaceIcon;
             this.mnuItemReplace.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemReplace.Name = "mnuItemReplace";
             this.mnuItemReplace.Size = new System.Drawing.Size(212, 22);
@@ -239,12 +240,13 @@
             // 
             // cboObjectExplorer
             // 
-            this.cboObjectExplorer.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cboObjectExplorer.BackColor = System.Drawing.Color.White;
             this.cboObjectExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboObjectExplorer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboObjectExplorer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboObjectExplorer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboObjectExplorer.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboObjectExplorer.ForeColor = System.Drawing.Color.White;
             this.cboObjectExplorer.FormattingEnabled = true;
             this.cboObjectExplorer.ItemHeight = 18;
             this.cboObjectExplorer.Location = new System.Drawing.Point(313, 1);
@@ -259,13 +261,13 @@
             // 
             // cboClassExplorer
             // 
-            this.cboClassExplorer.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cboClassExplorer.BackColor = System.Drawing.Color.White;
             this.cboClassExplorer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboClassExplorer.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboClassExplorer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClassExplorer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cboClassExplorer.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboClassExplorer.ForeColor = System.Drawing.SystemColors.Control;
+            this.cboClassExplorer.ForeColor = System.Drawing.Color.White;
             this.cboClassExplorer.FormattingEnabled = true;
             this.cboClassExplorer.ItemHeight = 18;
             this.cboClassExplorer.Location = new System.Drawing.Point(3, 1);

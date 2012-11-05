@@ -19,60 +19,68 @@
  * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel;
 
-namespace RPGCode_Express.Classes
+namespace RpgCodeExpress.Files
 {
-    public class NodeClickEventArgs : System.EventArgs
+    public class ProjectFile
     {
-        private string name;
-        private string path;
-        private ProjectFile item;
+        private string fileName;
+        private string fileLocation;
 
         #region Properties
 
-        public ProjectFile File
+        /// <summary>
+        /// 
+        /// </summary>
+        [CategoryAttribute("Information")]
+        [DisplayNameAttribute("Full Path")]
+        [ReadOnlyAttribute(true)]
+        [DescriptionAttribute("Location of the file or folder.")]
+        public string FileLocation
         {
             get
             {
-                return item;
+                return fileLocation;
+            }
+            set
+            {
+                fileLocation = value;
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
+        [CategoryAttribute("Information")]
+        [DisplayNameAttribute("File Name")]
+        [ReadOnlyAttribute(true)]
+        [Description("Name of the file or folder.")]
         public string FileName
         {
             get
             {
-                return name;
+                return fileName;
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string FilePath
-        {
-            get
+            set
             {
-                return path;
+                fileName = value;
             }
         }
 
         #endregion
 
-        #region Methods
+        #region Methods 
 
-        public NodeClickEventArgs(ProjectFile projectFile)
+        public ProjectFile(string file, string path)
         {
-            item = projectFile;
-            this.name = projectFile.FileName;
-            this.path = projectFile.FileLocation;
+            this.fileName = file;
+            this.fileLocation = path;
+        }
+
+        public ProjectFile()
+        {
+
         }
 
         #endregion

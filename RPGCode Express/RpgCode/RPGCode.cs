@@ -19,12 +19,12 @@
  * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using RPGCode_Express.Classes.Utilities;
-using System.Collections;
+using RpgCodeExpress.Utilities;
 
-namespace RPGCode_Express.Classes.RPGCode
+namespace RpgCodeExpress.RpgCode
 {
     public class RPGcode : SerializableData
     {

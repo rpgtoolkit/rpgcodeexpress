@@ -20,22 +20,24 @@
  */
 
 using System;
-using System.Windows.Forms;
-using System.IO;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Windows.Forms;
 using System.Drawing;
 using Microsoft.VisualBasic;
+using RpgCodeExpress.Events;
+using RpgCodeExpress.Files;
+using RpgCodeExpress.Renders;
+using RpgCodeExpress.RpgCode;
+using RpgCodeExpress.Utilities;
 using WeifenLuo.WinFormsUI.Docking;
-using RPGCode_Express.Classes;
-using RPGCode_Express.Classes.Renders;
-using RPGCode_Express.Classes.RPGCode;
-using RPGCode_Express.Classes.Utilities;
 
-namespace RPGCode_Express
+namespace RpgCodeExpress
 {
     public partial class MainMdi : Form
     {
-        private const string programVersion = "RPGCode Express 1.4.1a";
+        private const string programVersion = "RPGCode Express 1.4.2a";
 
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();
@@ -43,15 +45,19 @@ namespace RPGCode_Express
         private string mainFolder;
         private string gameFolder;
         private string toolkitPath;
-
         private bool engineExists;
         private bool projectLoaded;
         private string projectPath;
         private string projectTitle;
 
+        //Using courier new or lucida console throws an untraceable exception here.
+        //But verdana doesn't?
+        private Font codeEditorFont = new Font("Verdana", 10);
+
         //Docks to keep track of.
         private ProjectExplorer projectExplorer;
         private PropertiesWindow propertiesWindow;
+        private Dictionary<string, EditorForm> editorDictionary = new Dictionary<string, EditorForm>();
 
         #region Properties
 
@@ -151,7 +157,7 @@ namespace RPGCode_Express
         public MainMdi()
         {
             InitializeComponent();
-
+ 
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
             ToolStripManager.Renderer = new ToolstripRender();
@@ -276,13 +282,16 @@ namespace RPGCode_Express
         {
             try
             {
-                CodeEditor newCodeEditor = new CodeEditor(rpgCodeReference);
-                newCodeEditor.CaretUpdated += new CodeEditor.CaretPositionUpdateHandler(CodeEditor_CaretMove);
-                newCodeEditor.UndoRedoUpdated += new CodeEditor.UndoRedoUpdateHandler(CodeEditor_UndoRedoUpdated);
+                CodeEditor newCodeEditor = new CodeEditor(file, rpgCodeReference);
+                newCodeEditor.CaretUpdated += new System.EventHandler<CaretPositionUpdateEventArgs>(CodeEditor_CaretMove);
+                newCodeEditor.UndoRedoUpdated += new System.EventHandler<UndoRedoUpdateEventArgs>(CodeEditor_UndoRedoUpdated);
+                newCodeEditor.txtCodeEditor.Font = codeEditorFont;
                 newCodeEditor.ProjectPath = ProjectPath;
-                newCodeEditor.ProgramFile = file;
                 newCodeEditor.MdiParent = this;
                 newCodeEditor.Show(dockPanel);
+
+                if (newCodeEditor.ProgramFile != "Untitled")
+                    editorDictionary.Add(file.ToLower(), newCodeEditor);
             }
             catch(Exception ex)
             {
@@ -329,20 +338,42 @@ namespace RPGCode_Express
         /// <summary>
         /// Run the current program in trans3.
         /// </summary>
-        private void RunProgram()
+        private void Run(object sender)
         {
-            string program = CurrentCodeEditor.txtCodeEditor.Text;
+            try
+            {
+                string shellCommand = "trans3 " + projectTitle + ".gam";
 
-            StreamWriter textWriter = new StreamWriter(ProjectPath + @"sys_test.prg");
-            textWriter.Write(program);
-            textWriter.Close();
+                if (!sender.Equals(mnuItemRunProject))
+                {
+                    string program = CurrentCodeEditor.txtCodeEditor.Text;
 
-            string oldDirectory = Directory.GetCurrentDirectory();
+                    StreamWriter textWriter = new StreamWriter(ProjectPath + @"sys_test.prg");
+                    textWriter.Write(program);
+                    textWriter.Close();
 
-            Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
-            Interaction.Shell("trans3 " + projectTitle + ".gam sys_test.prg", AppWinStyle.NormalFocus, false, -1);
+                    shellCommand += " sys_test.prg";
+                }
 
-            Directory.SetCurrentDirectory(oldDirectory);
+                string oldDirectory = Directory.GetCurrentDirectory();
+
+                Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
+                Interaction.Shell(shellCommand, AppWinStyle.NormalFocus, false, -1);
+
+                Directory.SetCurrentDirectory(oldDirectory);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -374,7 +405,9 @@ namespace RPGCode_Express
 
             if (saveAs == true | newCodeEditor.ProgramFile == "Untitled")
             {
+                
                 newCodeEditor.SaveAs();
+                editorDictionary.Add(newCodeEditor.ProgramFile.ToLower(), newCodeEditor);
 
                 if (projectExplorer != null)
                     projectExplorer.PopulateTreeView();
@@ -395,8 +428,9 @@ namespace RPGCode_Express
             }
 
             projectExplorer = new ProjectExplorer();
-            projectExplorer.NodeClick += new ProjectExplorer.NodeClickHandler(ProjectExplorer_NodeClick);
-            projectExplorer.NodeDoubleClick += new ProjectExplorer.NodeDoubleClickHandler(ProjectExplorer_NodeDoubleClick);
+            projectExplorer.NodeClick += new EventHandler<NodeClickEventArgs>(ProjectExplorer_NodeClick);
+            projectExplorer.NodeDoubleClick += new EventHandler<NodeClickEventArgs>(ProjectExplorer_NodeDoubleClick);
+            projectExplorer.NodeRename += new EventHandler<NodeLabelRenameEventArgs>(ProjectExplorer_NodeRename);
 
             if (IsProjectOpen)
             {
@@ -450,38 +484,47 @@ namespace RPGCode_Express
         /// Enables or disables the menustrip and toolstrip buttons based upon the state of the current
         /// active document.
         /// </summary>
-        private void ToogleActionButtons()
+        private void ToogleButtonStates()
         {
             bool isEnabled = true;
 
             if (ActiveContent == null)
-                isEnabled = false;
-            else if (ActiveContent.DockState == DockState.Float)
-                isEnabled = false;
-            else if (ActiveContent.GetType() != typeof(CodeEditor))
-                isEnabled = false;
-
-            if (ActiveContent != null)
             {
-                if (ActiveContent.GetType() == typeof(CodeEditor))
-                {
-                    CodeEditor editor = CurrentCodeEditor;
-                    tspButtonUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
-                    tspButtonRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
-                    mnuItemUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
-                    mnuItemRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
-                }
-                else
-                {
-                    tspButtonUndo.Enabled = isEnabled;
-                    tspButtonRedo.Enabled = isEnabled;
-                    mnuItemUndo.Enabled = isEnabled;
-                    mnuItemRedo.Enabled = isEnabled;
-                }
+                isEnabled = false;
+                DisableUndoRedo();
+            }
+            else if (ActiveContent.DockState == DockState.Float)
+            {
+                isEnabled = false;
+                DisableUndoRedo();
+            }
+            else if (ActiveContent.GetType() != typeof(CodeEditor))
+            {
+                isEnabled = false;
+                DisableUndoRedo();
+            }
+            else
+            {
+                CodeEditor editor = CurrentCodeEditor;
+                tspButtonUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
+                tspButtonRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
+                mnuItemUndo.Enabled = editor.txtCodeEditor.UndoEnabled;
+                mnuItemRedo.Enabled = editor.txtCodeEditor.RedoEnabled;
             }
 
             ToogleMenuButtons(isEnabled);
             ToogleToolstripButtons(isEnabled);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void DisableUndoRedo()
+        {
+            mnuItemUndo.Enabled = false;
+            mnuItemRedo.Enabled = false;
+            tspButtonUndo.Enabled = false;
+            tspButtonRedo.Enabled = false;
         }
 
         /// <summary>
@@ -497,13 +540,14 @@ namespace RPGCode_Express
             mnuItemCopy.Enabled = isEnabled;
             mnuItemPaste.Enabled = isEnabled;
             mnuItemSelectAll.Enabled = isEnabled;
+            mnuItemCommentSelected.Enabled = isEnabled;
             mnuItemQuickFind.Enabled = isEnabled;
             mnuItemQuickReplace.Enabled = isEnabled;
 
             if (isEnabled)
-                mnuItemRunProgram.Enabled = engineExists;
+                mnuItemDebugProgram.Enabled = engineExists & projectLoaded;
             else
-                mnuItemRunProgram.Enabled = false;
+                mnuItemDebugProgram.Enabled = false;
         }
 
         /// <summary>
@@ -521,15 +565,37 @@ namespace RPGCode_Express
             tspButtonCommentSelected.Enabled = isEnabled;
 
             if (isEnabled)
-                tspButtonRunProgram.Enabled = engineExists;
+                tspButtonRunProgram.Enabled = engineExists & projectLoaded;
             else
                 tspButtonRunProgram.Enabled = false;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void UpdateCodeEditorFonts()
+        {
+            ArrayList docks = new ArrayList(dockPanel.Contents);
+
+            foreach (DockContent dock in docks)
+            {
+                if (dock.GetType() == typeof(CodeEditor))
+                {
+                    CodeEditor codeEditor = (CodeEditor)dock;
+                    codeEditor.txtCodeEditor.Font = codeEditorFont;
+                }
+            }
         }
 
         #endregion
 
         #region Custom Events
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CodeEditor_CaretMove(object sender, CaretPositionUpdateEventArgs e)
         {
             lblLineNumber.Text = "Ln " + e.CurrentLine.ToString();
@@ -537,6 +603,11 @@ namespace RPGCode_Express
             lblCharacterNumber.Text = "Ch " + e.CurrentCharacter.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CodeEditor_UndoRedoUpdated(object sender, UndoRedoUpdateEventArgs e)
         {
             tspButtonUndo.Enabled = e.UndoState;
@@ -545,15 +616,54 @@ namespace RPGCode_Express
             mnuItemRedo.Enabled = e.RedoState;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ProjectExplorer_NodeDoubleClick(object sender, NodeClickEventArgs e)
         {
-            OpenCodeEditor(e.FilePath);
+            if (editorDictionary.ContainsKey(e.FilePath))
+            {
+                EditorForm editorForm = new EditorForm();
+                editorDictionary.TryGetValue(e.FilePath, out editorForm);
+                editorForm.Focus();
+            }
+            else
+                OpenCodeEditor(e.FilePath);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ProjectExplorer_NodeClick(object sender, NodeClickEventArgs e)
         {
             if (propertiesWindow != null)
                 propertiesWindow.SetGridItem(e.File);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ProjectExplorer_NodeRename(object sender, NodeLabelRenameEventArgs e)
+        {
+            if (editorDictionary.ContainsKey(e.OldFile.ToLower()))
+            {
+                EditorForm editorForm = new EditorForm();
+                editorDictionary.TryGetValue(e.OldFile.ToLower(), out editorForm);
+
+                //This reads the file again into the code editor, a little bit of a waste.
+                CodeEditor codeEditor = (CodeEditor)editorForm;
+                codeEditor.ProgramFile = e.NewFile;
+                codeEditor.TabText = Path.GetFileName(e.NewFile);
+
+                editorDictionary.Remove(e.OldFile.ToLower());
+                editorDictionary.Add(e.NewFile, editorForm);
+            }
         }
 
         #endregion
@@ -659,9 +769,27 @@ namespace RPGCode_Express
             ShowPropertiesWindow();
         }
 
-        private void mnuItemRunProgram_Click(object sender, EventArgs e)
+        private void mnuItemDebugProgram_Click(object sender, EventArgs e)
         {
-            RunProgram();
+            Run(sender);
+        }
+
+        private void runProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Run(sender);
+        }
+
+        private void fontSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            fontDialog.AllowScriptChange = false;
+            fontDialog.ShowColor = false;
+            fontDialog.ShowEffects = false;
+            fontDialog.FixedPitchOnly = true;
+            fontDialog.ShowDialog();
+
+            codeEditorFont = fontDialog.Font;
+            UpdateCodeEditorFonts();
         }
 
         private void mnuItemNewWindow_Click(object sender, EventArgs e)
@@ -674,9 +802,15 @@ namespace RPGCode_Express
             CloseAllDocks();
         }
 
+        private void mnuItemAbout_Click(object sender, EventArgs e)
+        {
+            About aboutBox = new About();
+            aboutBox.ShowDialog();
+        }
+
         private void dockPanel_ActiveContentChanged(object sender, EventArgs e)
         {
-            ToogleActionButtons(); 
+            ToogleButtonStates(); 
         }
 
         private void dockPanel_ContentRemoved(object sender, DockContentEventArgs e)
@@ -685,10 +819,15 @@ namespace RPGCode_Express
                 projectExplorer = null;
             else if (e.Content.GetType() == typeof(PropertiesWindow))
                 propertiesWindow = null;
+            else if (e.Content.GetType() == typeof(CodeEditor))
+            {
+                CodeEditor codeEditor = (CodeEditor)e.Content;
+
+                if (codeEditor.ProgramFile != "Untitled")
+                    editorDictionary.Remove(codeEditor.ProgramFile);
+            }
         }
 
         #endregion
-
-
     }
 }

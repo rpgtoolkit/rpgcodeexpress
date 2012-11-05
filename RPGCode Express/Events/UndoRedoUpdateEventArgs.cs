@@ -20,72 +20,54 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 
-
-namespace RPGCode_Express.Classes
+namespace RpgCodeExpress.Events
 {
-    public class ProjectFile
+    public class UndoRedoUpdateEventArgs : EventArgs
     {
-        private string fileName;
-        private string fileLocation;
+        private bool undo;
+        private bool redo;
 
         #region Properties
 
         /// <summary>
         /// 
         /// </summary>
-        [CategoryAttribute("Information")]
-        [DisplayNameAttribute("Full Path")]
-        [ReadOnlyAttribute(true)]
-        [DescriptionAttribute("Location of the file or folder.")]
-        public string FileLocation
+        public bool RedoState
         {
             get
             {
-                return fileLocation;
+                return redo;
             }
             set
             {
-                fileLocation = value;
+                redo = value;
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        [CategoryAttribute("Information")]
-        [DisplayNameAttribute("File Name")]
-        [ReadOnlyAttribute(true)]
-        [Description("Name of the file or folder.")]
-        public string FileName
+        public bool UndoState
         {
             get
             {
-                return fileName;
+                return undo;
             }
             set
             {
-                fileName = value;
+                undo = value;
             }
         }
 
         #endregion
 
-        #region Methods 
+        #region Methods
 
-        public ProjectFile(string file, string path)
+        public UndoRedoUpdateEventArgs(bool undoValue, bool redoValue)
         {
-            this.fileName = file;
-            this.fileLocation = path;
-        }
-
-        public ProjectFile()
-        {
-
+            this.undo = undoValue;
+            this.redo = redoValue;
         }
 
         #endregion

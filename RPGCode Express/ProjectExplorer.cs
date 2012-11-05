@@ -21,24 +21,24 @@
 
 using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
 using System.Diagnostics;
-using RPGCode_Express.Classes;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+using RpgCodeExpress.Events;
+using RpgCodeExpress.Files;
+using RpgCodeExpress.Items;
 
-namespace RPGCode_Express
+namespace RpgCodeExpress
 {
     public partial class ProjectExplorer : WeifenLuo.WinFormsUI.Docking.DockContent
     {
         private string projectName;
         private string projectPath;
 
-        public event NodeClickHandler NodeClick;
-        public delegate void NodeClickHandler(object sender, NodeClickEventArgs e);
-
-        public event NodeDoubleClickHandler NodeDoubleClick;
-        public delegate void NodeDoubleClickHandler(object sender, NodeClickEventArgs e);
+        public event EventHandler<NodeClickEventArgs> NodeClick;
+        public event EventHandler<NodeClickEventArgs> NodeDoubleClick;
+        public event EventHandler<NodeLabelRenameEventArgs> NodeRename;
 
         #region Properties
 
@@ -223,6 +223,9 @@ namespace RPGCode_Express
                 string filename = editedNode.Tag.ToString();
                 filename = filename.Remove(filename.Length - editedNode.Text.Length, editedNode.Text.Length);
                 editedNode.Tag = filename + e.Label;
+
+                NodeLabelRenameEventArgs args = new NodeLabelRenameEventArgs(oldFile, newFile);
+                this.OnNodeRename(args);
             }
             catch (Exception ex)
             {
@@ -248,6 +251,14 @@ namespace RPGCode_Express
             if (NodeDoubleClick != null)
             {
                 NodeDoubleClick(this, e);
+            }
+        }
+
+        protected virtual void OnNodeRename(NodeLabelRenameEventArgs e)
+        {
+            if (NodeRename != null)
+            {
+                NodeRename(this, e);
             }
         }
 
@@ -359,7 +370,7 @@ namespace RPGCode_Express
 
         private void treFileBrowser_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RPGCode_Express.Classes.ExplorerItem", true))
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true))
                 e.Effect = DragDropEffects.Move;
             else
                 e.Effect = DragDropEffects.None;
@@ -367,7 +378,7 @@ namespace RPGCode_Express
 
         private void treFileBrowser_DragOver(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RPGCode_Express.Classes.ExplorerItem", true) == false)
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true) == false)
                 return;
 
             TreeView selectedTreeview = (TreeView)sender;
@@ -379,7 +390,7 @@ namespace RPGCode_Express
             {
                 selectedTreeview.SelectedNode = targetNode;
 
-                TreeNode dropNode = (TreeNode)e.Data.GetData("RPGCode_Express.Classes.ExplorerItem");
+                TreeNode dropNode = (TreeNode)e.Data.GetData("RpgCodeExpress.Items.ExplorerItem");
 
                 while (!(targetNode == null))
                 {
@@ -403,11 +414,11 @@ namespace RPGCode_Express
 
         private void treFileBrowser_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RPGCode_Express.Classes.ExplorerItem", true) == false)
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true) == false)
                 return;
 
             TreeView treeView = (TreeView)sender;
-            ExplorerItem dropNode = (ExplorerItem)e.Data.GetData("RPGCode_Express.Classes.ExplorerItem");
+            ExplorerItem dropNode = (ExplorerItem)e.Data.GetData("RpgCodeExpress.Items.ExplorerItem");
             ExplorerItem targetNode = (ExplorerItem)treeView.SelectedNode;
 
             if (targetNode == null)

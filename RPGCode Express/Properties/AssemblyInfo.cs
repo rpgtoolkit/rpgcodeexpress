@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RPGCode Express")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A powerful code editor for RPGCode version 3, designed and developed by swordmaster.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JMD Computing")]
 [assembly: AssemblyProduct("RPGCode Express")]
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("en-GB")]

@@ -20,14 +20,9 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Collections;
-using FastColoredTextBoxNS;
 
-namespace RPGCode_Express.Classes.RPGCode
+namespace RpgCodeExpress.RpgCode
 {
     public class Autocomplete
     {

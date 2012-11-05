@@ -21,14 +21,10 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace RPGCode_Express.Classes.Utilities
+namespace RpgCodeExpress.Utilities
 {
-
     public class SerializableData
     {
 

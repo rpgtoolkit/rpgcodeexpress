@@ -19,65 +19,51 @@
  * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using RpgCodeExpress.Utilities;
 
-namespace RPGCode_Express.Classes
+namespace RpgCodeExpress.Files
 {
-    public class CaretPositionUpdateEventArgs : System.EventArgs
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ConfigurationFile : SerializableData
     {
-        private int lineNumber;
-        private int columnNumber;
-        private int characterNumber;
+        private string projectTitle;
+        private string projectPath;
 
         #region Properties
 
         /// <summary>
-        /// Gets the current character number.
+        /// 
         /// </summary>
-        public int CurrentCharacter
+        public string ProjectFolder
         {
             get
             {
-                return characterNumber + 1;
+                return projectPath;
+            }
+            set
+            {
+                projectPath = value;
             }
         }
 
         /// <summary>
-        /// Gets the current column number.
+        /// 
         /// </summary>
-        public int CurrentColumn
+        public string ProjectName
         {
             get
             {
-                return columnNumber + 1;
+                return projectTitle;
             }
-        }
-
-        /// <summary>
-        /// Get the current line number.
-        /// </summary>
-        public int CurrentLine
-        {
-            get
+            set
             {
-                return lineNumber + 1;
+                projectTitle = value;
             }
         }
 
         #endregion
 
-        #region Methods
-
-        public CaretPositionUpdateEventArgs(int line, int column, int character)
-        {
-            this.lineNumber = line;
-            this.columnNumber = column;
-            this.characterNumber = character;
-        }
-
-        #endregion
     }
 }

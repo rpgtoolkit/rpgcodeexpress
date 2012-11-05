@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RPGCode_Express.Properties {
+namespace RpgCodeExpress.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

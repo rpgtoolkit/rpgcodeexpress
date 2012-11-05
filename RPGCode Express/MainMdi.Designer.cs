@@ -1,4 +1,4 @@
-﻿namespace RPGCode_Express
+﻿namespace RpgCodeExpress
 {
     partial class MainMdi
     {
@@ -64,6 +64,7 @@
             this.mnuItemPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuItemSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemCommentSelected = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuItemQuickFind = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemQuickReplace = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,8 @@
             this.mnuItemProjectExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemPropertiesWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDebug = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItemRunProgram = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemDebugProgram = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItemRunProject = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemCloseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,6 +109,8 @@
             this.lblColumnNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCharacterNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -119,6 +123,7 @@
             this.mnuItemEdit,
             this.mnuItemView,
             this.mnuItemDebug,
+            this.toolsToolStripMenuItem,
             this.mnuItemWindows,
             this.mnuItemHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -145,73 +150,77 @@
             // 
             // mnuItemNew
             // 
-            this.mnuItemNew.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_NewDocumentIcon;
+            this.mnuItemNew.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_NewDocumentIcon;
             this.mnuItemNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemNew.Name = "mnuItemNew";
             this.mnuItemNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mnuItemNew.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemNew.Size = new System.Drawing.Size(218, 22);
             this.mnuItemNew.Text = "&New";
+            this.mnuItemNew.ToolTipText = "Create a new program file.";
             this.mnuItemNew.Click += new System.EventHandler(this.mnuItemNew_Click);
             // 
             // mnuItemOpen
             // 
-            this.mnuItemOpen.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_OpenFileIcon;
+            this.mnuItemOpen.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_OpenFileIcon;
             this.mnuItemOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemOpen.Name = "mnuItemOpen";
             this.mnuItemOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mnuItemOpen.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemOpen.Size = new System.Drawing.Size(218, 22);
             this.mnuItemOpen.Text = "&Open";
             this.mnuItemOpen.Click += new System.EventHandler(this.mnuItemOpen_Click);
             // 
             // mnuItemOpenProject
             // 
-            this.mnuItemOpenProject.Image = global::RPGCode_Express.Properties.Resources.toolkit31;
+            this.mnuItemOpenProject.Image = global::RpgCodeExpress.Properties.Resources.toolkit31;
             this.mnuItemOpenProject.Name = "mnuItemOpenProject";
-            this.mnuItemOpenProject.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemOpenProject.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.O)));
+            this.mnuItemOpenProject.Size = new System.Drawing.Size(218, 22);
             this.mnuItemOpenProject.Text = "Open Projec&t";
             this.mnuItemOpenProject.Click += new System.EventHandler(this.mnuItemOpenProject_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(215, 6);
             // 
             // mnuItemSave
             // 
-            this.mnuItemSave.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_SaveIcon;
+            this.mnuItemSave.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_SaveIcon;
             this.mnuItemSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemSave.Name = "mnuItemSave";
             this.mnuItemSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mnuItemSave.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemSave.Size = new System.Drawing.Size(218, 22);
             this.mnuItemSave.Text = "&Save";
             this.mnuItemSave.Click += new System.EventHandler(this.mnuItemSave_Click);
             // 
             // mnuItemSaveAs
             // 
             this.mnuItemSaveAs.Name = "mnuItemSaveAs";
-            this.mnuItemSaveAs.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemSaveAs.Size = new System.Drawing.Size(218, 22);
             this.mnuItemSaveAs.Text = "Save &As";
             this.mnuItemSaveAs.Click += new System.EventHandler(this.mnuItemSaveAs_Click);
             // 
             // mnuItemSaveAll
             // 
-            this.mnuItemSaveAll.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_SaveAllIcon;
+            this.mnuItemSaveAll.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_SaveAllIcon;
             this.mnuItemSaveAll.Name = "mnuItemSaveAll";
             this.mnuItemSaveAll.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
                         | System.Windows.Forms.Keys.S)));
-            this.mnuItemSaveAll.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemSaveAll.Size = new System.Drawing.Size(218, 22);
             this.mnuItemSaveAll.Text = "Save All";
             this.mnuItemSaveAll.Click += new System.EventHandler(this.mnuItemSaveAll_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(215, 6);
             // 
             // mnuItemExit
             // 
             this.mnuItemExit.Name = "mnuItemExit";
-            this.mnuItemExit.Size = new System.Drawing.Size(191, 22);
+            this.mnuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.mnuItemExit.Size = new System.Drawing.Size(218, 22);
             this.mnuItemExit.Text = "E&xit";
             this.mnuItemExit.Click += new System.EventHandler(this.mnuItemExit_Click);
             // 
@@ -226,6 +235,7 @@
             this.mnuItemPaste,
             this.toolStripSeparator4,
             this.mnuItemSelectAll,
+            this.mnuItemCommentSelected,
             this.toolStripSeparator1,
             this.mnuItemQuickFind,
             this.mnuItemQuickReplace});
@@ -235,92 +245,107 @@
             // 
             // mnuItemUndo
             // 
-            this.mnuItemUndo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_UndoIcon;
+            this.mnuItemUndo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_UndoIcon;
             this.mnuItemUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemUndo.Name = "mnuItemUndo";
             this.mnuItemUndo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.mnuItemUndo.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemUndo.Size = new System.Drawing.Size(260, 22);
             this.mnuItemUndo.Text = "&Undo";
             this.mnuItemUndo.Click += new System.EventHandler(this.mnuItemUndo_Click);
             // 
             // mnuItemRedo
             // 
-            this.mnuItemRedo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_RedoIcon;
+            this.mnuItemRedo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_RedoIcon;
             this.mnuItemRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemRedo.Name = "mnuItemRedo";
             this.mnuItemRedo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.mnuItemRedo.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemRedo.Size = new System.Drawing.Size(260, 22);
             this.mnuItemRedo.Text = "&Redo";
             this.mnuItemRedo.Click += new System.EventHandler(this.mnuItemRedo_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(257, 6);
             // 
             // mnuItemCut
             // 
-            this.mnuItemCut.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CutIcon;
+            this.mnuItemCut.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CutIcon;
             this.mnuItemCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemCut.Name = "mnuItemCut";
             this.mnuItemCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.mnuItemCut.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCut.Size = new System.Drawing.Size(260, 22);
             this.mnuItemCut.Text = "Cu&t";
             this.mnuItemCut.Click += new System.EventHandler(this.mnuItemCut_Click);
             // 
             // mnuItemCopy
             // 
-            this.mnuItemCopy.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CopyIcon;
+            this.mnuItemCopy.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CopyIcon;
             this.mnuItemCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemCopy.Name = "mnuItemCopy";
             this.mnuItemCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.mnuItemCopy.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCopy.Size = new System.Drawing.Size(260, 22);
             this.mnuItemCopy.Text = "&Copy";
             this.mnuItemCopy.Click += new System.EventHandler(this.mnuItemCopy_Click);
             // 
             // mnuItemPaste
             // 
-            this.mnuItemPaste.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_PasteIcon;
+            this.mnuItemPaste.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_PasteIcon;
             this.mnuItemPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemPaste.Name = "mnuItemPaste";
             this.mnuItemPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.mnuItemPaste.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemPaste.Size = new System.Drawing.Size(260, 22);
             this.mnuItemPaste.Text = "&Paste";
             this.mnuItemPaste.Click += new System.EventHandler(this.mnuItemPaste_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(257, 6);
             // 
             // mnuItemSelectAll
             // 
             this.mnuItemSelectAll.Name = "mnuItemSelectAll";
-            this.mnuItemSelectAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemSelectAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.mnuItemSelectAll.Size = new System.Drawing.Size(260, 22);
             this.mnuItemSelectAll.Text = "Select &All";
             this.mnuItemSelectAll.Click += new System.EventHandler(this.mnuItemSelectAll_Click);
+            // 
+            // mnuItemCommentSelected
+            // 
+            this.mnuItemCommentSelected.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CommentRegion;
+            this.mnuItemCommentSelected.Name = "mnuItemCommentSelected";
+            this.mnuItemCommentSelected.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.C)));
+            this.mnuItemCommentSelected.Size = new System.Drawing.Size(260, 22);
+            this.mnuItemCommentSelected.Text = "Un\\Comment Selected";
+            this.mnuItemCommentSelected.Click += new System.EventHandler(this.tspButtonCommentSelected_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(257, 6);
             // 
             // mnuItemQuickFind
             // 
-            this.mnuItemQuickFind.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_FindIcon;
+            this.mnuItemQuickFind.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_FindIcon;
             this.mnuItemQuickFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.mnuItemQuickFind.Name = "mnuItemQuickFind";
-            this.mnuItemQuickFind.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemQuickFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.mnuItemQuickFind.Size = new System.Drawing.Size(260, 22);
             this.mnuItemQuickFind.Text = "Quick &Find";
+            this.mnuItemQuickFind.ToolTipText = "Quick Find (Ctrl+F)";
             this.mnuItemQuickFind.Click += new System.EventHandler(this.mnuItemQuickFind_Click);
             // 
             // mnuItemQuickReplace
             // 
-            this.mnuItemQuickReplace.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_ReplaceIcon;
+            this.mnuItemQuickReplace.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_ReplaceIcon;
             this.mnuItemQuickReplace.ImageTransparentColor = System.Drawing.Color.Fuchsia;
             this.mnuItemQuickReplace.Name = "mnuItemQuickReplace";
-            this.mnuItemQuickReplace.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemQuickReplace.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.mnuItemQuickReplace.Size = new System.Drawing.Size(260, 22);
             this.mnuItemQuickReplace.Text = "Quick &Replace";
+            this.mnuItemQuickReplace.ToolTipText = "Quick Replace (Ctrl+H)";
             this.mnuItemQuickReplace.Click += new System.EventHandler(this.mnuItemQuickReplace_Click);
             // 
             // mnuItemView
@@ -334,7 +359,7 @@
             // 
             // mnuItemProjectExplorer
             // 
-            this.mnuItemProjectExplorer.Image = global::RPGCode_Express.Properties.Resources.Solution;
+            this.mnuItemProjectExplorer.Image = global::RpgCodeExpress.Properties.Resources.Solution;
             this.mnuItemProjectExplorer.Name = "mnuItemProjectExplorer";
             this.mnuItemProjectExplorer.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.mnuItemProjectExplorer.Size = new System.Drawing.Size(213, 22);
@@ -343,7 +368,7 @@
             // 
             // mnuItemPropertiesWindow
             // 
-            this.mnuItemPropertiesWindow.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_PropertiesIcon;
+            this.mnuItemPropertiesWindow.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_PropertiesIcon;
             this.mnuItemPropertiesWindow.Name = "mnuItemPropertiesWindow";
             this.mnuItemPropertiesWindow.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.mnuItemPropertiesWindow.Size = new System.Drawing.Size(213, 22);
@@ -353,18 +378,28 @@
             // mnuItemDebug
             // 
             this.mnuItemDebug.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuItemRunProgram});
+            this.mnuItemDebugProgram,
+            this.mnuItemRunProject});
             this.mnuItemDebug.Name = "mnuItemDebug";
             this.mnuItemDebug.Size = new System.Drawing.Size(50, 20);
             this.mnuItemDebug.Text = "&Debug";
             // 
-            // mnuItemRunProgram
+            // mnuItemDebugProgram
             // 
-            this.mnuItemRunProgram.Name = "mnuItemRunProgram";
-            this.mnuItemRunProgram.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.mnuItemRunProgram.Size = new System.Drawing.Size(166, 22);
-            this.mnuItemRunProgram.Text = "Run Program";
-            this.mnuItemRunProgram.Click += new System.EventHandler(this.mnuItemRunProgram_Click);
+            this.mnuItemDebugProgram.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_Debug_Start;
+            this.mnuItemDebugProgram.Name = "mnuItemDebugProgram";
+            this.mnuItemDebugProgram.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.mnuItemDebugProgram.Size = new System.Drawing.Size(178, 22);
+            this.mnuItemDebugProgram.Text = "Debug Program";
+            this.mnuItemDebugProgram.Click += new System.EventHandler(this.mnuItemDebugProgram_Click);
+            // 
+            // mnuItemRunProject
+            // 
+            this.mnuItemRunProject.Name = "mnuItemRunProject";
+            this.mnuItemRunProject.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.mnuItemRunProject.Size = new System.Drawing.Size(178, 22);
+            this.mnuItemRunProject.Text = "Run Project";
+            this.mnuItemRunProject.Click += new System.EventHandler(this.runProjectToolStripMenuItem_Click);
             // 
             // mnuItemWindows
             // 
@@ -378,14 +413,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -402,6 +437,7 @@
             this.mnuItemAbout.Name = "mnuItemAbout";
             this.mnuItemAbout.Size = new System.Drawing.Size(203, 22);
             this.mnuItemAbout.Text = "&About RPGCode Express";
+            this.mnuItemAbout.Click += new System.EventHandler(this.mnuItemAbout_Click);
             // 
             // toolStrip
             // 
@@ -437,43 +473,47 @@
             // tspButtonNew
             // 
             this.tspButtonNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tspButtonNew.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_NewDocumentIcon;
+            this.tspButtonNew.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_NewDocumentIcon;
             this.tspButtonNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonNew.Name = "tspButtonNew";
             this.tspButtonNew.Size = new System.Drawing.Size(23, 22);
             this.tspButtonNew.Text = "&New";
+            this.tspButtonNew.ToolTipText = "New Program (Ctrl+N)";
             this.tspButtonNew.Click += new System.EventHandler(this.mnuItemNew_Click);
             // 
             // tspButtonOpen
             // 
             this.tspButtonOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tspButtonOpen.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_OpenFileIcon;
+            this.tspButtonOpen.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_OpenFileIcon;
             this.tspButtonOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonOpen.Name = "tspButtonOpen";
             this.tspButtonOpen.Size = new System.Drawing.Size(23, 22);
             this.tspButtonOpen.Text = "&Open";
+            this.tspButtonOpen.ToolTipText = "Open Program (Ctrl+O)";
             this.tspButtonOpen.Click += new System.EventHandler(this.mnuItemOpen_Click);
             // 
             // tspButtonSave
             // 
             this.tspButtonSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonSave.Enabled = false;
-            this.tspButtonSave.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_SaveIcon;
+            this.tspButtonSave.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_SaveIcon;
             this.tspButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonSave.Name = "tspButtonSave";
             this.tspButtonSave.Size = new System.Drawing.Size(23, 22);
             this.tspButtonSave.Text = "&Save";
+            this.tspButtonSave.ToolTipText = "Save (Ctrl+S)";
             this.tspButtonSave.Click += new System.EventHandler(this.mnuItemSave_Click);
             // 
             // tspButtonSaveAll
             // 
             this.tspButtonSaveAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonSaveAll.Enabled = false;
-            this.tspButtonSaveAll.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_SaveAllIcon;
+            this.tspButtonSaveAll.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_SaveAllIcon;
             this.tspButtonSaveAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonSaveAll.Name = "tspButtonSaveAll";
             this.tspButtonSaveAll.Size = new System.Drawing.Size(23, 22);
             this.tspButtonSaveAll.Text = "Save All";
+            this.tspButtonSaveAll.ToolTipText = "Save All (Ctrl+Shift+S)";
             this.tspButtonSaveAll.Click += new System.EventHandler(this.mnuItemSaveAll_Click);
             // 
             // toolStripSeparator6
@@ -485,33 +525,36 @@
             // 
             this.tspButtonCut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonCut.Enabled = false;
-            this.tspButtonCut.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CutIcon;
+            this.tspButtonCut.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CutIcon;
             this.tspButtonCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonCut.Name = "tspButtonCut";
             this.tspButtonCut.Size = new System.Drawing.Size(23, 22);
             this.tspButtonCut.Text = "C&ut";
+            this.tspButtonCut.ToolTipText = "Cut (Ctrl+X)";
             this.tspButtonCut.Click += new System.EventHandler(this.mnuItemCut_Click);
             // 
             // tspButtonCopy
             // 
             this.tspButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonCopy.Enabled = false;
-            this.tspButtonCopy.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CopyIcon;
+            this.tspButtonCopy.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CopyIcon;
             this.tspButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonCopy.Name = "tspButtonCopy";
             this.tspButtonCopy.Size = new System.Drawing.Size(23, 22);
             this.tspButtonCopy.Text = "&Copy";
+            this.tspButtonCopy.ToolTipText = "Copy (Ctrl+C)";
             this.tspButtonCopy.Click += new System.EventHandler(this.mnuItemCopy_Click);
             // 
             // tspButtonPaste
             // 
             this.tspButtonPaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonPaste.Enabled = false;
-            this.tspButtonPaste.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_PasteIcon;
+            this.tspButtonPaste.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_PasteIcon;
             this.tspButtonPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonPaste.Name = "tspButtonPaste";
             this.tspButtonPaste.Size = new System.Drawing.Size(23, 22);
             this.tspButtonPaste.Text = "&Paste";
+            this.tspButtonPaste.ToolTipText = "Paste (Ctrl+V)";
             this.tspButtonPaste.Click += new System.EventHandler(this.mnuItemPaste_Click);
             // 
             // toolStripSeparator7
@@ -523,11 +566,12 @@
             // 
             this.tspButtonFind.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonFind.Enabled = false;
-            this.tspButtonFind.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_FindIcon;
+            this.tspButtonFind.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_FindIcon;
             this.tspButtonFind.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonFind.Name = "tspButtonFind";
             this.tspButtonFind.Size = new System.Drawing.Size(23, 22);
             this.tspButtonFind.Text = "Find";
+            this.tspButtonFind.ToolTipText = "Find (Ctrl+F)";
             // 
             // toolStripSeparator5
             // 
@@ -538,11 +582,12 @@
             // 
             this.tspButtonCommentSelected.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonCommentSelected.Enabled = false;
-            this.tspButtonCommentSelected.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_CommentRegion;
+            this.tspButtonCommentSelected.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_CommentRegion;
             this.tspButtonCommentSelected.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonCommentSelected.Name = "tspButtonCommentSelected";
             this.tspButtonCommentSelected.Size = new System.Drawing.Size(23, 22);
             this.tspButtonCommentSelected.Text = "Comment Selected";
+            this.tspButtonCommentSelected.ToolTipText = "Comment Selected (Ctrl+Shift+O)";
             this.tspButtonCommentSelected.Click += new System.EventHandler(this.tspButtonCommentSelected_Click);
             // 
             // toolStripSeparator8
@@ -554,22 +599,24 @@
             // 
             this.tspButtonUndo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonUndo.Enabled = false;
-            this.tspButtonUndo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_UndoIcon;
+            this.tspButtonUndo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_UndoIcon;
             this.tspButtonUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonUndo.Name = "tspButtonUndo";
             this.tspButtonUndo.Size = new System.Drawing.Size(23, 22);
             this.tspButtonUndo.Text = "Undo";
+            this.tspButtonUndo.ToolTipText = "Undo (Ctrl+Z)";
             this.tspButtonUndo.Click += new System.EventHandler(this.mnuItemUndo_Click);
             // 
             // tspButtonRedo
             // 
             this.tspButtonRedo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonRedo.Enabled = false;
-            this.tspButtonRedo.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_RedoIcon;
+            this.tspButtonRedo.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_RedoIcon;
             this.tspButtonRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonRedo.Name = "tspButtonRedo";
             this.tspButtonRedo.Size = new System.Drawing.Size(23, 22);
             this.tspButtonRedo.Text = "Redo";
+            this.tspButtonRedo.ToolTipText = "Redo (Ctrl+Y)";
             this.tspButtonRedo.Click += new System.EventHandler(this.mnuItemRedo_Click);
             // 
             // toolStripSeparator9
@@ -581,12 +628,13 @@
             // 
             this.tspButtonRunProgram.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tspButtonRunProgram.Enabled = false;
-            this.tspButtonRunProgram.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_Debug_Start;
+            this.tspButtonRunProgram.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_Debug_Start;
             this.tspButtonRunProgram.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonRunProgram.Name = "tspButtonRunProgram";
             this.tspButtonRunProgram.Size = new System.Drawing.Size(23, 22);
-            this.tspButtonRunProgram.Text = "Run";
-            this.tspButtonRunProgram.Click += new System.EventHandler(this.mnuItemRunProgram_Click);
+            this.tspButtonRunProgram.Text = "Debug Program";
+            this.tspButtonRunProgram.ToolTipText = "Debug Program (F5)";
+            this.tspButtonRunProgram.Click += new System.EventHandler(this.mnuItemDebugProgram_Click);
             // 
             // toolStripSeparator10
             // 
@@ -596,21 +644,23 @@
             // tspButtonProjectExplorer
             // 
             this.tspButtonProjectExplorer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tspButtonProjectExplorer.Image = global::RPGCode_Express.Properties.Resources.Solution;
+            this.tspButtonProjectExplorer.Image = global::RpgCodeExpress.Properties.Resources.Solution;
             this.tspButtonProjectExplorer.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonProjectExplorer.Name = "tspButtonProjectExplorer";
             this.tspButtonProjectExplorer.Size = new System.Drawing.Size(23, 22);
             this.tspButtonProjectExplorer.Text = "Project Explorer";
+            this.tspButtonProjectExplorer.ToolTipText = "Project Explorer (Ctrl+E)";
             this.tspButtonProjectExplorer.Click += new System.EventHandler(this.mnuItemProjectExplorer_Click);
             // 
             // tspButtonProperties
             // 
             this.tspButtonProperties.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tspButtonProperties.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_PropertiesIcon;
+            this.tspButtonProperties.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_PropertiesIcon;
             this.tspButtonProperties.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonProperties.Name = "tspButtonProperties";
             this.tspButtonProperties.Size = new System.Drawing.Size(23, 22);
             this.tspButtonProperties.Text = "Properties Window";
+            this.tspButtonProperties.ToolTipText = "Properties Window (Ctrl+P)";
             this.tspButtonProperties.Click += new System.EventHandler(this.mnuItemPropertiesWindow_Click);
             // 
             // toolStripSeparator11
@@ -621,12 +671,12 @@
             // tspButtonAbout
             // 
             this.tspButtonAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tspButtonAbout.Enabled = false;
-            this.tspButtonAbout.Image = global::RPGCode_Express.Properties.Resources.Icons_16x16_HelpIcon;
+            this.tspButtonAbout.Image = global::RpgCodeExpress.Properties.Resources.Icons_16x16_HelpIcon;
             this.tspButtonAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tspButtonAbout.Name = "tspButtonAbout";
             this.tspButtonAbout.Size = new System.Drawing.Size(23, 22);
-            this.tspButtonAbout.Text = "About";
+            this.tspButtonAbout.Text = "About RPGCode Express";
+            this.tspButtonAbout.Click += new System.EventHandler(this.mnuItemAbout_Click);
             // 
             // statusStrip
             // 
@@ -746,6 +796,21 @@
             this.dockPanel.ActiveContentChanged += new System.EventHandler(this.dockPanel_ActiveContentChanged);
             this.dockPanel.ContentRemoved += new System.EventHandler<WeifenLuo.WinFormsUI.Docking.DockContentEventArgs>(this.dockPanel_ContentRemoved);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontSettingsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // fontSettingsToolStripMenuItem
+            // 
+            this.fontSettingsToolStripMenuItem.Name = "fontSettingsToolStripMenuItem";
+            this.fontSettingsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.fontSettingsToolStripMenuItem.Text = "Font Settings...";
+            this.fontSettingsToolStripMenuItem.Click += new System.EventHandler(this.fontSettingsToolStripMenuItem_Click);
+            // 
             // MainMdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,7 +825,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainMdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RPGCode Express 1.4.1a";
+            this.Text = "RPGCode Express 1.4.2a";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -837,6 +902,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItemSaveAll;
         private System.Windows.Forms.ToolStripButton tspButtonSaveAll;
         private System.Windows.Forms.ToolStripMenuItem mnuItemDebug;
-        private System.Windows.Forms.ToolStripMenuItem mnuItemRunProgram;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemDebugProgram;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemRunProject;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemCommentSelected;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontSettingsToolStripMenuItem;
     }
 }

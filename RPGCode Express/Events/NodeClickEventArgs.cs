@@ -20,59 +20,59 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using RpgCodeExpress.Files;
 
-namespace RPGCode_Express.Classes
+namespace RpgCodeExpress.Events
 {
-
-    public class ExplorerItem : TreeNode
+    public class NodeClickEventArgs : EventArgs
     {
-        private ExplorerItemType fileType;
-        private ProjectFile fileInformation = new ProjectFile();
+        private string name;
+        private string path;
+        private ProjectFile item;
 
         #region Properties
+
+        public ProjectFile File
+        {
+            get
+            {
+                return item;
+            }
+        }
 
         /// <summary>
         /// 
         /// </summary>
-        public ProjectFile Information
+        public string FileName
         {
             get
             {
-                fileInformation.FileName = this.Text;
-                fileInformation.FileLocation = this.Tag.ToString();
-
-                return fileInformation;
-            }
-            set
-            {
-                fileInformation = value;
+                return name;
             }
         }
 
         /// <summary>
-        /// Get or set the ExplorerItems type.
+        /// 
         /// </summary>
-        public ExplorerItemType Type
+        public string FilePath
         {
             get
             {
-                return fileType;
-            }
-            set
-            {
-                fileType = value;
+                return path;
             }
         }
 
         #endregion
-    }
 
-    public enum ExplorerItemType
-    {
-        Project, Program, File, Folder
+        #region Methods
+
+        public NodeClickEventArgs(ProjectFile projectFile)
+        {
+            item = projectFile;
+            this.name = projectFile.FileName;
+            this.path = projectFile.FileLocation;
+        }
+
+        #endregion
     }
 }

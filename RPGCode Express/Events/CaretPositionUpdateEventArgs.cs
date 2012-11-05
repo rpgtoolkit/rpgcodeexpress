@@ -20,46 +20,47 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace RPGCode_Express.Classes
+namespace RpgCodeExpress.Events
 {
-    public class UndoRedoUpdateEventArgs : System.EventArgs
+    public class CaretPositionUpdateEventArgs : EventArgs
     {
-        private bool undo;
-        private bool redo;
+        private int lineNumber;
+        private int columnNumber;
+        private int characterNumber;
 
         #region Properties
 
         /// <summary>
-        /// 
+        /// Gets the current character number.
         /// </summary>
-        public bool RedoState
+        public int CurrentCharacter
         {
             get
             {
-                return redo;
-            }
-            set
-            {
-                redo = value;
+                return characterNumber + 1;
             }
         }
 
         /// <summary>
-        /// 
+        /// Gets the current column number.
         /// </summary>
-        public bool UndoState
+        public int CurrentColumn
         {
             get
             {
-                return undo;
+                return columnNumber + 1;
             }
-            set
+        }
+
+        /// <summary>
+        /// Get the current line number.
+        /// </summary>
+        public int CurrentLine
+        {
+            get
             {
-                undo = value;
+                return lineNumber + 1;
             }
         }
 
@@ -67,10 +68,11 @@ namespace RPGCode_Express.Classes
 
         #region Methods
 
-        public UndoRedoUpdateEventArgs(bool undoValue, bool redoValue)
+        public CaretPositionUpdateEventArgs(int line, int column, int character)
         {
-            this.undo = undoValue;
-            this.redo = redoValue;
+            this.lineNumber = line;
+            this.columnNumber = column;
+            this.characterNumber = character;
         }
 
         #endregion

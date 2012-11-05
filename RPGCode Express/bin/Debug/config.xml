@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <ConfigurationFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ProjectFolder>C:\Program Files\Toolkit3\game\tester\</ProjectFolder>
-  <ProjectName>tester</ProjectName>
+  <ProjectFolder>C:\Program Files\Toolkit3\game\demo\</ProjectFolder>
+  <ProjectName>demo</ProjectName>
 </ConfigurationFile>

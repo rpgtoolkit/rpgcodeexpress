@@ -19,54 +19,57 @@
  * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Windows.Forms;
+using RpgCodeExpress.Files;
 
-namespace RPGCode_Express.Classes.Utilities
+namespace RpgCodeExpress.Items
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class ConfigurationFile : SerializableData
+
+    public class ExplorerItem : TreeNode
     {
-        private string projectTitle;
-        private string projectPath;
+        private ExplorerItemType fileType;
+        private ProjectFile fileInformation = new ProjectFile();
 
         #region Properties
 
         /// <summary>
         /// 
         /// </summary>
-        public string ProjectFolder
+        public ProjectFile Information
         {
             get
             {
-                return projectPath;
+                fileInformation.FileName = this.Text;
+                fileInformation.FileLocation = this.Tag.ToString();
+
+                return fileInformation;
             }
             set
             {
-                projectPath = value;
+                fileInformation = value;
             }
         }
 
         /// <summary>
-        /// 
+        /// Get or set the ExplorerItems type.
         /// </summary>
-        public string ProjectName
+        public ExplorerItemType Type
         {
             get
             {
-                return projectTitle;
+                return fileType;
             }
             set
             {
-                projectTitle = value;
+                fileType = value;
             }
         }
 
         #endregion
+    }
 
+    public enum ExplorerItemType
+    {
+        Project, Program, File, Folder
     }
 }

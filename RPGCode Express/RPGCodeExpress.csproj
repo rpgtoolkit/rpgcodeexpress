@@ -8,12 +8,13 @@
     <ProjectGuid>{85FEEF44-2C0E-4DA0-949E-EF6C369AE31E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RPGCode_Express</RootNamespace>
+    <RootNamespace>RpgCodeExpress</RootNamespace>
     <AssemblyName>RPGCode Express</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -48,6 +48,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rpgcodeExpress.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastColoredTextBox, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -76,20 +79,24 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\CaretPositionUpdateEventArgs.cs" />
-    <Compile Include="Classes\DropDownItem.cs" />
-    <Compile Include="Classes\ExplorerItem.cs" />
-    <Compile Include="Classes\NodeClickEventArgs.cs" />
-    <Compile Include="Classes\ProjectFile.cs" />
-    <Compile Include="Classes\Renders\Colours.cs" />
-    <Compile Include="Classes\Renders\MenuRender.cs" />
-    <Compile Include="Classes\Renders\ToolstripRender.cs" />
-    <Compile Include="Classes\RPGCode\AutoComplete.cs" />
-    <Compile Include="Classes\RPGCode\Command.cs" />
-    <Compile Include="Classes\RPGCode\RPGCode.cs" />
-    <Compile Include="Classes\UndoRedoUpdateEventArgs.cs" />
-    <Compile Include="Classes\Utilities\ConfigurationFile.cs" />
-    <Compile Include="Classes\Utilities\SerializableData.cs" />
+    <Compile Include="EditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\CaretPositionUpdateEventArgs.cs" />
+    <Compile Include="Events\NodeLabelRenameEventArgs.cs" />
+    <Compile Include="Items\DropDownItem.cs" />
+    <Compile Include="Items\ExplorerItem.cs" />
+    <Compile Include="Events\NodeClickEventArgs.cs" />
+    <Compile Include="Files\ProjectFile.cs" />
+    <Compile Include="Renders\Colours.cs" />
+    <Compile Include="Renders\MenuRender.cs" />
+    <Compile Include="Renders\ToolstripRender.cs" />
+    <Compile Include="RpgCode\AutoComplete.cs" />
+    <Compile Include="RpgCode\Command.cs" />
+    <Compile Include="RpgCode\RPGCode.cs" />
+    <Compile Include="Events\UndoRedoUpdateEventArgs.cs" />
+    <Compile Include="Files\ConfigurationFile.cs" />
+    <Compile Include="Utilities\SerializableData.cs" />
     <Compile Include="CodeEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +296,9 @@
     <None Include="Resources\Webcontrol_Fileupload.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\RPGCode Express Logo %28Scaled%29.png" />
+    <None Include="Resources\rpgcodeExpress.ico" />
+    <Content Include="rpgcodeExpress.ico" />
     <None Include="Resources\Icons.16x16.InternalField.png" />
     <None Include="Resources\Icons.16x16.PrivateField.png" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Class.png" />

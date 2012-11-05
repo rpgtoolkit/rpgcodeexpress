@@ -19,16 +19,7 @@
  * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace RPGCode_Express
+namespace RpgCodeExpress
 {
     public partial class PropertiesWindow : WeifenLuo.WinFormsUI.Docking.DockContent
     {

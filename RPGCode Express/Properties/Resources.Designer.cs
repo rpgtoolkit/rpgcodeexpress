@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RPGCode_Express.Properties {
+namespace RpgCodeExpress.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RPGCode_Express.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RPGCode_Express.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RpgCodeExpress.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -434,6 +434,13 @@ namespace RPGCode_Express.Properties {
         internal static System.Drawing.Bitmap rpgcode_express_641 {
             get {
                 object obj = ResourceManager.GetObject("rpgcode_express_641", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap RPGCode_Express_Logo__Scaled_ {
+            get {
+                object obj = ResourceManager.GetObject("RPGCode_Express_Logo__Scaled_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

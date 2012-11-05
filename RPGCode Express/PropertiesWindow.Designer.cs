@@ -1,4 +1,4 @@
-﻿namespace RPGCode_Express
+﻿namespace RpgCodeExpress
 {
     partial class PropertiesWindow
     {
