@@ -96,6 +96,7 @@
     <Compile Include="RpgCode\RPGCode.cs" />
     <Compile Include="Events\UndoRedoUpdateEventArgs.cs" />
     <Compile Include="Files\ConfigurationFile.cs" />
+    <Compile Include="Utilities\ISaveable.cs" />
     <Compile Include="Utilities\SerializableData.cs" />
     <Compile Include="CodeEditor.cs">
       <SubType>Form</SubType>

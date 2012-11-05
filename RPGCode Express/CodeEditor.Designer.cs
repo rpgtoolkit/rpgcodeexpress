@@ -83,7 +83,6 @@
             this.txtCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.txtCodeEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCodeEditor.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodeEditor.Language = FastColoredTextBoxNS.Language.RpgCode;
             this.txtCodeEditor.LeftBracket = '(';
             this.txtCodeEditor.Location = new System.Drawing.Point(3, 27);

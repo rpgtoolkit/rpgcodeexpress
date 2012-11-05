@@ -32,15 +32,15 @@ using FastColoredTextBoxNS;
 using RpgCodeExpress.Events;
 using RpgCodeExpress.Items;
 using RpgCodeExpress.RpgCode;
+using RpgCodeExpress.Utilities;
 
 namespace RpgCodeExpress
 {
-    public partial class CodeEditor : EditorForm
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class CodeEditor : EditorForm, ISaveable
     {
-        private bool updateNeeded;
-        private string currentFilePath;
-        private string projectDirectory;
-
         private Point lastMouseCoordinate;
         private AutocompleteMenu popupMenu; //Intellisense menu
         private RPGcode rpgCodeReference = new RPGcode(); //List of RPGCode Functions
@@ -55,69 +55,32 @@ namespace RpgCodeExpress
         public event EventHandler<CaretPositionUpdateEventArgs> CaretUpdated;
         public event EventHandler<UndoRedoUpdateEventArgs> UndoRedoUpdated;
 
-        #region Properties
-
-        /// <summary>
-        /// Gets a value indicating whether the current file needs saving.
-        /// </summary>
-        public bool IsUpdated
-        {
-            get
-            {
-                return updateNeeded;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the code editors current program file.
-        /// </summary>
-        public string ProgramFile
-        {
-            get
-            {
-                return currentFilePath;
-            }
-            set
-            {
-                currentFilePath = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the current projects directory path.
-        /// </summary>
-        public string ProjectPath
-        {
-            get
-            {
-                return projectDirectory;
-            }
-            set
-            {
-                projectDirectory = value;
-            }
-        }
-
-        #endregion
-
         #region Methods
 
+        /// <summary>
+        /// 
+        /// </summary>
         public CodeEditor()
         {
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="currentRpgCode"></param>
         public CodeEditor(string file, RPGcode currentRpgCode)
         {
             InitializeComponent();
 
             rpgCodeReference = currentRpgCode;
-            currentFilePath = file;
+            EditorFile = file;
 
-            this.TabText = Path.GetFileNameWithoutExtension(currentFilePath);
+            this.TabText = Path.GetFileNameWithoutExtension(EditorFile);
             txtCodeEditor.AddStyle(new MarkerStyle(new SolidBrush(Color.FromArgb(50, Color.Gray))));
 
-            if (currentFilePath != "Untitled")
+            if (EditorFile != "Untitled")
                 ReadFile();
 
             popupMenu = new AutocompleteMenu(txtCodeEditor); //Set autocompletemenu's text source
@@ -133,22 +96,25 @@ namespace RpgCodeExpress
         /// <summary>
         /// Saves a file that already exists, otherwise it will call SaveAs().
         /// </summary>
-        public override void Save()
+        public bool Save()
         {
-            if (currentFilePath == "Untitled") //The file has no path
+            if (EditorFile == "Untitled") //The file has no path
             {
                 SaveAs();
             }
 
             WriteToFile();
             ClearFileIncludes();
-            this.TabText = Path.GetFileName(currentFilePath);
+            this.TabText = Path.GetFileName(EditorFile);
+
+            return true;
         }
 
         /// <summary>
         /// Display a SaveFileDialog and allow the user to save the file.
+        /// Possibly a redundant routine at the moment.
         /// </summary>
-        public override void SaveAs()
+        public bool SaveAs()
         {
             SaveFileDialog saveProgramFile = new SaveFileDialog();
 
@@ -158,22 +124,25 @@ namespace RpgCodeExpress
             saveProgramFile.InitialDirectory = ProjectPath;
             saveProgramFile.Title = "Save RPGCode Program File";
             saveProgramFile.Filter = "RPGCode Programs (*.prg)|*.prg";
-            saveProgramFile.FileName = Path.GetFileName(currentFilePath);
+            saveProgramFile.FileName = Path.GetFileName(EditorFile);
 
             if (saveProgramFile.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
                     this.TabText = Path.GetFileName(saveProgramFile.FileName);
-                    currentFilePath = saveProgramFile.FileName;
+                    EditorFile = saveProgramFile.FileName;
                     ClearFileIncludes();
                     WriteToFile();
+                    return true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+           return false;
         }
 
         /// <summary>
@@ -214,7 +183,7 @@ namespace RpgCodeExpress
 
                 //Get the files name from in between the quotes "...".
                 fileInclude = fileInclude.Substring(position, fileInclude.LastIndexOf('"') - position);
-                fileInclude = projectDirectory + fileInclude;
+                fileInclude = ProjectPath + fileInclude;
 
                 if (!File.Exists(fileInclude))
                     continue; //File doesn't exist.
@@ -491,7 +460,7 @@ namespace RpgCodeExpress
         {
             try
             {
-                TextReader textReader = new StreamReader(currentFilePath);
+                TextReader textReader = new StreamReader(EditorFile);
                 txtCodeEditor.Text = textReader.ReadToEnd();
                 textReader.Close();
             }
@@ -531,7 +500,7 @@ namespace RpgCodeExpress
         /// to determine whether or not they should save the file.</returns>
         private DialogResult UpdateFile()
         {
-            System.Windows.Forms.DialogResult result = MessageBox.Show("Do you want to save changes to " + currentFilePath,
+            System.Windows.Forms.DialogResult result = MessageBox.Show("Do you want to save changes to " + EditorFile,
                 "RPGCode Express", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
@@ -547,10 +516,10 @@ namespace RpgCodeExpress
         {
             try
             {
-                TextWriter textWriter = new StreamWriter(currentFilePath);
+                TextWriter textWriter = new StreamWriter(EditorFile);
                 textWriter.Write(txtCodeEditor.Text);
                 textWriter.Close();
-                updateNeeded = false;
+                IsUpdated = false;
             }
             catch (IOException ex)
             {
@@ -595,14 +564,14 @@ namespace RpgCodeExpress
 
         private void CodeEditor_Load(object sender, EventArgs e)
         {
-            updateNeeded = false;
+            IsUpdated = false;
             txtCodeEditor.ClearUndo();
-            this.TabText = Path.GetFileName(currentFilePath);
+            this.TabText = Path.GetFileName(EditorFile);
         }
 
         private void CodeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (updateNeeded)
+            if (IsUpdated)
                 if (UpdateFile() == DialogResult.Cancel)
                     e.Cancel = true;
         }
@@ -679,10 +648,10 @@ namespace RpgCodeExpress
         private void txtCodeEditor_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
             CancelTooltip();
-            updateNeeded = true;
+            IsUpdated = true;
             AddFileDeclarations();
             BuildAutocompleteMenu();
-            this.TabText = Path.GetFileName(currentFilePath) + '*';
+            this.TabText = Path.GetFileName(EditorFile) + '*';
 
             //Covers Multi-line C-style comments.
             FastColoredTextBoxNS.Range range;

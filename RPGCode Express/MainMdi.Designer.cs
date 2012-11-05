@@ -74,6 +74,8 @@
             this.mnuItemDebug = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemDebugProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemRunProject = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemCloseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,8 +111,6 @@
             this.lblColumnNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCharacterNumber = new System.Windows.Forms.ToolStripStatusLabel();
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fontSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -401,6 +401,21 @@
             this.mnuItemRunProject.Text = "Run Project";
             this.mnuItemRunProject.Click += new System.EventHandler(this.runProjectToolStripMenuItem_Click);
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontSettingsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // fontSettingsToolStripMenuItem
+            // 
+            this.fontSettingsToolStripMenuItem.Name = "fontSettingsToolStripMenuItem";
+            this.fontSettingsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.fontSettingsToolStripMenuItem.Text = "Font Settings...";
+            this.fontSettingsToolStripMenuItem.Click += new System.EventHandler(this.fontSettingsToolStripMenuItem_Click);
+            // 
             // mnuItemWindows
             // 
             this.mnuItemWindows.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -413,14 +428,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -796,21 +811,6 @@
             this.dockPanel.ActiveContentChanged += new System.EventHandler(this.dockPanel_ActiveContentChanged);
             this.dockPanel.ContentRemoved += new System.EventHandler<WeifenLuo.WinFormsUI.Docking.DockContentEventArgs>(this.dockPanel_ContentRemoved);
             // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fontSettingsToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.toolsToolStripMenuItem.Text = "&Tools";
-            // 
-            // fontSettingsToolStripMenuItem
-            // 
-            this.fontSettingsToolStripMenuItem.Name = "fontSettingsToolStripMenuItem";
-            this.fontSettingsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.fontSettingsToolStripMenuItem.Text = "Font Settings...";
-            this.fontSettingsToolStripMenuItem.Click += new System.EventHandler(this.fontSettingsToolStripMenuItem_Click);
-            // 
             // MainMdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -825,7 +825,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainMdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RPGCode Express 1.4.2a";
+            this.Text = "RPGCode Express Beta 1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

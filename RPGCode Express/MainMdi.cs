@@ -35,9 +35,12 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace RpgCodeExpress
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class MainMdi : Form
     {
-        private const string programVersion = "RPGCode Express 1.4.2a";
+        private const string programVersion = "RPGCode Express Beta 1";
 
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();
@@ -236,6 +239,16 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        private void  FocusCodeEditor(string file)
+        {
+            EditorForm editorForm = new EditorForm();
+            editorDictionary.TryGetValue(file, out editorForm);
+            editorForm.Focus();
+        }
+
+        /// <summary>
         /// Loads the information stored in the editors configuration file.
         /// </summary>
         private void LoadConfiguration()
@@ -282,6 +295,15 @@ namespace RpgCodeExpress
         {
             try
             {
+                //Lowercase analysis only works for case insensitive Operating System
+                //Basically OK on Windows but UNIX like could cause very slight issues.
+                //The source of this issue is probably somewhere in the ProjectExplorer.
+                if (editorDictionary.ContainsKey(file.ToLower()))
+                {
+                    FocusCodeEditor(file.ToLower());
+                    return;
+                }
+
                 CodeEditor newCodeEditor = new CodeEditor(file, rpgCodeReference);
                 newCodeEditor.CaretUpdated += new System.EventHandler<CaretPositionUpdateEventArgs>(CodeEditor_CaretMove);
                 newCodeEditor.UndoRedoUpdated += new System.EventHandler<UndoRedoUpdateEventArgs>(CodeEditor_UndoRedoUpdated);
@@ -290,7 +312,7 @@ namespace RpgCodeExpress
                 newCodeEditor.MdiParent = this;
                 newCodeEditor.Show(dockPanel);
 
-                if (newCodeEditor.ProgramFile != "Untitled")
+                if (newCodeEditor.EditorFile != "Untitled" & editorDictionary.ContainsKey(file) == false)
                     editorDictionary.Add(file.ToLower(), newCodeEditor);
             }
             catch(Exception ex)
@@ -302,7 +324,7 @@ namespace RpgCodeExpress
         /// <summary>
         /// Displays a OpenFileDialog and prompts the user to open a RPGCode program file.
         /// </summary>
-        private void OpenProgram()
+        private void ShowOpenProgramDialog()
         {
             OpenFileDialog openProgramDialog = new OpenFileDialog();
             openProgramDialog.Filter = "RPGCode Programs (*.prg)|*.prg";
@@ -403,14 +425,17 @@ namespace RpgCodeExpress
         {
             CodeEditor newCodeEditor = CurrentCodeEditor;
 
-            if (saveAs == true | newCodeEditor.ProgramFile == "Untitled")
+            if (saveAs == true | newCodeEditor.EditorFile == "Untitled")
             {
-                
-                newCodeEditor.SaveAs();
-                editorDictionary.Add(newCodeEditor.ProgramFile.ToLower(), newCodeEditor);
 
-                if (projectExplorer != null)
-                    projectExplorer.PopulateTreeView();
+                if (newCodeEditor.SaveAs())
+                {
+                    editorDictionary.Add(newCodeEditor.EditorFile.ToLower(), newCodeEditor);
+
+                    if (projectExplorer != null)
+                        projectExplorer.PopulateTreeView();
+                }
+
             }
             else
                 newCodeEditor.Save();
@@ -623,14 +648,7 @@ namespace RpgCodeExpress
         /// <param name="e"></param>
         private void ProjectExplorer_NodeDoubleClick(object sender, NodeClickEventArgs e)
         {
-            if (editorDictionary.ContainsKey(e.FilePath))
-            {
-                EditorForm editorForm = new EditorForm();
-                editorDictionary.TryGetValue(e.FilePath, out editorForm);
-                editorForm.Focus();
-            }
-            else
-                OpenCodeEditor(e.FilePath);
+            OpenCodeEditor(e.FilePath);
         }
 
         /// <summary>
@@ -658,7 +676,7 @@ namespace RpgCodeExpress
 
                 //This reads the file again into the code editor, a little bit of a waste.
                 CodeEditor codeEditor = (CodeEditor)editorForm;
-                codeEditor.ProgramFile = e.NewFile;
+                codeEditor.EditorFile = e.NewFile;
                 codeEditor.TabText = Path.GetFileName(e.NewFile);
 
                 editorDictionary.Remove(e.OldFile.ToLower());
@@ -677,7 +695,7 @@ namespace RpgCodeExpress
 
         private void mnuItemOpen_Click(object sender, EventArgs e)
         {
-            OpenProgram();
+            ShowOpenProgramDialog();
         }
 
         private void mnuItemOpenProject_Click(object sender, EventArgs e)
@@ -823,8 +841,8 @@ namespace RpgCodeExpress
             {
                 CodeEditor codeEditor = (CodeEditor)e.Content;
 
-                if (codeEditor.ProgramFile != "Untitled")
-                    editorDictionary.Remove(codeEditor.ProgramFile);
+                if (codeEditor.EditorFile != "Untitled")
+                    editorDictionary.Remove(codeEditor.EditorFile.ToLower());
             }
         }
 
