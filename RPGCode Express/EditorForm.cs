@@ -50,7 +50,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Gets or sets the code editors current program file.
+        /// Gets or sets the code editors current file.
         /// </summary>
         public string EditorFile
         {

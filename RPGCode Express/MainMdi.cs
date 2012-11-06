@@ -53,9 +53,9 @@ namespace RpgCodeExpress
         private string projectPath;
         private string projectTitle;
 
-        //Using courier new or lucida console throws an untraceable exception here.
-        //But verdana doesn't?
-        private Font codeEditorFont = new Font("Verdana", 10);
+        ////Using courier new or lucida console throws an untraceable exception here.
+        ////But verdana doesn't?
+        //private Font codeEditorFont = new Font("Verdana", 10);
 
         //Docks to keep track of.
         private ProjectExplorer projectExplorer;
@@ -307,7 +307,7 @@ namespace RpgCodeExpress
                 CodeEditor newCodeEditor = new CodeEditor(file, rpgCodeReference);
                 newCodeEditor.CaretUpdated += new System.EventHandler<CaretPositionUpdateEventArgs>(CodeEditor_CaretMove);
                 newCodeEditor.UndoRedoUpdated += new System.EventHandler<UndoRedoUpdateEventArgs>(CodeEditor_UndoRedoUpdated);
-                newCodeEditor.txtCodeEditor.Font = codeEditorFont;
+                //newCodeEditor.txtCodeEditor.Font = codeEditorFont;
                 newCodeEditor.ProjectPath = ProjectPath;
                 newCodeEditor.MdiParent = this;
                 newCodeEditor.Show(dockPanel);
@@ -468,6 +468,8 @@ namespace RpgCodeExpress
                 projectExplorer.ProjectPath = gameFolder;
             }
 
+            projectExplorer.StartWatcher();
+
             if (propertiesWindow != null)
             {
                 if (propertiesWindow.DockState == DockState.DockRight)
@@ -595,22 +597,22 @@ namespace RpgCodeExpress
                 tspButtonRunProgram.Enabled = false;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        private void UpdateCodeEditorFonts()
-        {
-            ArrayList docks = new ArrayList(dockPanel.Contents);
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //private void UpdateCodeEditorFonts()
+        //{
+        //    ArrayList docks = new ArrayList(dockPanel.Contents);
 
-            foreach (DockContent dock in docks)
-            {
-                if (dock.GetType() == typeof(CodeEditor))
-                {
-                    CodeEditor codeEditor = (CodeEditor)dock;
-                    codeEditor.txtCodeEditor.Font = codeEditorFont;
-                }
-            }
-        }
+        //    foreach (DockContent dock in docks)
+        //    {
+        //        if (dock.GetType() == typeof(CodeEditor))
+        //        {
+        //            CodeEditor codeEditor = (CodeEditor)dock;
+        //            codeEditor.txtCodeEditor.Font = codeEditorFont;
+        //        }
+        //    }
+        //}
 
         #endregion
 
@@ -674,13 +676,12 @@ namespace RpgCodeExpress
                 EditorForm editorForm = new EditorForm();
                 editorDictionary.TryGetValue(e.OldFile.ToLower(), out editorForm);
 
-                //This reads the file again into the code editor, a little bit of a waste.
                 CodeEditor codeEditor = (CodeEditor)editorForm;
                 codeEditor.EditorFile = e.NewFile;
                 codeEditor.TabText = Path.GetFileName(e.NewFile);
 
                 editorDictionary.Remove(e.OldFile.ToLower());
-                editorDictionary.Add(e.NewFile, editorForm);
+                editorDictionary.Add(e.NewFile.ToLower(), editorForm);
             }
         }
 
@@ -806,8 +807,8 @@ namespace RpgCodeExpress
             fontDialog.FixedPitchOnly = true;
             fontDialog.ShowDialog();
 
-            codeEditorFont = fontDialog.Font;
-            UpdateCodeEditorFonts();
+            //codeEditorFont = fontDialog.Font;
+            //UpdateCodeEditorFonts();
         }
 
         private void mnuItemNewWindow_Click(object sender, EventArgs e)

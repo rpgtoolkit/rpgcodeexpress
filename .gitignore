@@ -21,3 +21,4 @@ Thumbs.db
 obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
+*.exe

@@ -31,10 +31,15 @@ using RpgCodeExpress.Items;
 
 namespace RpgCodeExpress
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class ProjectExplorer : WeifenLuo.WinFormsUI.Docking.DockContent
     {
         private string projectName;
         private string projectPath;
+
+        private FileSystemWatcher watcher = new FileSystemWatcher();
 
         public event EventHandler<NodeClickEventArgs> NodeClick;
         public event EventHandler<NodeClickEventArgs> NodeDoubleClick;
@@ -99,6 +104,24 @@ namespace RpgCodeExpress
 
             treFileBrowser.Nodes.Add(rootNode);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void StartWatcher()
+        {
+            watcher.Filter = "*.*";
+            watcher.Path = ProjectPath;
+            watcher.IncludeSubdirectories = true;
+
+            watcher.Created += new FileSystemEventHandler(watcher_Created);
+            watcher.Deleted += new FileSystemEventHandler(watcher_Deleted);
+            watcher.Renamed += new RenamedEventHandler(watcher_Renamed);
+            watcher.Changed += new FileSystemEventHandler(watcher_Changed);
+
+            watcher.EnableRaisingEvents = true;
+        }
+
 
         /// <summary>
         /// 
@@ -574,6 +597,26 @@ namespace RpgCodeExpress
 
             NodeClickEventArgs args = new NodeClickEventArgs(selectedFile);
             this.OnNodeClick(args);
+        }
+
+        private void watcher_Changed(object sender, FileSystemEventArgs e)
+        {
+            MessageBox.Show("File changed - {0}, change type - {1} " +  e.Name + " " + e.ChangeType);
+        }
+
+        private void watcher_Renamed(object sender, RenamedEventArgs e)
+        {
+            MessageBox.Show("File renamed - old name - {0}, new name - {1} " + e.OldFullPath + " " + e.FullPath);
+        }
+
+        private void watcher_Deleted(object sender, FileSystemEventArgs e)
+        {
+            MessageBox.Show("File deleted - {0} ", e.Name);
+        }
+
+        private void watcher_Created(object sender, FileSystemEventArgs e)
+        {
+            MessageBox.Show("File created - {0}, path - {1} " + e.Name + " " + e.FullPath);
         }
 
         #endregion
