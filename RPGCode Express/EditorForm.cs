@@ -80,17 +80,5 @@ namespace RpgCodeExpress
         }
 
         #endregion
-
-        #region Private Properties
-
-        #endregion
-
-        #region Public Methods
-
-        #endregion
-
-        #region Private Methods
-
-        #endregion
     }
 }

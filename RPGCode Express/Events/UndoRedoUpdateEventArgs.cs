@@ -23,15 +23,18 @@ using System;
 
 namespace RpgCodeExpress.Events
 {
+    /// <summary>
+    /// Provides data for the FastColoredTextBoxNS.FastColoredTextBox.UndoRedoUpdated event.
+    /// </summary>
     public class UndoRedoUpdateEventArgs : EventArgs
     {
         private bool undo;
         private bool redo;
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the redo state (true or false).
         /// </summary>
         public bool RedoState
         {
@@ -46,7 +49,7 @@ namespace RpgCodeExpress.Events
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the undo state (true or false).
         /// </summary>
         public bool UndoState
         {
@@ -62,8 +65,13 @@ namespace RpgCodeExpress.Events
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Updates the data when the undo/redo state is changed.
+        /// </summary>
+        /// <param name="undoValue"></param>
+        /// <param name="redoValue"></param>
         public UndoRedoUpdateEventArgs(bool undoValue, bool redoValue)
         {
             this.undo = undoValue;

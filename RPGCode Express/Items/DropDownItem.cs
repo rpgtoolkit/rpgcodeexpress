@@ -22,6 +22,9 @@
 
 namespace RpgCodeExpress.Items
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class DropDownItem
     {
         public DropDownType Type;
@@ -29,6 +32,9 @@ namespace RpgCodeExpress.Items
         public int Position;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum DropDownType
     {
         Method, Global, Var

@@ -60,79 +60,9 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap _class {
+        internal static System.Drawing.Bitmap application_block {
             get {
-                object obj = ResourceManager.GetObject("_class", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap AlignObjectsLeftHS {
-            get {
-                object obj = ResourceManager.GetObject("AlignObjectsLeftHS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap AlignObjectsRightHS {
-            get {
-                object obj = ResourceManager.GetObject("AlignObjectsRightHS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap CodeCoverage_Icons_16x16_Run {
-            get {
-                object obj = ResourceManager.GetObject("CodeCoverage_Icons_16x16_Run", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Copy {
-            get {
-                object obj = ResourceManager.GetObject("Copy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Cut {
-            get {
-                object obj = ResourceManager.GetObject("Cut", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Edit_Redo {
-            get {
-                object obj = ResourceManager.GetObject("Edit_Redo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Edit_Undo {
-            get {
-                object obj = ResourceManager.GetObject("Edit_Undo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Find {
-            get {
-                object obj = ResourceManager.GetObject("Find", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap FindNext {
-            get {
-                object obj = ResourceManager.GetObject("FindNext", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap FindNext_VS {
-            get {
-                object obj = ResourceManager.GetObject("FindNext_VS", resourceCulture);
+                object obj = ResourceManager.GetObject("application_block", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -147,13 +77,6 @@ namespace RpgCodeExpress.Properties {
         internal static System.Drawing.Bitmap Folder_Open {
             get {
                 object obj = ResourceManager.GetObject("Folder_Open", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Help {
-            get {
-                object obj = ResourceManager.GetObject("Help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -361,52 +284,10 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap NewDocument {
-            get {
-                object obj = ResourceManager.GetObject("NewDocument", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap NewFolder {
-            get {
-                object obj = ResourceManager.GetObject("NewFolder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap openHS {
-            get {
-                object obj = ResourceManager.GetObject("openHS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Paste {
-            get {
-                object obj = ResourceManager.GetObject("Paste", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap PlayHS {
-            get {
-                object obj = ResourceManager.GetObject("PlayHS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Icon Program {
             get {
                 object obj = ResourceManager.GetObject("Program", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Refresh {
-            get {
-                object obj = ResourceManager.GetObject("Refresh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -417,13 +298,6 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap rpgcode_express_321 {
-            get {
-                object obj = ResourceManager.GetObject("rpgcode_express_321", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Icon rpgcode_express_64 {
             get {
                 object obj = ResourceManager.GetObject("rpgcode_express_64", resourceCulture);
@@ -431,23 +305,9 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap rpgcode_express_641 {
-            get {
-                object obj = ResourceManager.GetObject("rpgcode_express_641", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap RPGCode_Express_Logo__Scaled_ {
             get {
                 object obj = ResourceManager.GetObject("RPGCode_Express_Logo__Scaled_", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Save {
-            get {
-                object obj = ResourceManager.GetObject("Save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -459,23 +319,9 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap Toolbar {
-            get {
-                object obj = ResourceManager.GetObject("Toolbar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap Toolbar_Refresh {
             get {
                 object obj = ResourceManager.GetObject("Toolbar_Refresh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap toolbox {
-            get {
-                object obj = ResourceManager.GetObject("toolbox", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -487,79 +333,9 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap toolkit31 {
-            get {
-                object obj = ResourceManager.GetObject("toolkit31", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSFolder_open {
-            get {
-                object obj = ResourceManager.GetObject("VSFolder_open", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Class {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Class", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Constant {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Constant", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Method {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Method", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Object {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Object", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Properties {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Properties", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap VSObject_Properties1 {
             get {
                 object obj = ResourceManager.GetObject("VSObject_Properties1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSProject_genericproject_small {
-            get {
-                object obj = ResourceManager.GetObject("VSProject_genericproject_small", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSProject_hiddenfile {
-            get {
-                object obj = ResourceManager.GetObject("VSProject_hiddenfile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap Webcontrol_Fileupload {
-            get {
-                object obj = ResourceManager.GetObject("Webcontrol_Fileupload", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

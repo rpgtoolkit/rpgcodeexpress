@@ -23,6 +23,9 @@ using RpgCodeExpress.Utilities;
 
 namespace RpgCodeExpress.RpgCode
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Command : SerializableData
     {
         public string Name;

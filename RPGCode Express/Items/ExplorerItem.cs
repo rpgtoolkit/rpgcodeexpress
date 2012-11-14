@@ -30,10 +30,10 @@ namespace RpgCodeExpress.Items
         private ExplorerItemType fileType;
         private ProjectFile fileInformation = new ProjectFile();
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the ProjectFile.
         /// </summary>
         public ProjectFile Information
         {
@@ -51,7 +51,7 @@ namespace RpgCodeExpress.Items
         }
 
         /// <summary>
-        /// Get or set the ExplorerItems type.
+        /// Gets or sets the ExplorerItems type.
         /// </summary>
         public ExplorerItemType Type
         {
@@ -68,6 +68,9 @@ namespace RpgCodeExpress.Items
         #endregion
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ExplorerItemType
     {
         Project, Program, File, Folder

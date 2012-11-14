@@ -26,15 +26,18 @@ using RpgCodeExpress.Utilities;
 
 namespace RpgCodeExpress.RpgCode
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class RPGcode : SerializableData
     {
         private Dictionary<string, Command> dictionary = new Dictionary<string, Command>();
         [XmlIgnore()]public ArrayList Items = new ArrayList();
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the RPGCode commands.
         /// </summary>
         public Command[] Commands
         {
@@ -60,13 +63,13 @@ namespace RpgCodeExpress.RpgCode
 
         #endregion
 
-        #region Methods
+        #region Pubic Methods
 
         /// <summary>
-        /// 
+        /// Finds a command.
         /// </summary>
-        /// <param name="code"></param>
-        /// <returns></returns>
+        /// <param name="code">Name of the command.</param>
+        /// <returns>Commands data.</returns>
         public Command FindCommand(string code)
         {
             if (dictionary.ContainsKey(code.ToLower()))

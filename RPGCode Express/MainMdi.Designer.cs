@@ -171,7 +171,7 @@
             // 
             // mnuItemOpenProject
             // 
-            this.mnuItemOpenProject.Image = global::RpgCodeExpress.Properties.Resources.toolkit31;
+            this.mnuItemOpenProject.Image = global::RpgCodeExpress.Properties.Resources.application_block;
             this.mnuItemOpenProject.Name = "mnuItemOpenProject";
             this.mnuItemOpenProject.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
                         | System.Windows.Forms.Keys.O)));
@@ -411,6 +411,7 @@
             // 
             // fontSettingsToolStripMenuItem
             // 
+            this.fontSettingsToolStripMenuItem.Enabled = false;
             this.fontSettingsToolStripMenuItem.Name = "fontSettingsToolStripMenuItem";
             this.fontSettingsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.fontSettingsToolStripMenuItem.Text = "Font Settings...";
@@ -428,14 +429,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 

@@ -55,10 +55,10 @@ namespace RpgCodeExpress
         public event EventHandler<CaretPositionUpdateEventArgs> CaretUpdated;
         public event EventHandler<UndoRedoUpdateEventArgs> UndoRedoUpdated;
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
-        /// 
+        /// Creates a blank code editor.
         /// </summary>
         public CodeEditor()
         {
@@ -66,10 +66,10 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Creates a code editor and opens a file.
         /// </summary>
-        /// <param name="file"></param>
-        /// <param name="currentRpgCode"></param>
+        /// <param name="file">File path.</param>
+        /// <param name="currentRpgCode">RPGCode autocomplete items.</param>
         public CodeEditor(string file, RPGcode currentRpgCode)
         {
             InitializeComponent();
@@ -111,7 +111,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Display a SaveFileDialog and allow the user to save the file.
+        /// Displays a SaveFileDialog and allow the user to save the file.
         /// Possibly a redundant routine at the moment.
         /// </summary>
         public bool SaveAs()
@@ -142,11 +142,15 @@ namespace RpgCodeExpress
                 }
             }
 
-           return false;
+            return false;
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
-        /// Add all the imported autocomplete items to popup menu.
+        /// Adds all the imported autocomplete items to popup menu.
         /// </summary>
         private void AddFileDeclarations()
         {
@@ -195,7 +199,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Add the locally defined variables.
+        /// Adds the locally defined variables.
         /// </summary>
         private ArrayList AddLocalVariables()
         {
@@ -280,7 +284,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Find all of the classes/structs in a string of text, and return any matches.
+        /// Finds all of the classes/structs in a string of text, and return any matches.
         /// </summary>
         /// <param name="text">Text to scan.</param>
         /// <returns>A list of matches.</returns>
@@ -302,7 +306,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Find all of the methods/functions in a string of text, and return any matches.
+        /// Finds all of the methods/functions in a string of text, and return any matches.
         /// </summary>
         /// <param name="text">Text to scan.</param>
         /// <returns>A list of matches.</returns>
@@ -330,7 +334,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Find all the global/var variables in a string of text, and return any matches.
+        /// Finds all the global/var variables in a string of text, and return any matches.
         /// </summary>
         /// <param name="text">Text to scan.</param>
         /// <returns>A list of matches</returns>
@@ -454,7 +458,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Read the contents of a file into the code editor.
+        /// Reads the contents of a file into the code editor.
         /// </summary>
         private void ReadFile()
         {
@@ -471,9 +475,9 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Read the text from the included file.
+        /// Reads the text from the included file.
         /// </summary>
-        /// <param name="file"></param>
+        /// <param name="file">File path.</param>
         private void ReadIncludedFile(string file)
         {
             try

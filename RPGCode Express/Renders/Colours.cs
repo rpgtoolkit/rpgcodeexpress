@@ -51,6 +51,8 @@ namespace RpgCodeExpress.Renders
         public Color BlueToolstripButtonGradientPressed = Color.FromArgb(255, 124, 177, 204);
         public Color WhiteToolstripButtonGradientPressed = Color.FromArgb(255, 228, 245, 252);
 
+        #region Public Methods
+
         /// <summary>
         /// 
         /// </summary>
@@ -87,5 +89,7 @@ namespace RpgCodeExpress.Renders
             graphics.DrawArc(pen, arcRectangle, 90, 90);
             graphics.DrawLine(pen, xAxis, yAxis + Convert.ToInt32(diameter / 2), xAxis, yAxis + height - Convert.ToInt32(diameter / 2));
         }
+
+        #endregion
     }
 }

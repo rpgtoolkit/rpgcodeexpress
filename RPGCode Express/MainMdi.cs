@@ -24,7 +24,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using System.Drawing;
 using Microsoft.VisualBasic;
 using RpgCodeExpress.Events;
 using RpgCodeExpress.Files;
@@ -45,11 +44,11 @@ namespace RpgCodeExpress
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();
 
+        private bool engineExists;
+        private bool projectLoaded;
         private string mainFolder;
         private string gameFolder;
         private string toolkitPath;
-        private bool engineExists;
-        private bool projectLoaded;
         private string projectPath;
         private string projectTitle;
 
@@ -62,7 +61,7 @@ namespace RpgCodeExpress
         private PropertiesWindow propertiesWindow;
         private Dictionary<string, EditorForm> editorDictionary = new Dictionary<string, EditorForm>();
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets the full path of the editors Xml configuration file.
@@ -155,12 +154,15 @@ namespace RpgCodeExpress
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Create a new MainMdi parent form.
+        /// </summary>
         public MainMdi()
         {
             InitializeComponent();
- 
+
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
             ToolStripManager.Renderer = new ToolstripRender();
@@ -179,8 +181,12 @@ namespace RpgCodeExpress
             CreateBasicLayout();
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
-        /// Check the current Toolkit install.
+        /// Checks the current Toolkit install.
         /// </summary>
         private bool CheckToolkitInstall()
         {
@@ -219,14 +225,19 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Closes all the open docks.
+        /// Closes all the code editor open docks.
         /// </summary>
         private void CloseAllDocks()
         {
             ArrayList docks = new ArrayList(dockPanel.Contents);
 
             foreach (DockContent childForm in docks)
-                childForm.Close();
+            {
+                if (childForm.GetType() != typeof(PropertiesWindow) & childForm.GetType() != typeof(ProjectExplorer))
+                {
+                    childForm.Close();
+                }
+            }
         }
 
         /// <summary>
@@ -239,8 +250,9 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Focuses on a code editor. 
         /// </summary>
+        /// <param name="file">The file attached to the editor.</param>
         private void  FocusCodeEditor(string file)
         {
             EditorForm editorForm = new EditorForm();
@@ -358,7 +370,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Run the current program in trans3.
+        /// Runs the current program in trans3.
         /// </summary>
         private void Run(object sender)
         {
@@ -544,7 +556,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Disables undo and redo buttons.
         /// </summary>
         private void DisableUndoRedo()
         {
@@ -574,7 +586,7 @@ namespace RpgCodeExpress
             if (isEnabled)
                 mnuItemDebugProgram.Enabled = engineExists & projectLoaded;
             else
-                mnuItemDebugProgram.Enabled = false;
+            mnuItemDebugProgram.Enabled = false;
         }
 
         /// <summary>
@@ -598,7 +610,7 @@ namespace RpgCodeExpress
         }
 
         ///// <summary>
-        ///// 
+        ///// Update code editors font's
         ///// </summary>
         //private void UpdateCodeEditorFonts()
         //{
@@ -618,11 +630,6 @@ namespace RpgCodeExpress
 
         #region Custom Events
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CodeEditor_CaretMove(object sender, CaretPositionUpdateEventArgs e)
         {
             lblLineNumber.Text = "Ln " + e.CurrentLine.ToString();
@@ -630,11 +637,6 @@ namespace RpgCodeExpress
             lblCharacterNumber.Text = "Ch " + e.CurrentCharacter.ToString();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CodeEditor_UndoRedoUpdated(object sender, UndoRedoUpdateEventArgs e)
         {
             tspButtonUndo.Enabled = e.UndoState;
@@ -643,32 +645,17 @@ namespace RpgCodeExpress
             mnuItemRedo.Enabled = e.RedoState;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ProjectExplorer_NodeDoubleClick(object sender, NodeClickEventArgs e)
         {
             OpenCodeEditor(e.FilePath);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ProjectExplorer_NodeClick(object sender, NodeClickEventArgs e)
         {
             if (propertiesWindow != null)
                 propertiesWindow.SetGridItem(e.File);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ProjectExplorer_NodeRename(object sender, NodeLabelRenameEventArgs e)
         {
             if (editorDictionary.ContainsKey(e.OldFile.ToLower()))

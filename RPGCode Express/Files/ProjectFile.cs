@@ -28,10 +28,10 @@ namespace RpgCodeExpress.Files
         private string fileName;
         private string fileLocation;
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the files path.
         /// </summary>
         [CategoryAttribute("Information")]
         [DisplayNameAttribute("Full Path")]
@@ -50,7 +50,7 @@ namespace RpgCodeExpress.Files
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the files name.
         /// </summary>
         [CategoryAttribute("Information")]
         [DisplayNameAttribute("File Name")]
@@ -70,17 +70,26 @@ namespace RpgCodeExpress.Files
 
         #endregion
 
-        #region Methods 
+        #region Public Methods 
 
+        
+        /// <summary>
+        /// Creates a blank ProjectFile. 
+        /// </summary>
+        public ProjectFile()
+        {
+
+        }
+
+        /// <summary>
+        /// Creates a ProjectFile with a path and name for use in a property grid.
+        /// </summary>
+        /// <param name="file">Name of the file.</param>
+        /// <param name="path">Path of the file.</param>
         public ProjectFile(string file, string path)
         {
             this.fileName = file;
             this.fileLocation = path;
-        }
-
-        public ProjectFile()
-        {
-
         }
 
         #endregion

@@ -45,10 +45,10 @@ namespace RpgCodeExpress
         public event EventHandler<NodeClickEventArgs> NodeDoubleClick;
         public event EventHandler<NodeLabelRenameEventArgs> NodeRename;
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// Get or set the title of the project for the Project Explorers treeview parent node.
+        /// Gets or sets the title of the project for the Project Explorers treeview parent node.
         /// </summary>
         public string Title
         {
@@ -63,7 +63,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Get or set the path to the projects folder.
+        /// Gets or sets the path to the projects folder.
         /// </summary>
         public string ProjectPath
         {
@@ -79,15 +79,18 @@ namespace RpgCodeExpress
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Creates a project explorer.
+        /// </summary>
         public ProjectExplorer()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Populate the treeview with the parent node and any sub nodes.
+        /// Populates the treeview with the parent node and any sub nodes.
         /// </summary>
         public void PopulateTreeView()
         {
@@ -106,7 +109,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Starts the file watcher.
         /// </summary>
         public void StartWatcher()
         {
@@ -122,12 +125,15 @@ namespace RpgCodeExpress
             watcher.EnableRaisingEvents = true;
         }
 
+        #endregion
+
+        #region Private Methods
 
         /// <summary>
-        /// 
+        /// Checks the file name to see if it is valid.
         /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
+        /// <param name="filename">File name to check.</param>
+        /// <returns>The error, if any.</returns>
         private string CheckFileName(string filename, ExplorerItem editedNode)
         {
             char[] invalidChars = System.IO.Path.GetInvalidFileNameChars();
@@ -143,7 +149,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Creates a blank .prg file.
         /// </summary>
         private void CreateNewFile()
         {
@@ -210,7 +216,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Toogle whether or not nodes labels can be edited based on the current selected node.
+        /// Toogles whether or not nodes labels can be edited based on the current selected node.
         /// </summary>
         private void EnableNodeEdit()
         {
@@ -227,10 +233,10 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// 
+        /// Renames a file.
         /// </summary>
-        /// <param name="e"></param>
-        /// <param name="editedNode"></param>
+        /// <param name="e">Event information.</param>
+        /// <param name="editedNode">The node that was edited.</param>
         private void RenameFile(NodeLabelEditEventArgs e, ExplorerItem editedNode)
         {
             try

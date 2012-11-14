@@ -23,13 +23,16 @@ using System;
 
 namespace RpgCodeExpress.Events
 {
+    /// <summary>
+    /// Provides data for the FastColoredTextBoxNS.FastColoredTextBox.CaretUpdated event.
+    /// </summary>
     public class CaretPositionUpdateEventArgs : EventArgs
     {
         private int lineNumber;
         private int columnNumber;
         private int characterNumber;
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
         /// Gets the current character number.
@@ -66,8 +69,14 @@ namespace RpgCodeExpress.Events
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Updates the data when the Caret is moved.
+        /// </summary>
+        /// <param name="line">Line number.</param>
+        /// <param name="column">Column number.</param>
+        /// <param name="character">Character number.</param>
         public CaretPositionUpdateEventArgs(int line, int column, int character)
         {
             this.lineNumber = line;

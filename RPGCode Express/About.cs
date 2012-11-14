@@ -23,11 +23,21 @@ using System.Windows.Forms;
 
 namespace RpgCodeExpress
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class About : Form
     {
+        #region Public Methods
+
+        /// <summary>
+        /// Creates a new About form.
+        /// </summary>
         public About()
         {
             InitializeComponent();
         }
+
+        #endregion
     }
 }

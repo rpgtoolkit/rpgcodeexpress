@@ -29,7 +29,7 @@ namespace RpgCodeExpress.Renders
     {
         Colours Colours = new Colours();
 
-        #region Methods
+        #region Protected Methods
 
         //Render button selected and pressed state
         protected override void OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs e)
@@ -77,6 +77,5 @@ namespace RpgCodeExpress.Renders
         }
 
         #endregion
-
     }
 }

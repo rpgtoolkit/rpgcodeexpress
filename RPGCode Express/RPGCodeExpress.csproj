@@ -299,6 +299,7 @@
   <ItemGroup>
     <None Include="Resources\RPGCode Express Logo %28Scaled%29.png" />
     <None Include="Resources\rpgcodeExpress.ico" />
+    <None Include="Resources\application-block.png" />
     <Content Include="rpgcodeExpress.ico" />
     <None Include="Resources\Icons.16x16.InternalField.png" />
     <None Include="Resources\Icons.16x16.PrivateField.png" />

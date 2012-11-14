@@ -31,10 +31,10 @@ namespace RpgCodeExpress.Files
         private string projectTitle;
         private string projectPath;
 
-        #region Properties
+        #region Public Properties
 
         /// <summary>
-        /// 
+        /// Gets or sets the path of the project.
         /// </summary>
         public string ProjectFolder
         {
@@ -49,7 +49,7 @@ namespace RpgCodeExpress.Files
         }
 
         /// <summary>
-        /// 
+        /// Gets or sets the projects name.
         /// </summary>
         public string ProjectName
         {

@@ -174,10 +174,10 @@
             // 
             this.imgIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgIcons.ImageStream")));
             this.imgIcons.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgIcons.Images.SetKeyName(0, "toolkit3_16x16.png");
-            this.imgIcons.Images.SetKeyName(1, "Folder.ico");
+            this.imgIcons.Images.SetKeyName(0, "application-block.png");
+            this.imgIcons.Images.SetKeyName(1, "folder-horizontal.png");
             this.imgIcons.Images.SetKeyName(2, "VSFolder_open.bmp");
-            this.imgIcons.Images.SetKeyName(3, "EntityDataModel_ComplexTypeProperty_16x16.png");
+            this.imgIcons.Images.SetKeyName(3, "document-code.png");
             // 
             // tspProjectExplorer
             // 

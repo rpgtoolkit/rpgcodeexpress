@@ -24,6 +24,9 @@ using System.Collections;
 
 namespace RpgCodeExpress.RpgCode
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Autocomplete
     {
         public ArrayList IncludedClasses = new ArrayList();

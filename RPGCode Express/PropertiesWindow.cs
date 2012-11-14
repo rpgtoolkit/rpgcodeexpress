@@ -21,17 +21,23 @@
 
 namespace RpgCodeExpress
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class PropertiesWindow : WeifenLuo.WinFormsUI.Docking.DockContent
     {
-        #region methods
+        #region Public Methods
 
+        /// <summary>
+        /// Creates a new Properties Window.
+        /// </summary>
         public PropertiesWindow()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Set's the forms current PropertyGrid's item, to display.
+        /// Sets the forms current PropertyGrid's item, to display.
         /// </summary>
         /// <param name="item">The object to display in the PropertyGrid.</param>
         public void SetGridItem(object item)
@@ -40,5 +46,6 @@ namespace RpgCodeExpress
         }
 
         #endregion
+
     }
 }

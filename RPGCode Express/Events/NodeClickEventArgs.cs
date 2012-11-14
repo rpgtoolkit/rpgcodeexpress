@@ -30,8 +30,11 @@ namespace RpgCodeExpress.Events
         private string path;
         private ProjectFile item;
 
-        #region Properties
+        #region Public Properties
 
+        /// <summary>
+        /// Gets the ProjectFile.
+        /// </summary>
         public ProjectFile File
         {
             get
@@ -41,7 +44,7 @@ namespace RpgCodeExpress.Events
         }
 
         /// <summary>
-        /// 
+        /// Gets the file name.
         /// </summary>
         public string FileName
         {
@@ -52,7 +55,7 @@ namespace RpgCodeExpress.Events
         }
 
         /// <summary>
-        /// 
+        /// Gets the file path.
         /// </summary>
         public string FilePath
         {
@@ -64,8 +67,12 @@ namespace RpgCodeExpress.Events
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
+        /// <summary>
+        /// Updates the data when the node is clicked.
+        /// </summary>
+        /// <param name="projectFile">The ProjectFile clicked.</param>
         public NodeClickEventArgs(ProjectFile projectFile)
         {
             item = projectFile;

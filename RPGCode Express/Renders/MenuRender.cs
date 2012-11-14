@@ -25,11 +25,14 @@ using System.Windows.Forms;
 
 namespace RpgCodeExpress.Renders
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class MenuRender : System.Windows.Forms.ToolStripRenderer
     {
         Colours Colours = new Colours();
 
-        #region Methods
+        #region Protected Methods
 
         protected override void Initialize(System.Windows.Forms.ToolStrip toolStrip)
         {
@@ -172,9 +175,9 @@ namespace RpgCodeExpress.Renders
         {
             base.OnRenderToolStripBackground(e);
 
-           LinearGradientBrush brush = new LinearGradientBrush(e.AffectedBounds, Colours.HorizontalGrayBlue, Colours.HorizontalWhite,
-               LinearGradientMode.Horizontal);
-           e.Graphics.FillRectangle(brush, e.AffectedBounds);
+            LinearGradientBrush brush = new LinearGradientBrush(e.AffectedBounds, Colours.HorizontalGrayBlue, Colours.HorizontalWhite,
+                LinearGradientMode.Horizontal);
+            e.Graphics.FillRectangle(brush, e.AffectedBounds);
         }
 
         #endregion

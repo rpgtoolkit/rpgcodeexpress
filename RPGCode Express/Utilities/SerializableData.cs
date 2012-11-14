@@ -25,15 +25,18 @@ using System.Xml.Serialization;
 
 namespace RpgCodeExpress.Utilities
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SerializableData
     {
 
-        #region Methods
+        #region Public Methods
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="filename"></param>
+        /// <param name="filename">File path.</param>
         /// <param name="newType"></param>
         /// <returns></returns>
         public object Load(string filename, Type newType)
