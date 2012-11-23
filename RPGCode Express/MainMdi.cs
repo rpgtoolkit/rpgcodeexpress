@@ -2,21 +2,10 @@
  ********************************************************************
  * RPGCode Express Version 1
  * This file copyright (C) 2012 Joshua Michael Daly
+ * 
+ * RPGCode Express is licensed under the GNU General Public License
+ * version 3. See <http://www.gnu.org/licenses/> for more details.
  ********************************************************************
- * This file is part of RPGCode Express Version 1.
- *
- * RPGCode Express is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * RPGCode Express is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with RPGCode Express.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 using System;
@@ -35,7 +24,18 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace RpgCodeExpress
 {
     /// <summary>
+    /// The main entry point for RPGCode Express. MainMdi is the parent MDI (Multiple Document Interface) 
+    /// form for RPGCode Express, every child form spawned belongs to this forms dockpanel component, 
+    /// except the about, open, and save dialouge's, which are modal forms, not docks.
     /// 
+    /// It deals with the RPGCode Editor forms, the Project Explorer, the Properties Window, the opening of
+    /// projects, writing configuration files, running projects/programs, and checking the current Toolkit's 
+    /// installation (if any). All of the communication between the docks takes place via this form which acts 
+    /// as a proxy by the means of custom events.
+    /// 
+    /// Note:
+    /// Some routines performed in this form should be moved to seperate classes to decrease coupling and
+    /// increase cohesion levels.
     /// </summary>
     public partial class MainMdi : Form
     {
@@ -46,8 +46,8 @@ namespace RpgCodeExpress
 
         private bool engineExists;
         private bool projectLoaded;
-        private string mainFolder;
-        private string gameFolder;
+        private string mainFolderPath;
+        private string gameFolderPath;
         private string toolkitPath;
         private string projectPath;
         private string projectTitle;
@@ -59,6 +59,8 @@ namespace RpgCodeExpress
         //Docks to keep track of.
         private ProjectExplorer projectExplorer;
         private PropertiesWindow propertiesWindow;
+
+        //Dictionary containing the docks, allows for very fast searching
         private Dictionary<string, EditorForm> editorDictionary = new Dictionary<string, EditorForm>();
 
         #region Public Properties
@@ -202,32 +204,32 @@ namespace RpgCodeExpress
                     engineExists = false;
 
                 if (Directory.Exists(toolkitPath + @"main\"))
-                    mainFolder = toolkitPath + @"main\";
+                    mainFolderPath = toolkitPath + @"main\";
                 else
-                    mainFolder = toolkitPath;
+                    mainFolderPath = toolkitPath;
 
                 if (Directory.Exists(toolkitPath + @"game\"))
-                    gameFolder = toolkitPath + @"game\";
+                    gameFolderPath = toolkitPath + @"game\";
                 else
-                    gameFolder = toolkitPath;
+                    gameFolderPath = toolkitPath;
 
-                projectPath = gameFolder;
+                projectPath = gameFolderPath;
 
                 return true;
             }
             else
             {
                 projectTitle = "My Documents";
-                gameFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                gameFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                 return false;
             }
         }
 
         /// <summary>
-        /// Closes all the code editor open docks.
+        /// Closes all of the open code editor docks.
         /// </summary>
-        private void CloseAllDocks()
+        private void CloseCodeEditors()
         {
             ArrayList docks = new ArrayList(dockPanel.Contents);
 
@@ -357,14 +359,16 @@ namespace RpgCodeExpress
             OpenFileDialog openProjectDialog = new OpenFileDialog();
             openProjectDialog.Filter = "Projects (*.gam)|*.gam";
             openProjectDialog.Title = "Open Toolkit Project";
-            openProjectDialog.InitialDirectory = mainFolder;
+            openProjectDialog.InitialDirectory = mainFolderPath;
             openProjectDialog.FilterIndex = 1;
 
             if (openProjectDialog.ShowDialog() == DialogResult.OK)
             {
                 SaveConfiguration(openProjectDialog.SafeFileName);
                 LoadConfiguration();
-                CloseAllDocks();
+                CloseCodeEditors();
+                projectExplorer.Close();
+                ShowProjectExplorer();
                 CreateBasicLayout();
             }
         }
@@ -418,7 +422,7 @@ namespace RpgCodeExpress
             try
             {
                 configurationFile.ProjectName = Path.GetFileNameWithoutExtension(title);
-                configurationFile.ProjectFolder = gameFolder + configurationFile.ProjectName + @"\";
+                configurationFile.ProjectFolder = gameFolderPath + configurationFile.ProjectName + @"\";
 
                 configurationFile.Save(ConfigurationFilePath);
                 this.Text = configurationFile.ProjectName + " - " + programVersion;
@@ -477,10 +481,10 @@ namespace RpgCodeExpress
             else
             {
                 projectExplorer.Title = projectTitle;
-                projectExplorer.ProjectPath = gameFolder;
+                projectExplorer.ProjectPath = gameFolderPath;
             }
 
-            projectExplorer.StartWatcher();
+            //projectExplorer.StartWatcher();
 
             if (propertiesWindow != null)
             {
@@ -805,7 +809,7 @@ namespace RpgCodeExpress
 
         private void mnuItemCloseAll_Click(object sender, EventArgs e)
         {
-            CloseAllDocks();
+            CloseCodeEditors();
         }
 
         private void mnuItemAbout_Click(object sender, EventArgs e)
