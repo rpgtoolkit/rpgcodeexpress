@@ -1228,7 +1228,7 @@ Possible flags tkMV_PAUSE_THREAD: Hold thread execution until animation ends
     </Command>
     <Command>
       <Name>renderNow</Name>
-      <Code>RenderNow(^)</Code>
+      <Code>renderNow(^)</Code>
       <Tooltip>void RenderNow(bool draw)</Tooltip>
       <Description>Controls rendering of the cnvRenderNow reserved canvas. The canvas is drawn every frame above all board elements (e.g. tiles, sprites, animations). Access the canvas by passing 'cnvRenderNow' to the drawing functions. Do not call CreateCanvas() or KillCanvas() on cnvRenderNow. 
 
@@ -1362,7 +1362,7 @@ Possible flags tkMV_PAUSE_THREAD: Hold thread execution until animation ends
     </Command>
     <Command>
       <Name>setImageTransparent</Name>
-      <Code>SetImageTransparent(^)</Code>
+      <Code>setImageTransparent(^)</Code>
       <Tooltip>void SetImageTransparent(string file, int x, int y, int width, int height, int r, int g, int b, [canvas cnv])</Tooltip>
       <Description>Set an image with a transparent colour. 
 
@@ -1411,7 +1411,7 @@ Possible flags tkMV_PAUSE_THREAD: Hold thread execution until animation ends
     </Command>
     <Command>
       <Name>sin</Name>
-      <Code>Sin(^)</Code>
+      <Code>sin(^)</Code>
       <Tooltip>double Sin(double x, [double &amp;ret])</Tooltip>
       <Description>Calculate sine x. </Description>
     </Command>
