@@ -301,7 +301,9 @@ namespace RpgCodeExpress
                     e.CancelEdit = true;
                 }
                 else
+                {
                     RenameFile(e, editedNode);
+                }
             }
         }
 
@@ -363,7 +365,7 @@ namespace RpgCodeExpress
                 ProjectFile selectedFile = new ProjectFile(e.Node.Text, e.Node.Tag.ToString());
                 NodeClickEventArgs args = new NodeClickEventArgs(selectedFile);
                 this.OnNodeDoubleClick(args);
-            }        
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -528,7 +530,7 @@ namespace RpgCodeExpress
                         ExplorerItem directoryNode = new ExplorerItem();
                         directoryNode.Type = ExplorerItemType.Folder;
                         directoryNode.Text = "NewFolder" + folderNumber; ;
-                        directoryNode.Tag = folderPath + @"\NewFolder" + folderNumber;
+                        directoryNode.Tag = folderPath + @"NewFolder" + folderNumber;
                         directoryNode.ImageIndex = 1;
                         directoryNode.SelectedImageIndex = directoryNode.ImageIndex;
 

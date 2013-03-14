@@ -11,7 +11,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("JMD Computing")]
 [assembly: AssemblyProduct("RPGCode Express")]
-[assembly: AssemblyCopyright("Copyright © Your Organization Name 2012")]
+[assembly: AssemblyCopyright("Copyright © JMD Computing 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

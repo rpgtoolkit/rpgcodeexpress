@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
+using Microsoft.VisualBasic; // Needed for calling the Engine via the command line
 using RpgCodeExpress.Events;
 using RpgCodeExpress.Files;
 using RpgCodeExpress.Renders;
@@ -839,5 +839,6 @@ namespace RpgCodeExpress
         }
 
         #endregion
+
     }
 }

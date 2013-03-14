@@ -161,9 +161,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AlignObjectsLeftHS.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
@@ -186,123 +183,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AlignObjectsRightHS.png" />
+    <None Include="Resources\Images\CodeEditor\idr_dll.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\class.png" />
+    <None Include="Resources\Images\Application\toolkit3.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Copy.bmp" />
+    <None Include="Resources\Images\Application\toolkit3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Cut.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Edit_Redo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Edit_Undo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Find.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FindNext.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\FindNext_VS.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Help.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\idr_dll.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\method.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NewDocument.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\NewFolder.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\openHS.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Paste.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PlayHS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Program.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Refresh.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rpgcode_express_32.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rpgcode_express_32.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rpgcode_express_64.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rpgcode_express_64.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Save.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\toolbox.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\toolkit3.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\toolkit3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSFolder_open.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Class.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Constant.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Method.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Object.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Properties.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSObject_Properties.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSProject_genericproject_small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\VSProject_hiddenfile.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Webcontrol_Fileupload.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPGCode Express Logo %28Scaled%29.png" />
-    <None Include="Resources\rpgcodeExpress.ico" />
-    <None Include="Resources\application-block.png" />
+    <None Include="Resources\Images\Application\RPGCode Express Logo %28Scaled%29.png" />
+    <None Include="Resources\Images\Application\rpgcodeExpress.ico" />
+    <None Include="Resources\RPGCode Language\RPGcode.xml" />
     <Content Include="rpgcodeExpress.ico" />
-    <None Include="Resources\Icons.16x16.InternalField.png" />
-    <None Include="Resources\Icons.16x16.PrivateField.png" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Class.png" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Enum.png" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Field.png" />
@@ -335,6 +228,7 @@
     <Content Include="Resources\Images\ProjectExplorer\Toolbar.Refresh.png" />
     <Content Include="Resources\Images\Toolbox\Toolbar.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -429,14 +429,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -588,6 +588,7 @@
             this.tspButtonFind.Size = new System.Drawing.Size(23, 22);
             this.tspButtonFind.Text = "Find";
             this.tspButtonFind.ToolTipText = "Find (Ctrl+F)";
+            this.tspButtonFind.Click += new System.EventHandler(this.mnuItemQuickFind_Click);
             // 
             // toolStripSeparator5
             // 

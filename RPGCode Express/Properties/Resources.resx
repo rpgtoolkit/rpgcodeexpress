@@ -118,26 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="idr_dll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\idr_dll.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="method" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\method.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Program" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Program.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rpgcode_express_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rpgcode_express_32.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="rpgcode_express_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rpgcode_express_64.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="toolkit3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\toolkit3.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VSObject_Properties1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VSObject_Properties.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Folder_Closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\ProjectExplorer\Folder.Closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,10 +214,10 @@
   <data name="Icons_16x16_PrivateField" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons.16x16.PrivateField.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RPGCode_Express_Logo__Scaled_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RPGCode Express Logo (Scaled).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="application_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\application-block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RPGCode_Express_Logo__Scaled_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Application\RPGCode Express Logo (Scaled).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

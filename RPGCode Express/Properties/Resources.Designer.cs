@@ -270,38 +270,10 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
-        internal static System.Drawing.Icon idr_dll {
-            get {
-                object obj = ResourceManager.GetObject("idr_dll", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap method {
             get {
                 object obj = ResourceManager.GetObject("method", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Icon Program {
-            get {
-                object obj = ResourceManager.GetObject("Program", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Icon rpgcode_express_32 {
-            get {
-                object obj = ResourceManager.GetObject("rpgcode_express_32", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Icon rpgcode_express_64 {
-            get {
-                object obj = ResourceManager.GetObject("rpgcode_express_64", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -322,20 +294,6 @@ namespace RpgCodeExpress.Properties {
         internal static System.Drawing.Bitmap Toolbar_Refresh {
             get {
                 object obj = ResourceManager.GetObject("Toolbar_Refresh", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Icon toolkit3 {
-            get {
-                object obj = ResourceManager.GetObject("toolkit3", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap VSObject_Properties1 {
-            get {
-                object obj = ResourceManager.GetObject("VSObject_Properties1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
