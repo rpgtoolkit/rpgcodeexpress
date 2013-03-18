@@ -30,7 +30,7 @@ namespace RpgCodeExpress.RpgCode
                                        "include", "inline", "default", "on error", "resume next", 
                                        "goto", "redirect", "KillRedirect", "KillAllRedirects"};
 
-        public string[] Constants = { "false", "true" };
+        public string[] Constants = { "false", "this", "true" };
 
         public string[] StatementSnippets = {"if(^)" + Environment.NewLine + "{" + Environment.NewLine + ";" + 
                                                  Environment.NewLine + "}", "global(^)", "local(^)", 

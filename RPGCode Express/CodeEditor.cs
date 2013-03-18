@@ -31,9 +31,9 @@ namespace RpgCodeExpress
     public partial class CodeEditor : EditorForm, ISaveable
     {
         private Point lastMouseCoordinate;
-        private AutocompleteMenu popupMenu; //Intellisense menu
-        private RPGcode rpgCodeReference = new RPGcode(); //List of RPGCode Functions
-        private Autocomplete autocompleteItems = new Autocomplete(); //Intellisense Items
+        private AutocompleteMenu popupMenu; // Intellisense menu
+        private RPGcode rpgCodeReference = new RPGcode(); // List of RPGCode Functions, centralise this.
+        private Autocomplete autocompleteItems = new Autocomplete(); // Intellisense Items
 
         private List<DropDownItem> classes = new List<DropDownItem>();
         private List<DropDownItem> declarations = new List<DropDownItem>();
@@ -145,20 +145,21 @@ namespace RpgCodeExpress
         {
             AddFileIncludes();
 
-            //Add all the classes to autocompletemenu
+            // Add all the classes to autocompletemenu
             autocompleteItems.UserDefinedClasses.Clear();
-            autocompleteItems.UserDefinedClasses = FindClasses(txtCodeEditor.Text);
+            autocompleteItems.UserDefinedClasses.AddRange(FindClasses(txtCodeEditor.Text));
             autocompleteItems.UserDefinedClasses.AddRange(autocompleteItems.IncludedClasses);
 
-            //Add all the methods to autocompletemenu
+            // Add all the methods to autocompletemenu
             autocompleteItems.UserDefinedMethods.Clear();
-            autocompleteItems.UserDefinedMethods = FindMethods(txtCodeEditor.Text);
+            autocompleteItems.UserDefinedMethods.AddRange(FindMethods(txtCodeEditor.Text));
             autocompleteItems.UserDefinedMethods.AddRange(autocompleteItems.IncludedMethods);
 
-            //Add all the variables to autocompletemenu
+            // Add all the variables to autocompletemenu
             autocompleteItems.UserDefinedVariables.Clear();
-            autocompleteItems.UserDefinedVariables = AddLocalVariables();
-            autocompleteItems.UserDefinedVariables.AddRange(FindVariables(txtCodeEditor.Text));
+            autocompleteItems.UserDefinedVariables.AddRange(FindGlobalVariables(txtCodeEditor.Text));
+            autocompleteItems.UserDefinedVariables.AddRange(FindLocalVariables());
+            autocompleteItems.UserDefinedVariables.AddRange(FindClassMembers(txtCodeEditor.Text));
             autocompleteItems.UserDefinedVariables.AddRange(autocompleteItems.IncludedVariables);
         }
 
@@ -167,51 +168,35 @@ namespace RpgCodeExpress
         /// </summary>
         private void AddFileIncludes()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*#?\b(include)\s*\(?"".+""\)?)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            Regex expression = new Regex(@"^(?<range>[\w\s]*#?\b(include)\s*\(?"".+""\)?)", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(txtCodeEditor.Text))
             {
                 string fileInclude = match.Value.Trim();
                 int position = fileInclude.IndexOf('"') + 1;
 
-                //Get the files name from in between the quotes "...".
+                // Get the files name from in between the quotes "...".
                 fileInclude = fileInclude.Substring(position, fileInclude.LastIndexOf('"') - position);
                 fileInclude = ProjectPath + fileInclude;
 
                 if (!File.Exists(fileInclude))
-                    continue; //File doesn't exist.
+                {
+                    continue; // File doesn't exist.
+                }
                 else if (fileIncludes.ContainsKey(fileInclude))
-                    continue; //We already have it indexed.
+                {
+                    continue; // We already have it indexed.
+                }
                 else
+                {
                     ReadIncludedFile(fileInclude);
+                }
             }
         }
 
         /// <summary>
-        /// Adds the locally defined variables.
-        /// </summary>
-        private ArrayList AddLocalVariables()
-        {
-            ArrayList locals = new ArrayList();
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(local)\(+\w+\)+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-
-            foreach (Match match in expression.Matches(txtCodeEditor.Text))
-            {
-                string definedVariable = match.Value.Trim();
-                int position = definedVariable.IndexOf('(') + 1;
-
-                //Get the variable name between the brackets.
-                definedVariable = definedVariable.Substring(position, definedVariable.IndexOf(')') - position);
-
-                if (!locals.Contains(definedVariable))
-                    locals.Add(definedVariable);
-            }
-
-            return locals;
-        }
-
-        /// <summary>
-        /// Populates the code editors auto complete menu, it runs through a series of loops
+        /// Populates the code editor's auto complete menu, it runs through a series of loops
         /// assigning data to the individual AutocompleteItems.
         /// </summary>
         private void BuildAutocompleteMenu()
@@ -273,14 +258,16 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Finds all of the classes/structs in a string of text, and return any matches.
+        /// Finds all of the classes/structs in a string of text, and returns any matches.
         /// </summary>
         /// <param name="text">Text to scan.</param>
-        /// <returns>A list of matches.</returns>
-        private ArrayList FindClasses(string text)
+        /// <returns>A List of matches.</returns>
+        private List<string> FindClasses(string text)
         {
-            ArrayList classes = new ArrayList();
-            Regex expression = new Regex(@"\b(class|struct)[^\S\n]+(?<range>\w+)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            List<string> classes = new List<string>();
+
+            Regex expression = new Regex(@"^[\s]*\b(class|struct)[^\S\n]+(?<range>\w+)\b", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text))
             {
@@ -288,7 +275,9 @@ namespace RpgCodeExpress
                 definedClass = definedClass.Substring(definedClass.LastIndexOf(" ")).Trim(); //Get the classes name
 
                 if (!classes.Contains(definedClass))
+                {
                     classes.Add(definedClass);
+                }
             }
 
             return classes;
@@ -298,53 +287,104 @@ namespace RpgCodeExpress
         /// Finds all of the methods/functions in a string of text, and return any matches.
         /// </summary>
         /// <param name="text">Text to scan.</param>
-        /// <returns>A list of matches.</returns>
-        private ArrayList FindMethods(string text)
+        /// <returns>A List of matches.</returns>
+        private List<string> FindMethods(string text)
         {
-            ArrayList methods = new ArrayList();
-            Regex expression = new Regex(@"\b(method|function)[^\S\n]+(\w+::)?(?<range>\w+?)\b", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            List<string> methods = new List<string>();
+
+            Regex expression = new Regex(@"^[\s]*\b(method|function)[^\S\n]+(\w+::)?(?<range>\w+?)\b", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text))
             {
                 string definedMethod = match.Value.Trim();
 
                 if (definedMethod.Contains("::"))
+                {
                     definedMethod = definedMethod.Substring(definedMethod.LastIndexOf("::") + 2).Trim();
+                }
                 else
+                {
                     definedMethod = definedMethod.Substring(definedMethod.LastIndexOf(" ")).Trim();
+                }
 
                 definedMethod += "(^)";
 
                 if (!methods.Contains(definedMethod))
+                {
                     methods.Add(definedMethod);
+                }
             }
 
             return methods;
         }
 
         /// <summary>
-        /// Finds all the global/var variables in a string of text, and return any matches.
+        /// Finds all the global variable declarations in a string of text and returns the
+        /// matches (if any) in a List.
         /// </summary>
         /// <param name="text">Text to scan.</param>
-        /// <returns>A list of matches</returns>
-        private ArrayList FindVariables(string text)
+        /// <returns>A List of matches.</returns>
+        private List<string> FindGlobalVariables(string text)
         {
-            ArrayList variables = new ArrayList();
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(global)\(+\w+\)+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            List<string>  globalVariables = new List<string>();
+
+            Regex expression = new Regex(@"^([\s]*\b(global)[^\S\n]*\(+\s*(?<range>\w+)\s*\)+)", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text)) //Find the global variables i.e. "global(example)"
             {
-                string definedVariable = match.Value.Trim();
-                int position = definedVariable.IndexOf('(') + 1;
+                // Figure out how to access groups based on name.
+                string definedVariable = match.Groups[3].Value;
 
-                definedVariable = definedVariable.Substring(position, definedVariable.IndexOf(')') - position);
-
-
-                if (!variables.Contains(definedVariable))
-                    variables.Add(definedVariable);
+                if (!globalVariables.Contains(definedVariable))
+                {
+                    globalVariables.Add(definedVariable);
+                }
             }
 
-            expression = new Regex(@"^(?<range>[\w\s]*\b(var)\s+\w+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            return globalVariables;
+        }
+
+        /// <summary>
+        /// Finds all the local variable declarations in a string of text and returns the
+        /// matches (if any) in a List.
+        /// </summary>
+        /// <param name="text">Text to scan.</param>
+        /// <returns>A List of matches.</returns>
+        private List<string> FindLocalVariables()
+        {
+            List<string> localVariables = new List<string>();
+
+            Regex expression = new Regex(@"^([\s]*\b(local)[^\S\n]*\(+\s*(?<range>\w+)\s*\)+)",
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+            foreach (Match match in expression.Matches(txtCodeEditor.Text))
+            {
+                // Figure out how to access groups based on name.
+                string definedVariable = match.Groups[3].Value;
+
+                if (!localVariables.Contains(definedVariable))
+                {
+                    localVariables.Add(definedVariable);
+                }
+            }
+
+            return localVariables;
+        }
+
+        /// <summary>
+        /// Finds all the class member declarations in a string of text and returns the
+        /// matches (if any) in a List. 
+        /// </summary>
+        /// <param name="text">Text to scan.</param>
+        /// <returns>A List of matches</returns>
+        private List<string> FindClassMembers(string text)
+        {
+            List<string> classMembers = new List<string>();
+
+            Regex expression = new Regex(@"^[\s]*\b(var)[^\S\n]+(?<range>\w+)\b", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(text)) //Find class memebers i.e. "var example"
             {
@@ -352,11 +392,13 @@ namespace RpgCodeExpress
 
                 definedVariable = definedVariable.Substring(definedVariable.LastIndexOf(" ")).Trim();
 
-                if (!variables.Contains(definedVariable))
-                    variables.Add(definedVariable);
+                if (!classMembers.Contains(definedVariable))
+                {
+                    classMembers.Add(definedVariable);
+                }
             }
 
-            return variables;
+            return classMembers;
         }
 
         /// <summary>
@@ -365,7 +407,8 @@ namespace RpgCodeExpress
         /// </summary>
         private void PopulateClassExplorer()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(class|struct)[^\S\n]+[\w<>,\s]+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            Regex expression = new Regex(@"^(?<range>[\s]*\b(class|struct)[^\S\n]+[\w<>,\s]+)", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             classes.Clear();
             cboClassExplorer.Items.Clear();
@@ -382,8 +425,11 @@ namespace RpgCodeExpress
                 cboClassExplorer.Items.Add(item.Title);
             }
 
-            //Sort them descending, alphabetically.
-            classes.Sort(delegate(DropDownItem item1, DropDownItem item2) { return item1.Title.CompareTo(item2.Title); });
+            // Sort them descending, alphabetically.
+            classes.Sort(delegate(DropDownItem item1, DropDownItem item2) 
+            { 
+                return item1.Title.CompareTo(item2.Title); 
+            });
         }
 
         /// <summary>
@@ -392,7 +438,7 @@ namespace RpgCodeExpress
         /// </summary>
         private void PopulateObjectExplorer()
         {
-            Regex expression = new Regex(@"^(?<range>[\w\s]*\b(method|function)[^\S\n]+(\w+::)?(\w+\(.*\)\s+))",
+            Regex expression = new Regex(@"^(?<range>[\s]*\b(method|function)[^\S\n]+(\w+::)?(\w+\(.*\)\s+))",
                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             declarations.Clear();
@@ -411,23 +457,25 @@ namespace RpgCodeExpress
                 cboObjectExplorer.Items.Add(item.Title);
             }
 
-            expression = new Regex(@"^(?<range>[\w\s]*\b(global)\(+\w+\)+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            expression = new Regex(@"^([\s]*\b(global)[^\S\n]*\(+\s*(?<range>\w+)\s*\)+)", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(txtCodeEditor.Text))
             {
                 DropDownItem item = new DropDownItem();
-                string variable = match.Value.Trim();
-                int position = variable.IndexOf('(') + 1;
+                // Figure out how to access groups based on name.
+                string variable = match.Groups[3].Value;
 
                 item.Type = DropDownType.Global;
                 item.Position = match.Index;
-                item.Title = variable.Substring(variable.IndexOf('(') + 1, variable.IndexOf(')') - position);
+                item.Title = variable;
 
                 declarations.Add(item);
                 cboObjectExplorer.Items.Add(item.Title);
             }
 
-            expression = new Regex(@"^(?<range>[\w\s]*\b(var)\s+\w+)", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+            expression = new Regex(@"^[\s]*\b(var)[^\S\n]+(?<range>\w+)\b", 
+                RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             foreach (Match match in expression.Matches(txtCodeEditor.Text))
             {
@@ -442,8 +490,11 @@ namespace RpgCodeExpress
                 cboObjectExplorer.Items.Add(item.Title);
             }
 
-            //Sort them descending, alphabetically. 
-            declarations.Sort(delegate(DropDownItem item1, DropDownItem item2) { return item1.Title.CompareTo(item2.Title); });
+            // Sort them descending, alphabetically. 
+            declarations.Sort(delegate(DropDownItem item1, DropDownItem item2) 
+            { 
+                return item1.Title.CompareTo(item2.Title); 
+            });
         }
 
         /// <summary>
@@ -478,7 +529,8 @@ namespace RpgCodeExpress
                 fileIncludes.Add(file, text);
                 autocompleteItems.IncludedClasses.AddRange(FindClasses(text));
                 autocompleteItems.IncludedMethods.AddRange(FindMethods(text));
-                autocompleteItems.IncludedVariables.AddRange(FindVariables(text));
+                autocompleteItems.UserDefinedVariables.AddRange(FindGlobalVariables(txtCodeEditor.Text));
+                autocompleteItems.UserDefinedVariables.AddRange(FindClassMembers(txtCodeEditor.Text));
             }
             catch (IOException ex)
             {
@@ -497,7 +549,9 @@ namespace RpgCodeExpress
                 "RPGCode Express", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
+            {
                 Save();
+            }
 
             return result;
         }
