@@ -183,9 +183,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Images\CodeEditor\idr_dll.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Images\Application\toolkit3.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +192,7 @@
     <None Include="Resources\Images\Application\RPGCode Express Logo %28Scaled%29.png" />
     <None Include="Resources\Images\Application\rpgcodeExpress.ico" />
     <None Include="Resources\RPGCode Language\RPGcode.xml" />
+    <Content Include="Resources\Images\CodeEditor\rpg-code-program.ico" />
     <Content Include="rpgcodeExpress.ico" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Class.png" />
     <Content Include="Resources\Images\CodeEditor\Icons.16x16.Enum.png" />

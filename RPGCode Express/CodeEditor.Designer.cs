@@ -294,6 +294,8 @@
             this.imageListPopup.Images.SetKeyName(3, "Icons.16x16.Enum.png");
             this.imageListPopup.Images.SetKeyName(4, "Icons.16x16.Field.png");
             this.imageListPopup.Images.SetKeyName(5, "Icons.16x16.Class.png");
+            this.imageListPopup.Images.SetKeyName(6, "Icons.16x16.PrivateField.png");
+            this.imageListPopup.Images.SetKeyName(7, "Icons.16x16.InternalField.png");
             // 
             // CodeEditor
             // 

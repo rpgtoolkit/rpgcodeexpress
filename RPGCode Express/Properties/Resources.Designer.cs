@@ -277,6 +277,13 @@ namespace RpgCodeExpress.Properties {
             }
         }
         
+        internal static System.Drawing.Icon rpg_code_program {
+            get {
+                object obj = ResourceManager.GetObject("rpg_code_program", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap RPGCode_Express_Logo__Scaled_ {
             get {
                 object obj = ResourceManager.GetObject("RPGCode_Express_Logo__Scaled_", resourceCulture);
