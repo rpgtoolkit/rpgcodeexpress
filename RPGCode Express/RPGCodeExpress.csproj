@@ -85,9 +85,10 @@
     <Compile Include="Events\CaretPositionUpdateEventArgs.cs" />
     <Compile Include="Events\NodeLabelRenameEventArgs.cs" />
     <Compile Include="Items\DropDownItem.cs" />
-    <Compile Include="Items\ExplorerItem.cs" />
+    <Compile Include="Items\ExplorerNode.cs" />
     <Compile Include="Events\NodeClickEventArgs.cs" />
     <Compile Include="Files\ProjectFile.cs" />
+    <Compile Include="Items\ProjectNode.cs" />
     <Compile Include="Renders\Colours.cs" />
     <Compile Include="Renders\MenuRender.cs" />
     <Compile Include="Renders\ToolstripRender.cs" />

@@ -160,13 +160,14 @@ namespace RpgCodeExpress
 
             autocompleteItems.UserDefinedGlobals.Clear();
             autocompleteItems.UserDefinedGlobals.AddRange(GetDefinedGlobalVariables(txtCodeEditor.Text));
+            autocompleteItems.UserDefinedGlobals.AddRange(autocompleteItems.IncludedGlobals);
 
             autocompleteItems.UserDefinedLocals.Clear();
             autocompleteItems.UserDefinedLocals.AddRange(GetDefinedLocalVariables(txtCodeEditor.Text));
 
             autocompleteItems.UserDefinedMembers.Clear();
             autocompleteItems.UserDefinedMembers.AddRange(GetDefinedClassMembers(txtCodeEditor.Text));
-
+            autocompleteItems.UserDefinedMembers.AddRange(autocompleteItems.IncludedMembers);
         }
 
         /// <summary>
@@ -226,7 +227,7 @@ namespace RpgCodeExpress
                 SnippetAutocompleteItem menuItem = new SnippetAutocompleteItem(command.Code);
                 menuItem.ToolTipText = command.Description;
                 menuItem.ToolTipTitle = command.Tooltip;
-                menuItem.Text = command.Code.Substring(0, command.Code.Length - 3); // Add a "Name" to xml file.
+                menuItem.MenuText = command.Code.Substring(0, command.Code.Length - 3); // Add a "Name" to xml file.
                 menuItem.ImageIndex = 0;
                 items.Add(menuItem);
             }
@@ -263,7 +264,8 @@ namespace RpgCodeExpress
             fileIncludes.Clear();
             autocompleteItems.IncludedClasses.Clear();
             autocompleteItems.IncludedMethods.Clear();
-            autocompleteItems.IncludedVariables.Clear();
+            autocompleteItems.IncludedGlobals.Clear();
+            autocompleteItems.IncludedMembers.Clear();
         }
 
         /// <summary>
@@ -628,8 +630,8 @@ namespace RpgCodeExpress
                 fileIncludes.Add(file, text);
                 autocompleteItems.IncludedClasses.AddRange(GetDefinedClasses(text));
                 autocompleteItems.IncludedMethods.AddRange(GetDefinedMethods(text));
-                autocompleteItems.UserDefinedGlobals.AddRange(GetDefinedGlobalVariables(text));
-                autocompleteItems.UserDefinedMembers.AddRange(GetDefinedClassMembers(text));
+                autocompleteItems.IncludedGlobals.AddRange(GetDefinedGlobalVariables(text));
+                autocompleteItems.IncludedMembers.AddRange(GetDefinedClassMembers(text));
             }
             catch (IOException ex)
             {

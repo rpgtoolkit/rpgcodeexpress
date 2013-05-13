@@ -23,7 +23,7 @@ namespace RpgCodeExpress.Files
         /// Gets or sets the files path.
         /// </summary>
         [CategoryAttribute("Information")]
-        [DisplayNameAttribute("Full Path")]
+        [DisplayNameAttribute("Full File")]
         [ReadOnlyAttribute(true)]
         [DescriptionAttribute("Location of the file or folder.")]
         public string FileLocation
@@ -74,7 +74,7 @@ namespace RpgCodeExpress.Files
         /// Creates a ProjectFile with a path and name for use in a property grid.
         /// </summary>
         /// <param name="file">Name of the file.</param>
-        /// <param name="path">Path of the file.</param>
+        /// <param name="path">File of the file.</param>
         public ProjectFile(string file, string path)
         {
             this.fileName = file;

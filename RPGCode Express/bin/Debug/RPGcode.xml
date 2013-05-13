@@ -184,6 +184,13 @@
 </Description>
     </Command>
     <Command>
+      <Name>checkButton</Name>
+      <Code>checkButton(^)</Code>
+      <Tooltip>int = checkbutton(int x, int y)</Tooltip>
+      <Description>Check if any SetButton()s were clicked at screen pixel co-ords x, y. If two buttons exist at x,y, the lower slot number is returned. If no button exists at x,y, -1 is returned.
+      </Description>
+    </Command>
+    <Command>
       <Name>chr</Name>
       <Code>chr(^)</Code>
       <Tooltip>string chr(int asc, [string &amp;ret])</Tooltip>

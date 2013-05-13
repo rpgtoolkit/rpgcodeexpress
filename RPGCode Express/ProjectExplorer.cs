@@ -85,7 +85,7 @@ namespace RpgCodeExpress
         {
             treFileBrowser.Nodes.Clear();
 
-            ExplorerItem rootNode = new ExplorerItem();
+            ExplorerNode rootNode = new ExplorerNode();
             rootNode.Type = ExplorerItemType.Project;
             rootNode.ImageIndex = 0;
             rootNode.Text = Title;
@@ -123,7 +123,7 @@ namespace RpgCodeExpress
         /// </summary>
         /// <param name="filename">File name to check.</param>
         /// <returns>The error, if any.</returns>
-        private string CheckFileName(string filename, ExplorerItem editedNode)
+        private string CheckFileName(string filename, ExplorerNode editedNode)
         {
             char[] invalidChars = System.IO.Path.GetInvalidFileNameChars();
 
@@ -157,7 +157,7 @@ namespace RpgCodeExpress
                         TextWriter textWriter = new StreamWriter(filePath + @"\program" + fileNumber + ".prg");
                         textWriter.Close();
 
-                        ExplorerItem fileNode = new ExplorerItem();
+                        ExplorerNode fileNode = new ExplorerNode();
                         fileNode.Type = ExplorerItemType.Program;
                         fileNode.Text = @"program" + fileNumber + ".prg";
                         fileNode.Tag = filePath + @"\program" + fileNumber + ".prg";
@@ -188,7 +188,7 @@ namespace RpgCodeExpress
             {
                 try
                 {
-                    ExplorerItem deleteNode = (ExplorerItem)treFileBrowser.SelectedNode;
+                    ExplorerNode deleteNode = (ExplorerNode)treFileBrowser.SelectedNode;
 
                     if (deleteNode.Type == ExplorerItemType.Folder)
                         Directory.Delete(treFileBrowser.SelectedNode.Tag.ToString(), true);
@@ -226,7 +226,7 @@ namespace RpgCodeExpress
         /// </summary>
         /// <param name="e">Event information.</param>
         /// <param name="editedNode">The node that was edited.</param>
-        private void RenameFile(NodeLabelEditEventArgs e, ExplorerItem editedNode)
+        private void RenameFile(NodeLabelEditEventArgs e, ExplorerNode editedNode)
         {
             try
             {
@@ -291,7 +291,7 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            ExplorerItem editedNode = (ExplorerItem)treFileBrowser.SelectedNode;
+            ExplorerNode editedNode = (ExplorerNode)treFileBrowser.SelectedNode;
 
             if (e.Label != null)
             {
@@ -321,7 +321,7 @@ namespace RpgCodeExpress
 
             foreach (DirectoryInfo directory in directoryInfo.GetDirectories())
             {
-                ExplorerItem directoryNode = new ExplorerItem();
+                ExplorerNode directoryNode = new ExplorerNode();
                 directoryNode.Type = ExplorerItemType.Folder;
                 directoryNode.Tag = directory.FullName;
                 directoryNode.Text = directory.Name;
@@ -338,7 +338,7 @@ namespace RpgCodeExpress
             {
                 if(file.Extension == ".prg")
                 {
-                    ExplorerItem fileNode = new ExplorerItem();
+                    ExplorerNode fileNode = new ExplorerNode();
                     fileNode.Type = ExplorerItemType.Program;
                     fileNode.Tag = file.FullName;
                     fileNode.Text = file.Name;
@@ -358,7 +358,7 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            ExplorerItem explorerItem = (ExplorerItem)e.Node;
+            ExplorerNode explorerItem = (ExplorerNode)e.Node;
 
             if (explorerItem.Type == ExplorerItemType.Program)
             {
@@ -390,7 +390,7 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true))
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerNode", true))
                 e.Effect = DragDropEffects.Move;
             else
                 e.Effect = DragDropEffects.None;
@@ -398,19 +398,19 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_DragOver(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true) == false)
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerNode", true) == false)
                 return;
 
             TreeView selectedTreeview = (TreeView)sender;
 
             Point point = selectedTreeview.PointToClient(new Point(e.X, e.Y));
-            ExplorerItem targetNode = (ExplorerItem)selectedTreeview.GetNodeAt(point);
+            ExplorerNode targetNode = (ExplorerNode)selectedTreeview.GetNodeAt(point);
 
             if ((!object.ReferenceEquals(selectedTreeview, targetNode)))
             {
                 selectedTreeview.SelectedNode = targetNode;
 
-                TreeNode dropNode = (TreeNode)e.Data.GetData("RpgCodeExpress.Items.ExplorerItem");
+                TreeNode dropNode = (TreeNode)e.Data.GetData("RpgCodeExpress.Items.ExplorerNode");
 
                 while (!(targetNode == null))
                 {
@@ -425,7 +425,7 @@ namespace RpgCodeExpress
                         return;
                     }
 
-                    targetNode = (ExplorerItem)targetNode.Parent;
+                    targetNode = (ExplorerNode)targetNode.Parent;
                 }
             }
 
@@ -434,12 +434,12 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerItem", true) == false)
+            if (e.Data.GetDataPresent("RpgCodeExpress.Items.ExplorerNode", true) == false)
                 return;
 
             TreeView treeView = (TreeView)sender;
-            ExplorerItem dropNode = (ExplorerItem)e.Data.GetData("RpgCodeExpress.Items.ExplorerItem");
-            ExplorerItem targetNode = (ExplorerItem)treeView.SelectedNode;
+            ExplorerNode dropNode = (ExplorerNode)e.Data.GetData("RpgCodeExpress.Items.ExplorerNode");
+            ExplorerNode targetNode = (ExplorerNode)treeView.SelectedNode;
 
             if (targetNode == null)
                 return;
@@ -472,7 +472,7 @@ namespace RpgCodeExpress
             if (treFileBrowser.SelectedNode == null)
                 return;
 
-            ExplorerItem selectedNode = (ExplorerItem)treFileBrowser.SelectedNode;
+            ExplorerNode selectedNode = (ExplorerNode)treFileBrowser.SelectedNode;
 
             if (selectedNode.Type == ExplorerItemType.Project)
             {
@@ -527,10 +527,10 @@ namespace RpgCodeExpress
                     {
                         Directory.CreateDirectory(folderPath + @"\NewFolder" + folderNumber);
 
-                        ExplorerItem directoryNode = new ExplorerItem();
+                        ExplorerNode directoryNode = new ExplorerNode();
                         directoryNode.Type = ExplorerItemType.Folder;
                         directoryNode.Text = "NewFolder" + folderNumber; ;
-                        directoryNode.Tag = folderPath + @"NewFolder" + folderNumber;
+                        directoryNode.Tag = folderPath + @"\NewFolder" + folderNumber;
                         directoryNode.ImageIndex = 1;
                         directoryNode.SelectedImageIndex = directoryNode.ImageIndex;
 
@@ -573,7 +573,7 @@ namespace RpgCodeExpress
         {
             if (e.KeyChar == (char)13 & treFileBrowser.SelectedNode != null)
             {
-                ExplorerItem explorerItem = (ExplorerItem)treFileBrowser.SelectedNode;
+                ExplorerNode explorerItem = (ExplorerNode)treFileBrowser.SelectedNode;
 
                 if (explorerItem.Type == ExplorerItemType.Program)
                 {

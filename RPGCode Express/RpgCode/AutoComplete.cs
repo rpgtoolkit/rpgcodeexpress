@@ -21,15 +21,16 @@ namespace RpgCodeExpress.RpgCode
     {
         public ArrayList IncludedClasses = new ArrayList();
         public ArrayList IncludedMethods = new ArrayList();
-        public ArrayList IncludedVariables = new ArrayList();
+        public ArrayList IncludedGlobals = new ArrayList();
+        public ArrayList IncludedMembers = new ArrayList();
 
         public ArrayList UserDefinedClasses = new ArrayList();
         public ArrayList UserDefinedMethods = new ArrayList();
         public ArrayList UserDefinedVariables = new ArrayList();
 
-        public List<string> UserDefinedGlobals = new List<string>();
+        public ArrayList UserDefinedGlobals = new ArrayList();
         public List<string> UserDefinedLocals = new List<string>();
-        public List<string> UserDefinedMembers = new List<string>();
+        public ArrayList UserDefinedMembers = new ArrayList();
 
         public string[] Keywords = {"break", "return", "public", "private", "var", "null", 
                                        "include", "inline", "default", "on error", "resume next", 
