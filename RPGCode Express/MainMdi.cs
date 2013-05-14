@@ -177,7 +177,9 @@ namespace RpgCodeExpress
             if (CheckToolkitInstall())
             {
                 if (File.Exists(ConfigurationFilePath))
+                {
                     LoadConfiguration();
+                }
             }
 
             CreateBasicLayout();
@@ -274,8 +276,8 @@ namespace RpgCodeExpress
 
                 if (Directory.Exists(configurationFile.ProjectFolder))
                 {
-                    if (Directory.Exists(configurationFile.ProjectFolder + @"prg\"))
-                        projectPath = configurationFile.ProjectFolder + @"prg\";
+                    if (Directory.Exists(configurationFile.ProjectFolder + @"prg"))
+                        projectPath = configurationFile.ProjectFolder + @"prg";
                     else
                         projectPath = configurationFile.ProjectFolder;
 
@@ -326,7 +328,7 @@ namespace RpgCodeExpress
                 newCodeEditor.MdiParent = this;
                 newCodeEditor.Show(dockPanel);
 
-                if (newCodeEditor.EditorFile != "Untitled" & editorDictionary.ContainsKey(file) == false)
+                if (newCodeEditor.EditorFile != "Untitled" && editorDictionary.ContainsKey(file) == false)
                     editorDictionary.Add(file.ToLower(), newCodeEditor);
             }
             catch(Exception ex)
@@ -386,9 +388,18 @@ namespace RpgCodeExpress
                 {
                     string program = CurrentCodeEditor.txtCodeEditor.Text;
 
-                    StreamWriter textWriter = new StreamWriter(ProjectPath + @"sys_test.prg");
-                    textWriter.Write(program);
-                    textWriter.Close();
+                    try
+                    {
+                        StreamWriter textWriter = new StreamWriter(ProjectPath + @"\sys_test.prg");
+                        textWriter.Write(program);
+                        textWriter.Close();
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, 
+                            MessageBoxIcon.Error);
+                    }
+                    
 
                     shellCommand += " sys_test.prg";
                 }

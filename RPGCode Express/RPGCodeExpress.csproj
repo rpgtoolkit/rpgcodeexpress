@@ -88,6 +88,8 @@
     <Compile Include="Items\ExplorerNode.cs" />
     <Compile Include="Events\NodeClickEventArgs.cs" />
     <Compile Include="Files\ProjectFile.cs" />
+    <Compile Include="Items\FileNode.cs" />
+    <Compile Include="Items\FolderNode.cs" />
     <Compile Include="Items\ProjectNode.cs" />
     <Compile Include="Renders\Colours.cs" />
     <Compile Include="Renders\MenuRender.cs" />

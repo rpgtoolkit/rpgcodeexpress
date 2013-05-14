@@ -59,7 +59,7 @@ namespace RpgCodeExpress.Events
         #region Public Methods
 
         /// <summary>
-        /// Updates the data when the node is clicked.
+        /// Updates the data when the parentNode is clicked.
         /// </summary>
         /// <param name="projectFile">The ProjectFile clicked.</param>
         public NodeClickEventArgs(ProjectFile projectFile)
