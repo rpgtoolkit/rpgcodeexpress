@@ -954,8 +954,8 @@ The string "default" restores the default image.
     <Command>
       <Name>mouseMove</Name>
       <Code>mouseMove(^)</Code>
-      <Tooltip>void mouseMove(int &amp;x, int &amp;y)</Tooltip>
-      <Description>Wait for the mouse to move and return the x,y location in pixels from the window corner.</Description>
+      <Tooltip>void mouseMove(int &amp;x, int &amp;y [, bool noWait])</Tooltip>
+      <Description>Wait for the mouse to move or immediately retrieve the last and return the x,y location in pixels from the window corner.</Description>
     </Command>
     <Command>
       <Name>mousePointer</Name>
