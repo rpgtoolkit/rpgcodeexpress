@@ -53,6 +53,7 @@
             this.Tooltip = new System.Windows.Forms.ToolTip(this.components);
             this.imageListPopup = new System.Windows.Forms.ImageList(this.components);
             this.tableCodeEditor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeEditor)).BeginInit();
             this.cmMain.SuspendLayout();
             this.tableObjectExplorer.SuspendLayout();
             this.SuspendLayout();
@@ -76,14 +77,16 @@
             // 
             // txtCodeEditor
             // 
-            this.txtCodeEditor.AllowDrop = true;
             this.txtCodeEditor.AutoScrollMinSize = new System.Drawing.Size(27, 14);
             this.txtCodeEditor.BackBrush = null;
+            this.txtCodeEditor.CharHeight = 14;
+            this.txtCodeEditor.CharWidth = 8;
             this.txtCodeEditor.ContextMenuStrip = this.cmMain;
             this.txtCodeEditor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCodeEditor.DescriptionFile = "";
             this.txtCodeEditor.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.txtCodeEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCodeEditor.Language = FastColoredTextBoxNS.Language.RpgCode;
+            this.txtCodeEditor.IsReplaceMode = false;
             this.txtCodeEditor.LeftBracket = '(';
             this.txtCodeEditor.Location = new System.Drawing.Point(3, 27);
             this.txtCodeEditor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 3);
@@ -95,6 +98,7 @@
             this.txtCodeEditor.Size = new System.Drawing.Size(618, 378);
             this.txtCodeEditor.TabIndex = 1;
             this.txtCodeEditor.Tag = "";
+            this.txtCodeEditor.Zoom = 100;
             this.txtCodeEditor.SelectionChanged += new System.EventHandler(this.txtCodeEditor_SelectionChanged);
             this.txtCodeEditor.TextChangedDelayed += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.txtCodeEditor_TextChangedDelayed);
             this.txtCodeEditor.SelectionChangedDelayed += new System.EventHandler(this.txtCodeEditor_SelectionChangedDelayed);
@@ -311,6 +315,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CodeEditor_FormClosing);
             this.Load += new System.EventHandler(this.CodeEditor_Load);
             this.tableCodeEditor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCodeEditor)).EndInit();
             this.cmMain.ResumeLayout(false);
             this.tableObjectExplorer.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -30,6 +30,8 @@ namespace RpgCodeExpress
     /// </summary>
     public partial class CodeEditor : EditorForm, ISaveable
     {
+        private bool initialLoad;
+
         private Point lastMouseCoordinate;
         private AutocompleteMenu popupMenu; // Intellisense menu
         private RPGcode rpgCodeReference = new RPGcode(); // List of RPGCode Functions, centralise this.
@@ -62,6 +64,11 @@ namespace RpgCodeExpress
         public CodeEditor(string file, RPGcode currentRpgCode)
         {
             InitializeComponent();
+
+            initialLoad = true;
+
+            txtCodeEditor.DescriptionFile = Application.StartupPath + @"\RPGCodeHighlighter.xml";
+            txtCodeEditor.Language = Language.Custom;
 
             rpgCodeReference = currentRpgCode;
             EditorFile = file;
@@ -222,7 +229,7 @@ namespace RpgCodeExpress
             foreach (string item in autocompleteItems.Constants)
                 items.Add(new AutocompleteItem(item) { ImageIndex = 3 });
 
-            foreach (Command command in rpgCodeReference.Items)
+            foreach (RpgCodeExpress.RpgCode.Command command in rpgCodeReference.Items)
             {
                 SnippetAutocompleteItem menuItem = new SnippetAutocompleteItem(command.Code);
                 menuItem.ToolTipText = command.Description;
@@ -608,6 +615,7 @@ namespace RpgCodeExpress
                 TextReader textReader = new StreamReader(EditorFile);
                 txtCodeEditor.Text = textReader.ReadToEnd();
                 textReader.Close();
+                IsUpdated = true;
             }
             catch (IOException ex)
             {
@@ -667,7 +675,7 @@ namespace RpgCodeExpress
                 TextWriter textWriter = new StreamWriter(EditorFile);
                 textWriter.Write(txtCodeEditor.Text);
                 textWriter.Close();
-                IsUpdated = false;
+                IsUpdated = true;
             }
             catch (IOException ex)
             {
@@ -712,16 +720,20 @@ namespace RpgCodeExpress
 
         private void CodeEditor_Load(object sender, EventArgs e)
         {
-            IsUpdated = false;
+            IsUpdated = true;
             txtCodeEditor.ClearUndo();
             this.TabText = Path.GetFileName(EditorFile);
         }
 
         private void CodeEditor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (IsUpdated)
+            if (!IsUpdated)
+            {
                 if (UpdateFile() == DialogResult.Cancel)
+                {
                     e.Cancel = true;
+                }
+            }
         }
 
         private void popupMenu_Opening(object sender, CancelEventArgs e)
@@ -760,7 +772,7 @@ namespace RpgCodeExpress
             if (hoverWord == "")
                 return;
 
-            Command foundCommand = rpgCodeReference.FindCommand(hoverWord);
+            RpgCodeExpress.RpgCode.Command foundCommand = rpgCodeReference.FindCommand(hoverWord);
 
             if (foundCommand != null)
             {
@@ -795,21 +807,28 @@ namespace RpgCodeExpress
 
         private void txtCodeEditor_TextChangedDelayed(object sender, TextChangedEventArgs e)
         {
-            CancelTooltip();
-            IsUpdated = true;
-            AddFileDeclarations();
-            BuildAutocompleteMenu();
-            this.TabText = Path.GetFileName(EditorFile) + '*';
+            if (!initialLoad)
+            {
+                CancelTooltip();
+                IsUpdated = false;
+                AddFileDeclarations();
+                BuildAutocompleteMenu();
+                this.TabText = Path.GetFileName(EditorFile) + '*';
 
-            // Covers Multi-line C-style comments.
-            FastColoredTextBoxNS.Range range;
-            FastColoredTextBox textBox = (FastColoredTextBox)sender;
+                // Covers Multi-line C-style comments.
+                FastColoredTextBoxNS.Range range;
+                FastColoredTextBox textBox = (FastColoredTextBox)sender;
 
-            range = textBox.VisibleRange;
-            range.ClearStyle();
-            range.SetStyle(greenStyle, "//.*$", RegexOptions.Multiline);
-            range.SetStyle(greenStyle, @"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline);
-            range.SetStyle(greenStyle, @"(/\*.*?\*/)|(.*\*/)", RegexOptions.Singleline | RegexOptions.RightToLeft);
+                range = textBox.VisibleRange;
+                range.ClearStyle();
+                range.SetStyle(greenStyle, "//.*$", RegexOptions.Multiline);
+                range.SetStyle(greenStyle, @"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline);
+                range.SetStyle(greenStyle, @"(/\*.*?\*/)|(.*\*/)", RegexOptions.Singleline | RegexOptions.RightToLeft);
+            }
+            else
+            {
+                initialLoad = false;
+            }
         }
 
         private void txtCodeEditor_KeyDown(object sender, KeyEventArgs e)

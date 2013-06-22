@@ -39,7 +39,7 @@ namespace RpgCodeExpress
     /// </summary>
     public partial class MainMdi : Form
     {
-        private const string programVersion = "RPGCode Express Beta 1";
+        private const string programVersion = "RPGCode Express 1.0";
 
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();
@@ -52,15 +52,15 @@ namespace RpgCodeExpress
         private string projectPath;
         private string projectTitle;
 
-        ////Using courier new or lucida console throws an untraceable exception here.
-        ////But verdana doesn't?
+        ////Using courier new or lucida console throws an untraceable exception here,
+        ////but verdana doesn't?
         //private Font codeEditorFont = new Font("Verdana", 10);
 
         //Docks to keep track of.
         private ProjectExplorer projectExplorer;
         private PropertiesWindow propertiesWindow;
 
-        //Dictionary containing the docks, allows for very fast searching
+        //Dictionary containing the docks.
         private Dictionary<string, EditorForm> editorDictionary = new Dictionary<string, EditorForm>();
 
         #region Public Properties
@@ -201,19 +201,31 @@ namespace RpgCodeExpress
                 toolkitPath = path;
 
                 if (File.Exists(toolkitPath + "trans3.exe"))
+                {
                     engineExists = true;
+                }
                 else
+                {
                     engineExists = false;
+                }
 
                 if (Directory.Exists(toolkitPath + @"main\"))
+                {
                     mainFolderPath = toolkitPath + @"main\";
+                }
                 else
+                {
                     mainFolderPath = toolkitPath;
+                }
 
                 if (Directory.Exists(toolkitPath + @"game\"))
+                {
                     gameFolderPath = toolkitPath + @"game\";
+                }
                 else
+                {
                     gameFolderPath = toolkitPath;
+                }
 
                 projectPath = gameFolderPath;
 
@@ -277,9 +289,13 @@ namespace RpgCodeExpress
                 if (Directory.Exists(configurationFile.ProjectFolder))
                 {
                     if (Directory.Exists(configurationFile.ProjectFolder + @"prg"))
+                    {
                         projectPath = configurationFile.ProjectFolder + @"prg";
+                    }
                     else
+                    {
                         projectPath = configurationFile.ProjectFolder;
+                    }
 
                     projectTitle = configurationFile.ProjectName;
                 }
@@ -400,7 +416,6 @@ namespace RpgCodeExpress
                             MessageBoxIcon.Error);
                     }
                     
-
                     shellCommand += " sys_test.prg";
                 }
 
@@ -460,12 +475,16 @@ namespace RpgCodeExpress
                     editorDictionary.Add(newCodeEditor.EditorFile.ToLower(), newCodeEditor);
 
                     if (projectExplorer != null)
+                    {
                         projectExplorer.PopulateTreeView();
+                    }
                 }
 
             }
             else
+            {
                 newCodeEditor.Save();
+            }
         }
 
         /// <summary>
