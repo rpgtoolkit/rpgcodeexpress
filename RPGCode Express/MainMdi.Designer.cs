@@ -76,6 +76,7 @@
             this.mnuItemRunProject = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemNewWindow = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemCloseAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -404,7 +405,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fontSettingsToolStripMenuItem});
+            this.fontSettingsToolStripMenuItem,
+            this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -416,6 +418,13 @@
             this.fontSettingsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.fontSettingsToolStripMenuItem.Text = "Font Settings...";
             this.fontSettingsToolStripMenuItem.Click += new System.EventHandler(this.fontSettingsToolStripMenuItem_Click);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.optionsToolStripMenuItem.Text = "&Options...";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // mnuItemWindows
             // 
@@ -429,14 +438,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -909,5 +918,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItemCommentSelected;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
     }
 }

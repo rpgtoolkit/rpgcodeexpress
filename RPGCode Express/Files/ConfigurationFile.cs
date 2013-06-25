@@ -17,10 +17,23 @@ namespace RpgCodeExpress.Files
     /// </summary>
     public class ConfigurationFile : SerializableData
     {
+        private string toolkitPath;
         private string projectTitle;
         private string projectPath;
 
         #region Public Properties
+
+        public string ToolkitPath
+        {
+            get
+            {
+                return toolkitPath;
+            }
+            set
+            {
+                toolkitPath = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the path of the project.

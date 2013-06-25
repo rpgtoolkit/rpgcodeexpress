@@ -91,6 +91,12 @@
     <Compile Include="Items\FileNode.cs" />
     <Compile Include="Items\FolderNode.cs" />
     <Compile Include="Items\ProjectNode.cs" />
+    <Compile Include="Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="Renders\Colours.cs" />
     <Compile Include="Renders\MenuRender.cs" />
     <Compile Include="Renders\ToolstripRender.cs" />
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMdi.resx">
       <DependentUpon>MainMdi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProjectExplorer.resx">
       <DependentUpon>ProjectExplorer.cs</DependentUpon>

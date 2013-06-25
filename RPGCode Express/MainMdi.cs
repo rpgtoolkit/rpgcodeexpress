@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.VisualBasic; // Needed for calling the Engine via the command line
+using Microsoft.VisualBasic; // Needed for calling the Engine via the command line.
 using RpgCodeExpress.Events;
 using RpgCodeExpress.Files;
 using RpgCodeExpress.Renders;
@@ -41,6 +41,8 @@ namespace RpgCodeExpress
     {
         private const string programVersion = "RPGCode Express 1.0";
 
+        private string toolkitInstallPath;
+
         private RPGcode rpgCodeReference = new RPGcode();
         private ConfigurationFile configurationFile = new ConfigurationFile();
 
@@ -66,7 +68,7 @@ namespace RpgCodeExpress
         #region Public Properties
 
         /// <summary>
-        /// Gets the full path of the editors Xml configuration file.
+        /// Gets the full path of the editors XML configuration file.
         /// </summary>
         public string ConfigurationFilePath
         {
@@ -77,7 +79,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Gets the full path of the RPGCode Xml reference file.
+        /// Gets the full path of the RPGCode XML reference file.
         /// </summary>
         public string RPGCodeReferencePath
         {
@@ -154,6 +156,18 @@ namespace RpgCodeExpress
             }
         }
 
+        public string ToolkitPath
+        {
+            get
+            {
+                return toolkitPath;
+            }
+            set
+            {
+                toolkitPath = value;
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -165,6 +179,8 @@ namespace RpgCodeExpress
         {
             InitializeComponent();
 
+            toolkitInstallPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit32\";
+
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
             ToolStripManager.Renderer = new ToolstripRender();
@@ -174,15 +190,32 @@ namespace RpgCodeExpress
             SerializableData serializer = new SerializableData();
             rpgCodeReference = (RPGcode)serializer.Load(RPGCodeReferencePath, typeof(RPGcode));
 
-            if (CheckToolkitInstall())
+            if (File.Exists(ConfigurationFilePath))
             {
-                if (File.Exists(ConfigurationFilePath))
+                LoadConfiguration();
+            }
+            else
+            {
+                if (!CheckToolkitInstall(toolkitInstallPath))
                 {
-                    LoadConfiguration();
+                    ShowToolkitPathDialog();
                 }
             }
 
             CreateBasicLayout();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        public void UpdateToolkitPath(string path)
+        {
+            toolkitPath = path;
+            CheckToolkitInstall(toolkitPath);
+
+            configurationFile.ToolkitPath = path;
+            configurationFile.Save(ConfigurationFilePath);
         }
 
         #endregion
@@ -192,10 +225,8 @@ namespace RpgCodeExpress
         /// <summary>
         /// Checks the current Toolkit install.
         /// </summary>
-        private bool CheckToolkitInstall()
+        private bool CheckToolkitInstall(string path)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit3\";
-
             if (Directory.Exists(path))
             {
                 toolkitPath = path;
@@ -233,8 +264,7 @@ namespace RpgCodeExpress
             }
             else
             {
-                projectTitle = "My Documents";
-                gameFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                gameFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\";
 
                 return false;
             }
@@ -284,28 +314,47 @@ namespace RpgCodeExpress
             try
             {
                 SerializableData serializer = new SerializableData();
-                configurationFile = (ConfigurationFile)serializer.Load(ConfigurationFilePath, typeof(ConfigurationFile));
+                configurationFile = (ConfigurationFile)serializer.Load(ConfigurationFilePath, 
+                    typeof(ConfigurationFile));
 
-                if (Directory.Exists(configurationFile.ProjectFolder))
+                if (Directory.Exists(configurationFile.ToolkitPath))
                 {
-                    if (Directory.Exists(configurationFile.ProjectFolder + @"prg"))
-                    {
-                        projectPath = configurationFile.ProjectFolder + @"prg";
-                    }
-                    else
-                    {
-                        projectPath = configurationFile.ProjectFolder;
-                    }
-
-                    projectTitle = configurationFile.ProjectName;
+                    CheckToolkitInstall(configurationFile.ToolkitPath);
                 }
                 else
                 {
-                    throw new DirectoryNotFoundException();
+                    if (CheckToolkitInstall(toolkitInstallPath))
+                    {
+                        configurationFile.ToolkitPath = toolkitInstallPath;
+                    }
+                    else
+                    {
+                        ShowToolkitPathDialog();
+                    }
                 }
+                if (configurationFile.ProjectFolder != null)
+                {
+                    if (Directory.Exists(configurationFile.ProjectFolder))
+                    {
+                        if (Directory.Exists(configurationFile.ProjectFolder + @"prg"))
+                        {
+                            projectPath = configurationFile.ProjectFolder + @"prg";
+                        }
+                        else
+                        {
+                            projectPath = configurationFile.ProjectFolder;
+                        }
 
-                projectLoaded = true;
-                this.Text = configurationFile.ProjectName + " - " + programVersion;
+                        projectTitle = configurationFile.ProjectName;
+                    }
+                    else
+                    {
+                        throw new DirectoryNotFoundException();
+                    }
+
+                    projectLoaded = true;
+                    this.Text = configurationFile.ProjectName + " - " + programVersion;
+                }
             }
             catch (DirectoryNotFoundException)
             {
@@ -337,15 +386,19 @@ namespace RpgCodeExpress
                 }
 
                 CodeEditor newCodeEditor = new CodeEditor(file, rpgCodeReference);
-                newCodeEditor.CaretUpdated += new System.EventHandler<CaretPositionUpdateEventArgs>(CodeEditor_CaretMove);
-                newCodeEditor.UndoRedoUpdated += new System.EventHandler<UndoRedoUpdateEventArgs>(CodeEditor_UndoRedoUpdated);
+                newCodeEditor.CaretUpdated += new System.EventHandler<CaretPositionUpdateEventArgs>
+                    (CodeEditor_CaretMove);
+                newCodeEditor.UndoRedoUpdated += new System.EventHandler<UndoRedoUpdateEventArgs>
+                    (CodeEditor_UndoRedoUpdated);
                 //newCodeEditor.txtCodeEditor.Font = codeEditorFont;
                 newCodeEditor.ProjectPath = ProjectPath;
                 newCodeEditor.MdiParent = this;
                 newCodeEditor.Show(dockPanel);
 
                 if (newCodeEditor.EditorFile != "Untitled" && editorDictionary.ContainsKey(file) == false)
+                {
                     editorDictionary.Add(file.ToLower(), newCodeEditor);
+                }
             }
             catch(Exception ex)
             {
@@ -354,7 +407,7 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Displays a OpenFileDialog and prompts the user to open a RPGCode program file.
+        /// Shows an OpenFileDialog and prompts the user to open a RPGCode program file.
         /// </summary>
         private void ShowOpenProgramDialog()
         {
@@ -365,12 +418,33 @@ namespace RpgCodeExpress
             openProgramDialog.FilterIndex = 1;
 
             if (openProgramDialog.ShowDialog() == DialogResult.OK)
+            {
                 OpenCodeEditor(openProgramDialog.FileName);
+            }
+        }
+
+        /// <summary>
+        /// Shows an FolderBrowserDialog and prompts the user to select the Toolkit's install folder.
+        /// </summary>
+        private void ShowToolkitPathDialog()
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
+            folderBrowserDialog.ShowNewFolderButton = false;
+            folderBrowserDialog.Description = "The Toolkit could not be located in its default location. " + 
+                Environment.NewLine + "Please select a folder containing a valid Toolkit installation.";
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                CheckToolkitInstall(folderBrowserDialog.SelectedPath + @"\");
+                configurationFile.ToolkitPath = folderBrowserDialog.SelectedPath + @"\";
+                configurationFile.Save(ConfigurationFilePath);
+            }
         }
 
         /// <summary>
         /// Displays an OpenFileDialog and prompts the user to open a Toolkit project, writes the
-        /// changes to the Xml Configuration file, and loads the project into the editor.
+        /// changes to the XML Configuration file, and loads the project into the editor.
         /// </summary>
         private void OpenProject()
         {
@@ -421,7 +495,7 @@ namespace RpgCodeExpress
 
                 string oldDirectory = Directory.GetCurrentDirectory();
 
-                Directory.SetCurrentDirectory(@"C:\Program Files\Toolkit3\");
+                Directory.SetCurrentDirectory(toolkitPath);
                 Interaction.Shell(shellCommand, AppWinStyle.NormalFocus, false, -1);
 
                 Directory.SetCurrentDirectory(oldDirectory);
@@ -441,12 +515,13 @@ namespace RpgCodeExpress
         }
 
         /// <summary>
-        /// Saves the current projects configuration.
+        /// Saves the editors configuration.
         /// </summary>
         private void SaveConfiguration(string title)
         {
             try
             {
+                configurationFile.ToolkitPath = toolkitPath;
                 configurationFile.ProjectName = Path.GetFileNameWithoutExtension(title);
                 configurationFile.ProjectFolder = gameFolderPath + configurationFile.ProjectName + @"\";
 
@@ -469,7 +544,6 @@ namespace RpgCodeExpress
 
             if (saveAs == true | newCodeEditor.EditorFile == "Untitled")
             {
-
                 if (newCodeEditor.SaveAs())
                 {
                     editorDictionary.Add(newCodeEditor.EditorFile.ToLower(), newCodeEditor);
@@ -513,8 +587,6 @@ namespace RpgCodeExpress
                 projectExplorer.Title = projectTitle;
                 projectExplorer.ProjectPath = gameFolderPath;
             }
-
-            //projectExplorer.StartWatcher();
 
             if (propertiesWindow != null)
             {
@@ -618,9 +690,13 @@ namespace RpgCodeExpress
             mnuItemQuickReplace.Enabled = isEnabled;
 
             if (isEnabled)
+            {
                 mnuItemDebugProgram.Enabled = engineExists & projectLoaded;
+            }
             else
-            mnuItemDebugProgram.Enabled = false;
+            {
+                mnuItemDebugProgram.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -638,9 +714,13 @@ namespace RpgCodeExpress
             tspButtonCommentSelected.Enabled = isEnabled;
 
             if (isEnabled)
+            {
                 tspButtonRunProgram.Enabled = engineExists & projectLoaded;
+            }
             else
+            {
                 tspButtonRunProgram.Enabled = false;
+            }
         }
 
         ///// <summary>
@@ -687,7 +767,9 @@ namespace RpgCodeExpress
         private void ProjectExplorer_NodeClick(object sender, NodeClickEventArgs e)
         {
             if (propertiesWindow != null)
+            {
                 propertiesWindow.SetGridItem(e.File);
+            }
         }
 
         private void ProjectExplorer_NodeRename(object sender, NodeLabelRenameEventArgs e)
@@ -751,7 +833,7 @@ namespace RpgCodeExpress
 
         private void mnuItemExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void mnuItemUndo_Click(object sender, EventArgs e)
@@ -832,6 +914,12 @@ namespace RpgCodeExpress
             //UpdateCodeEditorFonts();
         }
 
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Options optionsDialog = new Options(this);
+            optionsDialog.ShowDialog();
+        }
+
         private void mnuItemNewWindow_Click(object sender, EventArgs e)
         {
             OpenCodeEditor("Untitled");
@@ -856,15 +944,21 @@ namespace RpgCodeExpress
         private void dockPanel_ContentRemoved(object sender, DockContentEventArgs e)
         {
             if (e.Content.GetType() == typeof(ProjectExplorer))
+            {
                 projectExplorer = null;
+            }
             else if (e.Content.GetType() == typeof(PropertiesWindow))
+            {
                 propertiesWindow = null;
+            }
             else if (e.Content.GetType() == typeof(CodeEditor))
             {
                 CodeEditor codeEditor = (CodeEditor)e.Content;
 
                 if (codeEditor.EditorFile != "Untitled")
+                {
                     editorDictionary.Remove(codeEditor.EditorFile.ToLower());
+                }
             }
         }
 
