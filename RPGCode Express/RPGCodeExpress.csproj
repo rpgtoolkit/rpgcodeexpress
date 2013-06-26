@@ -52,6 +52,9 @@
   <PropertyGroup>
     <ApplicationIcon>rpgcodeExpress.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RpgCodeExpress.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastColoredTextBox, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

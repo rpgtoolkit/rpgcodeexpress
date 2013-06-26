@@ -179,7 +179,7 @@ namespace RpgCodeExpress
         {
             InitializeComponent();
 
-            toolkitInstallPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit32\";
+            toolkitInstallPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit3\";
 
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
@@ -203,6 +203,7 @@ namespace RpgCodeExpress
             }
 
             CreateBasicLayout();
+            Focus();
         }
 
         /// <summary>

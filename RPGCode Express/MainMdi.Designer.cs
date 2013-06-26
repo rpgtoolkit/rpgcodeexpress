@@ -438,14 +438,14 @@
             // mnuItemNewWindow
             // 
             this.mnuItemNewWindow.Name = "mnuItemNewWindow";
-            this.mnuItemNewWindow.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemNewWindow.Size = new System.Drawing.Size(147, 22);
             this.mnuItemNewWindow.Text = "&New Window";
             this.mnuItemNewWindow.Click += new System.EventHandler(this.mnuItemNewWindow_Click);
             // 
             // mnuItemCloseAll
             // 
             this.mnuItemCloseAll.Name = "mnuItemCloseAll";
-            this.mnuItemCloseAll.Size = new System.Drawing.Size(152, 22);
+            this.mnuItemCloseAll.Size = new System.Drawing.Size(147, 22);
             this.mnuItemCloseAll.Text = "C&lose All";
             this.mnuItemCloseAll.Click += new System.EventHandler(this.mnuItemCloseAll_Click);
             // 
@@ -836,7 +836,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainMdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RPGCode Express Beta 1";
+            this.Text = "RPGCode Express 1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

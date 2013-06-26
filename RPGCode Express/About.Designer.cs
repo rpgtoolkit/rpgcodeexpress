@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.pnlInformation = new System.Windows.Forms.Panel();
+            this.lblIconLicense = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblLicense = new System.Windows.Forms.Label();
             this.lblInformation = new System.Windows.Forms.Label();
-            this.lblIconLicense = new System.Windows.Forms.Label();
             this.pnlInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +50,16 @@
             this.pnlInformation.Name = "pnlInformation";
             this.pnlInformation.Size = new System.Drawing.Size(550, 239);
             this.pnlInformation.TabIndex = 1;
+            // 
+            // lblIconLicense
+            // 
+            this.lblIconLicense.AutoSize = true;
+            this.lblIconLicense.Location = new System.Drawing.Point(189, 202);
+            this.lblIconLicense.Name = "lblIconLicense";
+            this.lblIconLicense.Size = new System.Drawing.Size(319, 26);
+            this.lblIconLicense.TabIndex = 3;
+            this.lblIconLicense.Text = "Some icons by Yusuke Kamiyamane. All rights reserved. Licensed \r\nunder a Creative" +
+                " Commons Attribution 3.0 License.";
             // 
             // pictureBox1
             // 
@@ -76,18 +86,8 @@
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(228, 78);
             this.lblInformation.TabIndex = 0;
-            this.lblInformation.Text = "RPGCode Express \r\nVersion 1.0\r\nCopyright © Joshua Michael Daly 2012\r\n\r\nA powerful" +
-                " code editor for RPGCode version 3.\r\n\r\n";
-            // 
-            // lblIconLicense
-            // 
-            this.lblIconLicense.AutoSize = true;
-            this.lblIconLicense.Location = new System.Drawing.Point(189, 202);
-            this.lblIconLicense.Name = "lblIconLicense";
-            this.lblIconLicense.Size = new System.Drawing.Size(319, 26);
-            this.lblIconLicense.TabIndex = 3;
-            this.lblIconLicense.Text = "Some icons by Yusuke Kamiyamane. All rights reserved. Licensed \r\nunder a Creative" +
-                " Commons Attribution 3.0 License.";
+            this.lblInformation.Text = "RPGCode Express \r\nVersion 1.0\r\nCopyright © Joshua Michael Daly 2012 - 2013\r\n\r\nA p" +
+                "owerful code editor for RPGCode version 3.\r\n\r\n";
             // 
             // About
             // 

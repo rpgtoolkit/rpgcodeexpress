@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RPGCode Express")]
+[assembly: AssemblyTitle("RPGCode Express 1.0")]
 [assembly: AssemblyDescription("A powerful code editor for RPGCode version 3, designed and developed by swordmaster.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("JMD Computing")]
-[assembly: AssemblyProduct("RPGCode Express")]
-[assembly: AssemblyCopyright("Copyright © JMD Computing 2012")]
+[assembly: AssemblyCompany("RPGToolkit Organisation")]
+[assembly: AssemblyProduct("RPGCode Express 1.0")]
+[assembly: AssemblyCopyright("Copyright © Joshua Michael Daly 2012-2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
