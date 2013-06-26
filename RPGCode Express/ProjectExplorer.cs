@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using RpgCodeExpress.Events;
 using RpgCodeExpress.Files;
 using RpgCodeExpress.Items;
+using System.Collections.Generic;
 
 namespace RpgCodeExpress
 {
@@ -145,7 +146,9 @@ namespace RpgCodeExpress
                         FileNode fileNode = new FileNode(parentNode, @"program" + fileNumber + ".prg");
 
                         // Repeated code, exactly the same for a folder...
-                        treFileBrowser.SelectedNode.Nodes.Add(fileNode);
+                        parentNode.Children.Add(fileNode);
+                        parentNode.Nodes.Add(fileNode);
+
                         treFileBrowser.SelectedNode = fileNode;
                         treFileBrowser.LabelEdit = true;
                         fileNode.BeginEdit();
@@ -175,18 +178,18 @@ namespace RpgCodeExpress
                     if (deleteNode is FolderNode)
                     {
                         Directory.Delete(deleteNode.AbsolutePath, true);
+
+                        if (deleteNode.Children.Count > 0)
+                        {
+                            deleteNode.Children.Clear();
+                        }
                     }
-                    else
+                    else if (deleteNode is FileNode)
                     {
                         File.Delete(deleteNode.AbsolutePath);
                     }
 
                     treFileBrowser.SelectedNode.Remove();
-
-                    if (deleteNode.Children.Count > 0)
-                    {
-                        deleteNode.Children.Clear();
-                    }
 
                     deleteNode.ParentNode.Children.Remove(deleteNode);
                 }
@@ -220,7 +223,7 @@ namespace RpgCodeExpress
         /// </summary>
         /// <param name="e">Event information.</param>
         /// <param name="editedNode">The parentNode that was edited.</param>
-        private void RenameFile(NodeLabelEditEventArgs e, ExplorerNode editedNode)
+        private void RenameNode(NodeLabelEditEventArgs e, ExplorerNode editedNode)
         {
             try
             {
@@ -231,17 +234,14 @@ namespace RpgCodeExpress
                 {
                     File.Move(oldFile, newFile);
                 }
-                else
+                else if (editedNode is FolderNode)
                 {
-                    foreach (ExplorerNode node in editedNode.Children)
-                    {
-                        NodeLabelRenameEventArgs args = new NodeLabelRenameEventArgs(oldFile + @"\" + node.File,
-                            newFile + @"\" + node.Text);
-
-                        this.OnNodeRename(args);
-                    }
-
                     Directory.Move(oldFile, newFile);
+
+                    if (editedNode.Children.Count > 0)
+                    {
+                        UpdateChildren(editedNode.Children, oldFile + @"\", newFile + @"\");
+                    }
                 }
 
                 editedNode.File = e.Label;
@@ -253,6 +253,30 @@ namespace RpgCodeExpress
             {
                 MessageBox.Show(ex.Message, Application.ExecutablePath, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.CancelEdit = true;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="children"></param>
+        /// <param name="parentOldPath"></param>
+        /// <param name="parentNewPath"></param>
+        private void UpdateChildren(List<ExplorerNode> children, string parentOldPath, string parentNewPath)
+        {
+            foreach (ExplorerNode child in children)
+            {
+                if (child is FolderNode)
+                {
+                    if (child.Children.Count > 0)
+                    {
+                        UpdateChildren(child.Children, parentOldPath + child.File + @"\", parentNewPath + child.File + @"\");
+                    }
+                }
+
+                NodeLabelRenameEventArgs args = new NodeLabelRenameEventArgs(parentOldPath + child.File, 
+                    parentNewPath + child.File);
+                this.OnNodeRename(args);
             }
         }
 
@@ -307,7 +331,7 @@ namespace RpgCodeExpress
                 }
                 else
                 {
-                    RenameFile(e, editedNode);
+                    RenameNode(e, editedNode);
                 }
             }
         }
@@ -320,8 +344,9 @@ namespace RpgCodeExpress
 
         private void treFileBrowser_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
-            e.Node.Nodes.Clear();
             ExplorerNode node = (ExplorerNode)e.Node;
+            node.Children.Clear();
+            node.Nodes.Clear();
 
             DirectoryInfo directoryInfo = new DirectoryInfo(node.AbsolutePath);
 
@@ -335,7 +360,7 @@ namespace RpgCodeExpress
                     directoryNode.Nodes.Add("*DUMMY*");
                 }
 
-                e.Node.Nodes.Add(directoryNode);
+                node.Nodes.Add(directoryNode);
                 node.Children.Add(directoryNode);
             }
 
@@ -345,7 +370,7 @@ namespace RpgCodeExpress
                 {
                     FileNode fileNode = new FileNode(node, file.Name);
 
-                    e.Node.Nodes.Add(fileNode);
+                    node.Nodes.Add(fileNode);
                     node.Children.Add(fileNode);
                 }
             }
@@ -497,18 +522,9 @@ namespace RpgCodeExpress
                 {
                     if (dropNode is FolderNode)
                     {
-                        if (dropNode.Children.Count > 0)
-                        {
-                            foreach (ExplorerNode node in dropNode.Children)
-                            {
-                                NodeLabelRenameEventArgs args = new NodeLabelRenameEventArgs(node.AbsolutePath,
-                                    targetNode.AbsolutePath + @"\" + dropNode.Text + @"\" + node.Text);
-
-                                this.OnNodeRename(args);
-                            }
-                        }
-
-                        Directory.Move(dropNode.AbsolutePath, targetNode.AbsolutePath + @"\" + dropNode.Text);
+                        Directory.Move(dropNode.AbsolutePath, targetNode.AbsolutePath + @"\" + dropNode.File);
+                        UpdateChildren(dropNode.Children, dropNode.AbsolutePath + @"\", 
+                            targetNode.AbsolutePath + @"\" +  dropNode.File + @"\");
                     }
                     else
                     {
@@ -606,8 +622,9 @@ namespace RpgCodeExpress
                         Directory.CreateDirectory(folderPath + @"\NewFolder" + folderNumber);
 
                         FolderNode folderNode = new FolderNode(explorerNode, "NewFolder" + folderNumber);
-                    
-                        treFileBrowser.SelectedNode.Nodes.Add(folderNode);
+
+                        explorerNode.Nodes.Add(folderNode);
+                        explorerNode.Children.Add(folderNode);
                         treFileBrowser.SelectedNode = folderNode;
                         treFileBrowser.LabelEdit = true;
                         folderNode.BeginEdit();

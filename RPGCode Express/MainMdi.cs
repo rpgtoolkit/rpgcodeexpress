@@ -689,15 +689,8 @@ namespace RpgCodeExpress
             mnuItemCommentSelected.Enabled = isEnabled;
             mnuItemQuickFind.Enabled = isEnabled;
             mnuItemQuickReplace.Enabled = isEnabled;
-
-            if (isEnabled)
-            {
-                mnuItemDebugProgram.Enabled = engineExists & projectLoaded;
-            }
-            else
-            {
-                mnuItemDebugProgram.Enabled = false;
-            }
+            mnuItemDebugProgram.Enabled = engineExists & projectLoaded & isEnabled;
+            mnuItemRunProject.Enabled = engineExists & projectLoaded;
         }
 
         /// <summary>
@@ -713,15 +706,7 @@ namespace RpgCodeExpress
             tspButtonPaste.Enabled = isEnabled;
             tspButtonFind.Enabled = isEnabled;
             tspButtonCommentSelected.Enabled = isEnabled;
-
-            if (isEnabled)
-            {
-                tspButtonRunProgram.Enabled = engineExists & projectLoaded;
-            }
-            else
-            {
-                tspButtonRunProgram.Enabled = false;
-            }
+            tspButtonRunProgram.Enabled = engineExists & projectLoaded & isEnabled;
         }
 
         ///// <summary>
@@ -782,8 +767,16 @@ namespace RpgCodeExpress
 
                 CodeEditor codeEditor = (CodeEditor)editorForm;
                 codeEditor.EditorFile = e.NewFile;
-                codeEditor.TabText = Path.GetFileName(e.NewFile);
 
+                if (codeEditor.IsUpdated)
+                {
+                    codeEditor.TabText = Path.GetFileName(e.NewFile);
+                }
+                else
+                {
+                    codeEditor.TabText = Path.GetFileName(e.NewFile + "*");
+                }
+                
                 editorDictionary.Remove(e.OldFile.ToLower());
                 editorDictionary.Add(e.NewFile.ToLower(), editorForm);
             }

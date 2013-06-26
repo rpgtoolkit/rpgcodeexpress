@@ -404,7 +404,7 @@ namespace RpgCodeExpress
         {
             List<string>  globalVariables = new List<string>();
 
-            Regex expression = new Regex(@"^([\s]*\b(global)[^\S\n]*\(+\s*(?<range>\w+)\s*\)+)", 
+            Regex expression = new Regex(@"^([\s]*\b(global)[^\S\n]*\(+\s*(?<range>\w+)\[?[\s\w]*\]?\s*\)+)", 
                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             return expression.Matches(text);
@@ -443,7 +443,7 @@ namespace RpgCodeExpress
         {
             List<string> localVariables = new List<string>();
 
-            Regex expression = new Regex(@"^([\s]*\b(local)[^\S\n]*\(+\s*(?<range>\w+)\s*\)+)",
+            Regex expression = new Regex(@"^([\s]*\b(local)[^\S\n]*\(+\s*(?<range>\w+)\[?[\s\w]*\]?\s*\)+)",
                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
 
             return expression.Matches(text);
@@ -691,7 +691,8 @@ namespace RpgCodeExpress
             int currentLine = txtCodeEditor.Selection.Start.iLine;
             int currentCharacter = txtCodeEditor.Selection.Start.iChar;
 
-            CaretPositionUpdateEventArgs args = new CaretPositionUpdateEventArgs(currentLine, currentCharacter, currentCharacter);
+            CaretPositionUpdateEventArgs args = new CaretPositionUpdateEventArgs(currentLine, currentCharacter,
+                currentCharacter);
             this.OnCaretUpdated(args);
         }
 
@@ -703,7 +704,8 @@ namespace RpgCodeExpress
 
         private void txtCodeEditor_UndoRedoStateChanged(object sender, EventArgs e)
         {
-            UndoRedoUpdateEventArgs args = new UndoRedoUpdateEventArgs(txtCodeEditor.UndoEnabled, txtCodeEditor.RedoEnabled);
+            UndoRedoUpdateEventArgs args = new UndoRedoUpdateEventArgs(txtCodeEditor.UndoEnabled, 
+                txtCodeEditor.RedoEnabled);
             this.OnUndoRedoUpdated(args);
         }
 
@@ -742,8 +744,10 @@ namespace RpgCodeExpress
             {
                 if (txtCodeEditor.Selection.Start.iChar > 0)
                 {
-                    dynamic characterBeforeCaret = txtCodeEditor[txtCodeEditor.Selection.Start.iLine][txtCodeEditor.Selection.Start.iChar - 1];
+                    dynamic characterBeforeCaret = txtCodeEditor[txtCodeEditor.Selection.Start.iLine]
+                        [txtCodeEditor.Selection.Start.iChar - 1];
                     dynamic greenStyleIndex = Range.ToStyleIndex(iGreenStyle);
+
                     //if char contains green style then block popup menu
                     if ((characterBeforeCaret.style & greenStyleIndex) != 0)
                     {
@@ -769,7 +773,9 @@ namespace RpgCodeExpress
             string hoverWord = range.GetFragment(@"[a-zA-Z]").Text;
 
             if (hoverWord == "")
+            {
                 return;
+            }
 
             RpgCodeExpress.RpgCode.Command foundCommand = rpgCodeReference.FindCommand(hoverWord);
 
@@ -787,7 +793,9 @@ namespace RpgCodeExpress
             txtCodeEditor.VisibleRange.ClearStyle(txtCodeEditor.Styles[0]);
 
             if (!txtCodeEditor.Selection.IsEmpty)
+            {
                 return;
+            }
 
             Range fragment = txtCodeEditor.Selection.GetFragment(@"\w");
             string text = fragment.Text;

@@ -16,11 +16,6 @@ namespace RpgCodeExpress.Items
     {
         #region Public Constructors
 
-        public FolderNode()
-        {
-
-        }
-
         public FolderNode(ExplorerNode parent, string fileName) : base(parent, fileName)
         {
             this.Text = fileName;
