@@ -191,7 +191,7 @@ namespace RpgCodeExpress
 
                 // Get the files name from in between the quotes "...".
                 fileInclude = fileInclude.Substring(position, fileInclude.LastIndexOf('"') - position);
-                fileInclude = ProjectPath + fileInclude;
+                fileInclude = ProjectPath + @"\" + fileInclude;
 
                 if (!File.Exists(fileInclude))
                 {
@@ -740,6 +740,7 @@ namespace RpgCodeExpress
         private void popupMenu_Opening(object sender, CancelEventArgs e)
         {
             dynamic iGreenStyle = txtCodeEditor.GetStyleIndex(txtCodeEditor.SyntaxHighlighter.GreenStyle);
+
             if (iGreenStyle >= 0)
             {
                 if (txtCodeEditor.Selection.Start.iChar > 0)
