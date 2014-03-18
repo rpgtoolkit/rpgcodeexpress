@@ -19,7 +19,6 @@ namespace RpgCodeExpress.Utilities
     /// </summary>
     public class SerializableData
     {
-
         #region Public Methods
 
         /// <summary>

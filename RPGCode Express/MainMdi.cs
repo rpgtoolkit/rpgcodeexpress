@@ -179,7 +179,8 @@ namespace RpgCodeExpress
         {
             InitializeComponent();
 
-            toolkitInstallPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\Toolkit3\";
+            DirectoryInfo directoryInfo = Directory.GetParent(Application.StartupPath);
+            toolkitInstallPath = directoryInfo.FullName + @"\Toolkit3\";
 
             //Set Menu Renders
             menuStrip.Renderer = new MenuRender();
@@ -280,7 +281,7 @@ namespace RpgCodeExpress
 
             foreach (DockContent childForm in docks)
             {
-                if (childForm.GetType() != typeof(PropertiesWindow) & childForm.GetType() != typeof(ProjectExplorer))
+                if (childForm.GetType() == typeof(CodeEditor))
                 {
                     childForm.Close();
                 }
@@ -318,7 +319,7 @@ namespace RpgCodeExpress
                 configurationFile = (ConfigurationFile)serializer.Load(ConfigurationFilePath, 
                     typeof(ConfigurationFile));
 
-                if (Directory.Exists(configurationFile.ToolkitPath))
+                if (Directory.Exists(toolkitInstallPath))
                 {
                     CheckToolkitInstall(configurationFile.ToolkitPath);
                 }
